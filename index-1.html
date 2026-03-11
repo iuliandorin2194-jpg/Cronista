@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Cronista — Turni Autista</title>
+  <link rel="apple-touch-icon" href="data:image/png;base64,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">
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABIElEQVR4nO2XMQ6CMBSGfwgbIZaVwcFJb2A8iIMcgDN5AK5iPICJTiY6uEJCmHFCoH1UirRl8N/6Cu/781oeLWBZTt9EnqKaGsZikScEdIBlRlzTcJ7jUMFai0O1aY/9ILyOAb6OORlnMRyXnAEQJWwMSzmXBwwvPVvulOH589Q/l6LqrYApeXxgytJTefn94FIP6RTPsL4E1g0Ie0Am2Y7WYmBs41GR9SWYp4GyyFAW2U+Jh+YQDLRfUjHRbjAqOQQDfhA2g0eC8rL/Cua7m0oOcgn8IAQeiRRcK0oY2UGH5nCA5m9oohUD3eWy/hUIjWi13moF3m/nzth6Bf4GOgb6Tq9TimdIj+W6JT2Wm9LHAHVv06ma51JBU3BgBrfjNx+PY0sgUUMoAAAAAElFTkSuQmCC">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Cronista">
+  <meta name="theme-color" content="#f0a500">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/4.1.1/tesseract.min.js"></script>
+<style>
+:root {
+  --bg:#0a0c10;--surface:#12161e;--surface2:#1a1f2b;--surface3:#222838;
+  --border:#2c3448;--border2:#3a4560;
+  --accent:#f0a500;--accent-dim:rgba(240,165,0,0.15);
+  --green:#00d68f;--green-dim:rgba(0,214,143,0.12);
+  --red:#ff4757;--red-dim:rgba(255,71,87,0.12);
+  --blue:#4a9eff;--blue-dim:rgba(74,158,255,0.12);
+  --text:#dde3f0;--text2:#8a96b0;
+  --mono:'JetBrains Mono',monospace;--body:'Rajdhani',sans-serif;--display:'Bebas Neue',cursive;
+  --radius:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+body{background:var(--bg);color:var(--text);font-family:var(--body);min-height:100vh;overflow-x:hidden;font-size:15px;}
+
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:0 16px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.logo{font-family:var(--display);font-size:26px;letter-spacing:3px;color:var(--accent);}
+.logo em{color:var(--text2);font-style:normal;}
+.live-badge{display:none;align-items:center;gap:5px;background:var(--green-dim);border:1px solid var(--green);border-radius:20px;padding:4px 10px;font-family:var(--mono);font-size:11px;color:var(--green);}
+.live-badge.show{display:flex;}
+.live-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 1.2s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+main{padding:0 0 72px;max-width:500px;margin:0 auto;}
+.page{display:none;animation:fadeIn .2s ease;}
+.page.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:var(--surface);border-top:1px solid var(--border);display:flex;height:64px;z-index:200;max-width:500px;margin:0 auto;}
+.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:none;border:none;color:var(--text2);font-family:var(--body);font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:color .2s;padding:6px 4px;}
+.nav-btn .ic{font-size:20px;line-height:1;}
+.nav-btn.active{color:var(--accent);}
+
+.sec-head{padding:18px 16px 10px;display:flex;align-items:center;justify-content:space-between;}
+.sec-title{font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--text2);text-transform:uppercase;}
+
+/* TURNO */
+.status-strip{margin:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.status-bar{height:3px;background:var(--border);transition:background .4s;}
+.status-bar.idle{background:var(--border2);}
+.status-bar.started{background:var(--green);}
+.status-bar.ended{background:var(--accent);}
+.status-body{padding:16px;}
+.status-state{font-family:var(--display);font-size:36px;letter-spacing:2px;margin-bottom:4px;transition:color .3s;}
+.status-state.idle{color:var(--text2);}
+.status-state.started{color:var(--green);}
+.status-state.ended{color:var(--accent);}
+.status-timer{font-family:var(--mono);font-size:13px;color:var(--green);min-height:20px;}
+.times-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;}
+.time-cell{background:var(--surface2);border-radius:8px;padding:10px 12px;}
+.time-cell .tc-label{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;color:var(--text2);text-transform:uppercase;margin-bottom:2px;}
+.time-cell .tc-val{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--text);}
+.time-cell .tc-val.green{color:var(--green);}
+
+.action-area{padding:0 16px;margin-top:4px;}
+.action-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:12px;}
+.action-card-title{font-family:var(--display);font-size:20px;letter-spacing:1px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.action-card-title.green{color:var(--green);}
+.action-card-title.red{color:var(--red);}
+.entry-methods{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.entry-btn{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px 10px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;transition:all .15s;color:var(--text);font-family:var(--body);font-size:13px;font-weight:600;letter-spacing:.5px;}
+.entry-btn:active{transform:scale(.97);}
+.entry-btn .ei{font-size:24px;}
+.entry-btn.green-btn{border-color:var(--green);background:var(--green-dim);color:var(--green);}
+.entry-btn.red-btn{border-color:var(--red);background:var(--red-dim);color:var(--red);}
+.privacy-pill{display:flex;align-items:center;gap:6px;margin-top:10px;font-size:11px;color:var(--text2);padding:6px 10px;background:var(--surface2);border-radius:6px;}
+
+/* GPS CARD */
+.gps-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin:0 16px 12px;}
+.gps-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.gps-title{font-family:var(--display);font-size:18px;letter-spacing:1px;color:var(--blue);}
+.gps-status-row{display:flex;align-items:center;gap:8px;}
+.gps-dot{width:8px;height:8px;border-radius:50%;background:var(--border2);flex-shrink:0;transition:background .3s;}
+.gps-dot.active{background:var(--green);animation:blink 1.5s infinite;}
+.gps-dot.waiting{background:var(--accent);animation:blink .8s infinite;}
+.gps-label{font-family:var(--mono);font-size:11px;color:var(--text2);}
+.gps-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px;}
+.gps-stat{background:var(--surface2);border-radius:6px;padding:8px;text-align:center;}
+.gps-stat .gs-val{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--blue);}
+.gps-stat .gs-lbl{font-family:var(--mono);font-size:8px;letter-spacing:1px;color:var(--text2);text-transform:uppercase;margin-top:1px;}
+.gps-toggle-btn{background:var(--blue-dim);border:1px solid var(--blue);color:var(--blue);border-radius:6px;padding:6px 12px;font-family:var(--display);font-size:14px;letter-spacing:1px;cursor:pointer;transition:all .15s;white-space:nowrap;}
+.gps-toggle-btn:active{transform:scale(.97);}
+.gps-toggle-btn.stop{background:var(--red-dim);border-color:var(--red);color:var(--red);}
+.battery-note{font-size:10px;color:var(--text2);margin-top:8px;padding:6px 10px;background:var(--surface2);border-radius:6px;line-height:1.5;}
+
+/* MAPPA PAGE */
+.map-wrap{padding:0 16px 16px;}
+.map-selector{display:flex;gap:6px;margin-bottom:12px;overflow-x:auto;padding-bottom:4px;}
+.map-day-btn{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-family:var(--mono);font-size:11px;color:var(--text2);cursor:pointer;white-space:nowrap;transition:all .15s;flex-shrink:0;}
+.map-day-btn.active{border-color:var(--blue);background:var(--blue-dim);color:var(--blue);}
+.map-canvas-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative;}
+canvas#mapCanvas{display:block;width:100%;height:320px;}
+.map-empty{display:flex;align-items:center;justify-content:center;height:320px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:13px;text-align:center;padding:20px;line-height:1.7;}
+.map-info{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;}
+.map-info-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;}
+.map-info-card .mv{font-family:var(--mono);font-size:16px;font-weight:600;color:var(--blue);}
+.map-info-card .ml{font-family:var(--mono);font-size:9px;letter-spacing:1px;color:var(--text2);text-transform:uppercase;margin-top:2px;}
+.map-legend{display:flex;gap:14px;margin-top:10px;padding:8px 12px;background:var(--surface);border:1px solid var(--border);border-radius:8px;}
+.leg-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text2);}
+.leg-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+
+/* CALENDARIO */
+.calendar-wrap{padding:0 16px 16px;}
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.cal-month{font-family:var(--display);font-size:28px;letter-spacing:2px;color:var(--text);}
+.cal-nav-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text);width:36px;height:36px;border-radius:8px;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.cal-nav-btn:active{background:var(--surface3);}
+.cal-days-header{display:grid;grid-template-columns:repeat(7,1fr);margin-bottom:6px;}
+.cal-day-label{text-align:center;font-family:var(--mono);font-size:9px;letter-spacing:1px;color:var(--text2);padding:4px 0;}
+.cal-day-label.weekend{color:var(--accent);}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
+.cal-cell{aspect-ratio:1;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;background:transparent;border:1px solid transparent;transition:background .15s;}
+.cal-cell:active{background:var(--surface3);}
+.cal-cell.other-month .cal-num{color:var(--border2);}
+.cal-cell.today{border-color:var(--accent);}
+.cal-cell.today .cal-num{color:var(--accent);font-weight:700;}
+.cal-cell.has-shift{background:var(--green-dim);border-color:var(--green);}
+.cal-cell.has-shift .cal-num{color:var(--green);font-weight:700;}
+.cal-cell.has-gps{box-shadow:inset 0 0 0 2px var(--blue);}
+.cal-cell.selected{background:var(--accent-dim)!important;border-color:var(--accent)!important;}
+.cal-cell.selected .cal-num{color:var(--accent)!important;}
+.cal-num{font-family:var(--mono);font-size:13px;color:var(--text);line-height:1;}
+.cal-dot{width:4px;height:4px;border-radius:50%;background:var(--green);margin-top:2px;opacity:0;}
+.has-shift .cal-dot{opacity:1;}
+.day-detail{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-top:14px;animation:fadeIn .2s ease;}
+.day-detail-head{font-family:var(--display);font-size:22px;letter-spacing:1px;color:var(--accent);margin-bottom:12px;}
+.day-shift-row{display:flex;align-items:center;justify-content:space-between;background:var(--surface2);border-radius:8px;padding:12px 14px;margin-bottom:8px;}
+.day-shift-times{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:14px;}
+.day-shift-dur{font-family:var(--mono);font-size:11px;color:var(--accent);background:var(--accent-dim);padding:3px 8px;border-radius:4px;}
+.day-no-shift{text-align:center;color:var(--text2);font-size:13px;padding:16px 0;}
+.day-add-btn{width:100%;background:var(--surface2);border:1px dashed var(--border2);color:var(--text2);border-radius:8px;padding:10px;font-family:var(--body);font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;margin-top:6px;}
+.day-add-btn:active{border-color:var(--green);color:var(--green);background:var(--green-dim);}
+.cal-legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;padding:10px 12px;background:var(--surface);border:1px solid var(--border);border-radius:8px;}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text2);}
+.legend-box{width:14px;height:14px;border-radius:4px;flex-shrink:0;}
+.lb-worked{background:var(--green-dim);border:1px solid var(--green);}
+.lb-today{border:1px solid var(--accent);background:transparent;}
+.lb-gps{border:2px solid var(--blue);background:transparent;}
+
+/* STORICO */
+.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:0 16px 16px;}
+.sum-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-align:center;}
+.sum-card .s-val{font-family:var(--mono);font-size:20px;font-weight:600;color:var(--accent);display:block;margin-bottom:2px;}
+.sum-card .s-lbl{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;color:var(--text2);text-transform:uppercase;}
+.history-list{padding:0 16px;display:flex;flex-direction:column;gap:8px;}
+.hist-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;display:flex;align-items:center;gap:14px;}
+.hist-date{display:flex;flex-direction:column;align-items:center;min-width:38px;}
+.hist-day{font-family:var(--display);font-size:28px;line-height:1;color:var(--accent);}
+.hist-mon{font-family:var(--mono);font-size:9px;color:var(--text2);text-transform:uppercase;letter-spacing:1px;}
+.hist-sep{width:1px;height:40px;background:var(--border);flex-shrink:0;}
+.hist-body{flex:1;}
+.hist-times{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:15px;margin-bottom:4px;}
+.hist-times .from{color:var(--green);}
+.hist-times .to{color:var(--red);}
+.hist-dur{display:inline-block;font-family:var(--mono);font-size:11px;color:var(--accent);background:var(--accent-dim);padding:2px 8px;border-radius:4px;}
+.hist-gps-badge{display:inline-block;font-family:var(--mono);font-size:10px;color:var(--blue);background:var(--blue-dim);padding:2px 7px;border-radius:4px;margin-left:4px;}
+.hist-incomplete{font-family:var(--mono);font-size:11px;color:var(--text2);}
+.hist-del{background:none;border:none;color:var(--text2);font-size:16px;cursor:pointer;padding:6px;border-radius:6px;transition:all .15s;align-self:flex-start;flex-shrink:0;}
+.hist-del:active{color:var(--red);background:var(--red-dim);}
+.empty-state{text-align:center;padding:50px 20px;color:var(--text2);font-size:14px;line-height:2;}
+.empty-ic{font-size:44px;display:block;margin-bottom:10px;}
+
+/* MODALS */
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(6px);z-index:500;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s;}
+.modal-backdrop.open{opacity:1;pointer-events:all;}
+.modal-sheet{background:var(--surface);border:1px solid var(--border);border-radius:20px 20px 0 0;padding:20px 20px 36px;width:100%;max-width:500px;transform:translateY(100%);transition:transform .3s cubic-bezier(.32,.72,0,1);}
+.modal-backdrop.open .modal-sheet{transform:translateY(0);}
+.modal-handle{width:36px;height:4px;background:var(--border2);border-radius:2px;margin:0 auto 20px;}
+.modal-title{font-family:var(--display);font-size:28px;letter-spacing:1px;margin-bottom:4px;}
+.modal-title.green{color:var(--green);}
+.modal-title.red{color:var(--red);}
+.modal-title.accent{color:var(--accent);}
+.modal-sub{font-size:13px;color:var(--text2);margin-bottom:20px;}
+.ocr-box{background:var(--surface2);border-radius:8px;padding:12px 14px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;}
+.ocr-box .olabel{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;color:var(--text2);text-transform:uppercase;margin-bottom:2px;}
+.ocr-box .oval{font-family:var(--mono);font-size:28px;font-weight:600;color:var(--green);}
+.field-label{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--text2);text-transform:uppercase;margin-bottom:6px;display:block;}
+.time-field{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-family:var(--mono);font-size:30px;font-weight:600;color:var(--text);text-align:center;outline:none;margin-bottom:6px;transition:border-color .2s;appearance:none;}
+.time-field:focus{border-color:var(--accent);}
+.field-hint{font-size:11px;color:var(--text2);margin-bottom:18px;}
+.manual-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.manual-field{display:flex;flex-direction:column;}
+.btn-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.btn{padding:15px;border-radius:8px;border:none;font-family:var(--display);font-size:20px;letter-spacing:1px;cursor:pointer;transition:all .15s;}
+.btn:active{transform:scale(.97);}
+.btn-cancel{background:var(--surface2);color:var(--text2);border:1px solid var(--border);}
+.btn-ok{background:var(--green);color:#0a0c10;}
+.btn-ok.red{background:var(--red);}
+.btn-ok.accent{background:var(--accent);}
+.btn-wide{grid-column:1/-1;}
+
+/* PROC */
+.proc-overlay{position:fixed;inset:0;background:rgba(0,0,0,.9);backdrop-filter:blur(8px);z-index:900;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;opacity:0;pointer-events:none;transition:opacity .2s;}
+.proc-overlay.show{opacity:1;pointer-events:all;}
+.spinner{width:52px;height:52px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.proc-text{font-family:var(--mono);font-size:13px;color:var(--accent);}
+.proc-sub{font-family:var(--mono);font-size:10px;color:var(--text2);}
+
+.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(14px);background:var(--surface2);border:1px solid var(--border2);border-radius:8px;padding:10px 18px;font-family:var(--mono);font-size:12px;color:var(--text);opacity:0;transition:all .3s;z-index:400;white-space:nowrap;pointer-events:none;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+input[type="file"]{display:none;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">CRON<em>ISTA</em></div>
+  <div class="live-badge" id="liveBadge"><div class="dot"></div><span id="liveTimerBadge">00:00</span></div>
+</header>
+
+<main>
+
+<!-- PAGE: TURNO -->
+<div class="page active" id="pageTurno">
+  <div class="status-strip">
+    <div class="status-bar idle" id="statusBar"></div>
+    <div class="status-body">
+      <div class="status-state idle" id="statusState">IN PAUSA</div>
+      <div class="status-timer" id="statusTimer"></div>
+      <div class="times-grid">
+        <div class="time-cell"><div class="tc-label">INIZIO</div><div class="tc-val green" id="dispStart">--:--</div></div>
+        <div class="time-cell"><div class="tc-label">FINE</div><div class="tc-val" id="dispEnd">--:--</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GPS CARD -->
+  <div class="gps-card" id="gpsCard">
+    <div class="gps-card-head">
+      <div>
+        <div class="gps-title">📍 GPS PERCORSO</div>
+        <div class="gps-status-row" style="margin-top:4px;">
+          <div class="gps-dot" id="gpsDot"></div>
+          <div class="gps-label" id="gpsLabel">Non attivo</div>
+        </div>
+      </div>
+      <button class="gps-toggle-btn" id="gpsToggleBtn" onclick="toggleGps()">ATTIVA</button>
+    </div>
+    <div class="gps-stats" id="gpsStats" style="display:none;">
+      <div class="gps-stat"><div class="gs-val" id="gpsPoints">0</div><div class="gs-lbl">PUNTI</div></div>
+      <div class="gps-stat"><div class="gs-val" id="gpsKm">0.0</div><div class="gs-lbl">KM</div></div>
+      <div class="gps-stat"><div class="gs-val" id="gpsSpeed">0</div><div class="gs-lbl">KM/H</div></div>
+    </div>
+    <div class="battery-note">🔋 Risparmio batteria: aggiornamento ogni 30s, distanza minima 50m — nessuna mappa esterna caricata</div>
+  </div>
+
+  <div class="action-area">
+    <div class="action-card" id="cardStart">
+      <div class="action-card-title green">▶ INIZIA TURNO</div>
+      <div class="entry-methods">
+        <button class="entry-btn green-btn" onclick="triggerCapture('start')"><span class="ei">📷</span>FOTO TACHO</button>
+        <button class="entry-btn green-btn" onclick="openManualSingle('start')"><span class="ei">⌨️</span>MANUALE</button>
+      </div>
+      <div class="privacy-pill">🔒 Foto analizzata localmente, non salvata</div>
+    </div>
+    <div class="action-card" id="cardEnd" style="display:none;">
+      <div class="action-card-title red">■ TERMINA TURNO</div>
+      <div class="entry-methods">
+        <button class="entry-btn red-btn" onclick="triggerCapture('end')"><span class="ei">📷</span>FOTO TACHO</button>
+        <button class="entry-btn red-btn" onclick="openManualSingle('end')"><span class="ei">⌨️</span>MANUALE</button>
+      </div>
+      <div class="privacy-pill">🔒 Foto analizzata localmente, non salvata</div>
+    </div>
+  </div>
+  <input type="file" id="cameraInput" accept="image/*" capture="environment">
+</div>
+
+<!-- PAGE: MAPPA -->
+<div class="page" id="pageMappa">
+  <div class="sec-head"><div class="sec-title">PERCORSI GPS</div></div>
+  <div class="map-wrap">
+    <div class="map-selector" id="mapSelector"></div>
+    <div id="mapContainer">
+      <div class="map-empty" id="mapEmpty">📍 Nessun percorso registrato.<br>Attiva il GPS nella schermata Turno.</div>
+      <div class="map-canvas-wrap" id="mapCanvasWrap" style="display:none;">
+        <canvas id="mapCanvas"></canvas>
+      </div>
+    </div>
+    <div class="map-info" id="mapInfo" style="display:none;">
+      <div class="map-info-card"><div class="mv" id="miKm">0</div><div class="ml">KM TOT</div></div>
+      <div class="map-info-card"><div class="mv" id="miPts">0</div><div class="ml">PUNTI GPS</div></div>
+      <div class="map-info-card"><div class="mv" id="miDur">0h</div><div class="ml">DURATA</div></div>
+    </div>
+    <div class="map-legend" id="mapLegend" style="display:none;">
+      <div class="leg-item"><div class="leg-dot" style="background:var(--green)"></div>Partenza</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--red)"></div>Arrivo</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--blue)"></div>Percorso</div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: CALENDARIO -->
+<div class="page" id="pageCalendario">
+  <div class="sec-head"><div class="sec-title">CALENDARIO TURNI</div></div>
+  <div class="calendar-wrap">
+    <div class="cal-nav">
+      <button class="cal-nav-btn" onclick="calPrev()">&#8249;</button>
+      <div class="cal-month" id="calMonth"></div>
+      <button class="cal-nav-btn" onclick="calNext()">&#8250;</button>
+    </div>
+    <div class="cal-days-header">
+      <div class="cal-day-label">L</div><div class="cal-day-label">M</div><div class="cal-day-label">M</div>
+      <div class="cal-day-label">G</div><div class="cal-day-label">V</div>
+      <div class="cal-day-label weekend">S</div><div class="cal-day-label weekend">D</div>
+    </div>
+    <div class="cal-grid" id="calGrid"></div>
+    <div class="cal-legend">
+      <div class="legend-item"><div class="legend-box lb-worked"></div>Lavorato</div>
+      <div class="legend-item"><div class="legend-box lb-today"></div>Oggi</div>
+      <div class="legend-item"><div class="legend-box lb-gps"></div>GPS salvato</div>
+    </div>
+    <div id="dayDetail" style="display:none;"></div>
+  </div>
+</div>
+
+<!-- PAGE: STORICO -->
+<div class="page" id="pageStorico">
+  <div class="sec-head"><div class="sec-title">ULTIMI 7 GIORNI</div></div>
+  <div class="summary-grid" id="summaryGrid"></div>
+  <div class="sec-head" style="padding-top:4px;"><div class="sec-title">TUTTI I TURNI</div></div>
+  <div class="history-list" id="histList"></div>
+</div>
+
+</main>
+
+<nav class="bottom-nav">
+  <button class="nav-btn active" id="navTurno" onclick="showPage('pageTurno','navTurno')"><span class="ic">🚛</span>TURNO</button>
+  <button class="nav-btn" id="navMappa" onclick="showPage('pageMappa','navMappa');renderMapPage()"><span class="ic">🗺️</span>MAPPA</button>
+  <button class="nav-btn" id="navCal" onclick="showPage('pageCalendario','navCal');renderCalendar()"><span class="ic">📅</span>CALENDARIO</button>
+  <button class="nav-btn" id="navSto" onclick="showPage('pageStorico','navSto');renderHistory()"><span class="ic">📊</span>STORICO</button>
+</nav>
+
+<!-- OVERLAYS -->
+<div class="proc-overlay" id="procOverlay">
+  <div class="spinner"></div>
+  <div class="proc-text" id="procText">Analisi...</div>
+  <div class="proc-sub" id="procSub">OCR cronotachigrafo</div>
+</div>
+
+<!-- MODAL: OCR -->
+<div class="modal-backdrop" id="modalOcr">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-title green" id="ocrTitle">INIZIO TURNO</div>
+    <div class="modal-sub">Orario rilevato — verifica e conferma</div>
+    <div class="ocr-box">
+      <div><div class="olabel">ORARIO RILEVATO</div><div class="oval" id="ocrDetected">--:--</div></div>
+      <div style="font-size:11px;color:var(--text2);text-align:right;max-width:110px;line-height:1.5;">Modifica se il display era illeggibile</div>
+    </div>
+    <label class="field-label">CONFERMA / MODIFICA</label>
+    <input class="time-field" type="time" id="ocrTimeInput">
+    <div class="field-hint">Puoi modificare l'orario se necessario</div>
+    <div class="btn-row">
+      <button class="btn btn-cancel" onclick="closeModal('modalOcr')">ANNULLA</button>
+      <button class="btn btn-ok" id="ocrConfirmBtn" onclick="confirmOcr()">CONFERMA</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: MANUALE SINGOLO -->
+<div class="modal-backdrop" id="modalManual">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-title accent" id="manualTitle">INSERIMENTO MANUALE</div>
+    <div class="modal-sub" id="manualSub">Inserisci l'orario</div>
+    <label class="field-label" id="manualFieldLabel">ORARIO</label>
+    <input class="time-field" type="time" id="manualTimeInput">
+    <div class="field-hint">Inserisci l'orario dal cronotachigrafo</div>
+    <div class="btn-row">
+      <button class="btn btn-cancel" onclick="closeModal('modalManual')">ANNULLA</button>
+      <button class="btn btn-ok accent" id="manualConfirmBtn" onclick="confirmManual()">SALVA</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: TURNO COMPLETO -->
+<div class="modal-backdrop" id="modalFull">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-title accent">AGGIUNGI TURNO</div>
+    <div class="modal-sub" id="fullDateLabel"></div>
+    <div class="manual-row">
+      <div class="manual-field"><label class="field-label">INIZIO</label><input class="time-field" type="time" id="fullStart" style="font-size:24px;padding:12px;"></div>
+      <div class="manual-field"><label class="field-label">FINE</label><input class="time-field" type="time" id="fullEnd" style="font-size:24px;padding:12px;"></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-cancel" onclick="closeModal('modalFull')">ANNULLA</button>
+      <button class="btn btn-ok accent btn-wide" onclick="confirmFull()">SALVA TURNO</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════
+// Ripristina stato turno attivo dopo refresh
+const _sv = JSON.parse(localStorage.getItem('cronista_activeshift') || 'null');
+
+const S = {
+  mode: _sv?.mode || 'idle',
+  startTime: _sv?.startTime || null,
+  endTime: _sv?.endTime || null,
+  pendingMode: null,
+  calYear: new Date().getFullYear(),
+  calMonth: new Date().getMonth(),
+  selectedDate: null, calendarDate: null,
+  timerInterval: null,
+
+  // GPS
+  gpsActive: false,
+  gpsWatchId: null,
+  gpsPoints: _sv?.gpsPoints || [],
+  gpsCurrentShiftDate: _sv?.gpsCurrentShiftDate || null,
+  gpsLastPoint: _sv?.gpsLastPoint || null,
+  gpsTotalKm: _sv?.gpsTotalKm || 0,
+
+  get shifts() { return JSON.parse(localStorage.getItem('cronista_v2') || '[]'); },
+  save(arr) { localStorage.setItem('cronista_v2', JSON.stringify(arr)); },
+  get routes() { return JSON.parse(localStorage.getItem('cronista_routes') || '{}'); },
+  saveRoutes(obj) { localStorage.setItem('cronista_routes', JSON.stringify(obj)); },
+  saveActive() {
+    if (this.mode === 'idle') {
+      localStorage.removeItem('cronista_activeshift');
+    } else {
+      localStorage.setItem('cronista_activeshift', JSON.stringify({
+        mode: this.mode, startTime: this.startTime, endTime: this.endTime,
+        gpsPoints: this.gpsPoints, gpsCurrentShiftDate: this.gpsCurrentShiftDate,
+        gpsLastPoint: this.gpsLastPoint, gpsTotalKm: this.gpsTotalKm
+      }));
+    }
+  }
+};
+
+// ═══════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════
+(function init() {
+  renderTurnoUI();
+
+  // Ripristina GPS stats se c'era turno attivo
+  if (S.mode === 'started') {
+    if (S.gpsPoints.length > 0) {
+      document.getElementById('gpsStats').style.display = 'grid';
+      document.getElementById('gpsPoints').textContent = S.gpsPoints.length;
+      document.getElementById('gpsKm').textContent = S.gpsTotalKm.toFixed(1);
+      updateGpsUI('idle', `${S.gpsPoints.length} punti salvati — riattiva GPS`, false);
+    }
+    setTimeout(() => toast(`⏱️ Turno ripristinato — iniziato alle ${S.startTime}`), 500);
+  }
+
+  document.getElementById('cameraInput').addEventListener('change', async function(e) {
+    const file = e.target.files[0]; if (!file) return;
+    await processImage(file); this.value = '';
+  });
+  document.querySelectorAll('.modal-backdrop').forEach(m => {
+    m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open'); });
+  });
+})();
+
+// ═══════════════════════════════════════
+// PAGE NAV
+// ═══════════════════════════════════════
+function showPage(id, btnId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById(btnId).classList.add('active');
+}
+
+// ═══════════════════════════════════════
+// TURNO UI
+// ═══════════════════════════════════════
+function renderTurnoUI() {
+  const bar = document.getElementById('statusBar');
+  const st = document.getElementById('statusState');
+  const tm = document.getElementById('statusTimer');
+  const ds = document.getElementById('dispStart');
+  const de = document.getElementById('dispEnd');
+
+  bar.className = 'status-bar ' + S.mode;
+  st.className = 'status-state ' + S.mode;
+
+  if (S.mode === 'idle') {
+    st.textContent = 'IN PAUSA';
+    tm.textContent = '';
+    ds.textContent = '--:--'; de.textContent = '--:--';
+    document.getElementById('cardStart').style.display = 'block';
+    document.getElementById('cardEnd').style.display = 'none';
+    clearInterval(S.timerInterval);
+    document.getElementById('liveBadge').classList.remove('show');
+  } else if (S.mode === 'started') {
+    st.textContent = 'TURNO ATTIVO';
+    ds.textContent = S.startTime; de.textContent = '--:--';
+    document.getElementById('cardStart').style.display = 'none';
+    document.getElementById('cardEnd').style.display = 'block';
+    document.getElementById('liveBadge').classList.add('show');
+    startLiveTimer();
+  } else if (S.mode === 'ended') {
+    st.textContent = 'COMPLETATO';
+    ds.textContent = S.startTime; de.textContent = S.endTime;
+    tm.textContent = '';
+    document.getElementById('cardStart').style.display = 'block';
+    document.getElementById('cardEnd').style.display = 'none';
+    clearInterval(S.timerInterval);
+    document.getElementById('liveBadge').classList.remove('show');
+  }
+}
+
+function startLiveTimer() {
+  clearInterval(S.timerInterval);
+  S.timerInterval = setInterval(() => {
+    if (!S.startTime) return;
+    const now = new Date();
+    let diff = now - new Date(now.toDateString() + ' ' + S.startTime);
+    if (diff < 0) diff += 86400000;
+    const h = String(Math.floor(diff/3600000)).padStart(2,'0');
+    const m = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+    const sc = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+    document.getElementById('statusTimer').textContent = `${h}:${m}:${sc}`;
+    document.getElementById('liveTimerBadge').textContent = `${h}:${m}`;
+  }, 1000);
+}
+
+// ═══════════════════════════════════════
+// GPS — RISPARMIO BATTERIA MASSIMO
+// ═══════════════════════════════════════
+// Strategia:
+// - maximumAge: 30000ms → riusa fix cached fino a 30s
+// - timeout: 15000ms → abbandona se niente dopo 15s
+// - enableHighAccuracy: false → usa rete/cell tower, non GPS chip
+// - Distanza minima 50m prima di salvare un punto
+// - Velocità minima 3 km/h per filtrare soste
+// ═══════════════════════════════════════
+const GPS_OPTIONS = {
+  enableHighAccuracy: false,  // RISPARMIO BATTERIA: usa cella/wifi
+  timeout: 15000,
+  maximumAge: 30000           // Riusa fix recenti (30s)
+};
+const GPS_MIN_DISTANCE = 50;  // metri
+const GPS_MIN_SPEED = 0.8;    // m/s (~3 km/h) — filtra soste
+
+function toggleGps() {
+  if (S.gpsActive) stopGps();
+  else startGps();
+}
+
+function startGps() {
+  if (!navigator.geolocation) {
+    toast('⚠️ GPS non disponibile su questo dispositivo');
+    return;
+  }
+
+  S.gpsActive = true;
+  S.gpsPoints = [];
+  S.gpsLastPoint = null;
+  S.gpsTotalKm = 0;
+  S.gpsCurrentShiftDate = new Date().toISOString().split('T')[0];
+
+  updateGpsUI('waiting', 'In attesa segnale GPS...', true);
+
+  S.gpsWatchId = navigator.geolocation.watchPosition(
+    onGpsSuccess,
+    onGpsError,
+    GPS_OPTIONS
+  );
+
+  toast('📍 GPS attivato — risparmio batteria ON');
+}
+
+function stopGps() {
+  if (S.gpsWatchId !== null) {
+    navigator.geolocation.clearWatch(S.gpsWatchId);
+    S.gpsWatchId = null;
+  }
+  S.gpsActive = false;
+
+  // Salva percorso se ci sono punti sufficienti
+  if (S.gpsPoints.length >= 2) {
+    saveRoute(S.gpsCurrentShiftDate, S.gpsPoints, S.gpsTotalKm);
+    toast(`🗺️ Percorso salvato: ${S.gpsTotalKm.toFixed(1)} km, ${S.gpsPoints.length} punti`);
+  } else {
+    toast('📍 GPS disattivato');
+  }
+
+  updateGpsUI('idle', 'Non attivo', false);
+  renderCalendar();
+}
+
+function onGpsSuccess(pos) {
+  const { latitude: lat, longitude: lng, speed, accuracy } = pos.coords;
+  const ts = Date.now();
+
+  // Ignora se accuracy > 200m (segnale scadente)
+  if (accuracy > 200) {
+    updateGpsUI('waiting', `Segnale debole (±${Math.round(accuracy)}m)`, true);
+    return;
+  }
+
+  // Calcola distanza dall'ultimo punto
+  if (S.gpsLastPoint) {
+    const dist = haversine(S.gpsLastPoint.lat, S.gpsLastPoint.lng, lat, lng);
+    const spd = speed || 0; // m/s
+
+    // Filtra: deve aver percorso almeno 50m E velocità > 3km/h
+    if (dist < GPS_MIN_DISTANCE || spd < GPS_MIN_SPEED) {
+      updateGpsUI('active', `Fermo — ${S.gpsPoints.length} punti`, true);
+      return;
+    }
+    S.gpsTotalKm += dist / 1000;
+  }
+
+  const point = { lat, lng, ts, speed: speed ? Math.round(speed * 3.6) : 0 };
+  S.gpsPoints.push(point);
+  S.saveActive(); // salva punti GPS in tempo reale
+  S.gpsLastPoint = point;
+
+  // Aggiorna UI
+  const kmh = speed ? Math.round(speed * 3.6) : 0;
+  updateGpsUI('active', `Attivo — ${S.gpsPoints.length} punti registrati`, true);
+  document.getElementById('gpsPoints').textContent = S.gpsPoints.length;
+  document.getElementById('gpsKm').textContent = S.gpsTotalKm.toFixed(1);
+  document.getElementById('gpsSpeed').textContent = kmh;
+  document.getElementById('gpsStats').style.display = 'grid';
+}
+
+function onGpsError(err) {
+  const msgs = { 1: 'Permesso GPS negato', 2: 'Segnale GPS non disponibile', 3: 'Timeout GPS' };
+  updateGpsUI('idle', msgs[err.code] || 'Errore GPS', false);
+  if (err.code === 1) {
+    toast('⚠️ Permesso GPS negato — abilitalo nelle impostazioni');
+    S.gpsActive = false;
+    document.getElementById('gpsToggleBtn').textContent = 'ATTIVA';
+    document.getElementById('gpsToggleBtn').className = 'gps-toggle-btn';
+  }
+}
+
+function updateGpsUI(state, label, showStop) {
+  const dot = document.getElementById('gpsDot');
+  const lbl = document.getElementById('gpsLabel');
+  const btn = document.getElementById('gpsToggleBtn');
+
+  dot.className = 'gps-dot ' + state;
+  lbl.textContent = label;
+
+  if (showStop && S.gpsActive) {
+    btn.textContent = 'STOP';
+    btn.className = 'gps-toggle-btn stop';
+  } else {
+    btn.textContent = 'ATTIVA';
+    btn.className = 'gps-toggle-btn';
+  }
+}
+
+// Haversine formula — distanza tra due coordinate in metri
+function haversine(lat1, lng1, lat2, lng2) {
+  const R = 6371000;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLng = (lng2 - lng1) * Math.PI / 180;
+  const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180) * Math.cos(lat2*Math.PI/180) * Math.sin(dLng/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+}
+
+function saveRoute(date, points, km) {
+  const routes = S.routes;
+  // Append to existing routes for that day (could have multiple shifts)
+  if (!routes[date]) routes[date] = [];
+  routes[date].push({ points, km, savedAt: Date.now() });
+  S.saveRoutes(routes);
+}
+
+// ═══════════════════════════════════════
+// MAPPA PAGE — disegno su Canvas (no internet)
+// ═══════════════════════════════════════
+function renderMapPage() {
+  const routes = S.routes;
+  const dates = Object.keys(routes).sort().reverse();
+  const selector = document.getElementById('mapSelector');
+
+  if (!dates.length) {
+    document.getElementById('mapEmpty').style.display = 'flex';
+    document.getElementById('mapCanvasWrap').style.display = 'none';
+    document.getElementById('mapInfo').style.display = 'none';
+    document.getElementById('mapLegend').style.display = 'none';
+    selector.innerHTML = '';
+    return;
+  }
+
+  const MON = ['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
+  selector.innerHTML = dates.map((d, i) => {
+    const dt = new Date(d + 'T12:00:00');
+    return `<button class="map-day-btn${i===0?' active':''}" onclick="selectMapDay('${d}',this)">${dt.getDate()} ${MON[dt.getMonth()]}</button>`;
+  }).join('');
+
+  drawRoute(dates[0], routes[dates[0]]);
+}
+
+function selectMapDay(date, btn) {
+  document.querySelectorAll('.map-day-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const routes = S.routes;
+  if (routes[date]) drawRoute(date, routes[date]);
+}
+
+function drawRoute(date, dayRoutes) {
+  document.getElementById('mapEmpty').style.display = 'none';
+  document.getElementById('mapCanvasWrap').style.display = 'block';
+  document.getElementById('mapInfo').style.display = 'grid';
+  document.getElementById('mapLegend').style.display = 'flex';
+
+  const canvas = document.getElementById('mapCanvas');
+  const dpr = window.devicePixelRatio || 1;
+  const W = canvas.offsetWidth;
+  const H = 320;
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
+  canvas.style.width = W + 'px';
+  canvas.style.height = H + 'px';
+
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, W, H);
+
+  // Dark background
+  ctx.fillStyle = '#12161e';
+  ctx.fillRect(0, 0, W, H);
+
+  // Collect all points from all route segments of the day
+  let allPoints = [];
+  let totalKm = 0;
+  dayRoutes.forEach(r => { allPoints = allPoints.concat(r.points); totalKm += r.km; });
+
+  if (allPoints.length < 2) {
+    ctx.fillStyle = '#8a96b0';
+    ctx.font = '14px JetBrains Mono, monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('Punti insufficienti per disegnare il percorso', W/2, H/2);
+    return;
+  }
+
+  // Bounding box
+  const lats = allPoints.map(p => p.lat);
+  const lngs = allPoints.map(p => p.lng);
+  const minLat = Math.min(...lats), maxLat = Math.max(...lats);
+  const minLng = Math.min(...lngs), maxLng = Math.max(...lngs);
+
+  const PAD = 36;
+  const scaleX = (W - PAD*2) / (maxLng - minLng || 0.001);
+  const scaleY = (H - PAD*2) / (maxLat - minLat || 0.001);
+  const scale = Math.min(scaleX, scaleY);
+
+  const toX = lng => PAD + (lng - minLng) * scale + ((W - PAD*2) - (maxLng - minLng) * scale) / 2;
+  const toY = lat => H - PAD - (lat - minLat) * scale - ((H - PAD*2) - (maxLat - minLat) * scale) / 2;
+
+  // Grid lines (subtle)
+  ctx.strokeStyle = 'rgba(44,52,72,0.6)';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = PAD + (H - PAD*2) * i / 4;
+    ctx.beginPath(); ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y); ctx.stroke();
+    const x = PAD + (W - PAD*2) * i / 4;
+    ctx.beginPath(); ctx.moveTo(x, PAD); ctx.lineTo(x, H - PAD); ctx.stroke();
+  }
+
+  // Draw each route segment with speed-based color
+  dayRoutes.forEach(route => {
+    const pts = route.points;
+    if (pts.length < 2) return;
+
+    for (let i = 1; i < pts.length; i++) {
+      const p = pts[i];
+      const spd = p.speed || 0;
+      // Color: green=slow, yellow=medium, blue=fast
+      let color;
+      if (spd < 50) color = '#00d68f';
+      else if (spd < 90) color = '#f0a500';
+      else color = '#4a9eff';
+
+      ctx.beginPath();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 3;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.moveTo(toX(pts[i-1].lng), toY(pts[i-1].lat));
+      ctx.lineTo(toX(p.lng), toY(p.lat));
+      ctx.stroke();
+    }
+
+    // Start dot (green)
+    const first = pts[0];
+    ctx.beginPath();
+    ctx.arc(toX(first.lng), toY(first.lat), 7, 0, Math.PI*2);
+    ctx.fillStyle = '#00d68f';
+    ctx.fill();
+    ctx.strokeStyle = '#0a0c10';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // End dot (red)
+    const last = pts[pts.length-1];
+    ctx.beginPath();
+    ctx.arc(toX(last.lng), toY(last.lat), 7, 0, Math.PI*2);
+    ctx.fillStyle = '#ff4757';
+    ctx.fill();
+    ctx.strokeStyle = '#0a0c10';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  });
+
+  // Update info
+  document.getElementById('miKm').textContent = totalKm.toFixed(1);
+  document.getElementById('miPts').textContent = allPoints.length;
+
+  // Duration from timestamps
+  if (allPoints.length >= 2) {
+    const dur = (allPoints[allPoints.length-1].ts - allPoints[0].ts) / 60000;
+    const hh = Math.floor(dur/60), mm = Math.round(dur%60);
+    document.getElementById('miDur').textContent = `${hh}h${String(mm).padStart(2,'0')}`;
+  }
+}
+
+// ═══════════════════════════════════════
+// CAMERA + OCR
+// ═══════════════════════════════════════
+function triggerCapture(mode) {
+  S.pendingMode = mode;
+  document.getElementById('cameraInput').click();
+}
+
+async function processImage(file) {
+  showProc(true, 'Analisi immagine...', 'Lettura OCR del cronotachigrafo');
+  try {
+    const url = URL.createObjectURL(file);
+    const result = await Tesseract.recognize(url, 'eng', {
+      logger: m => { if (m.status==='recognizing text') updateProc(`Analisi: ${Math.round(m.progress*100)}%`, 'Ricerca orari sul display'); }
+    });
+    URL.revokeObjectURL(url);
+    showProc(false);
+    openOcrModal(extractTime(result.data.text));
+  } catch(e) {
+    showProc(false); openOcrModal(null); toast('⚠️ OCR non riuscito — inserisci manualmente');
+  }
+}
+
+function extractTime(text) {
+  const re = /\b([0-2]?[0-9])[:\.\-hH]([0-5][0-9])\b/g;
+  const now = new Date(); let best = null, bestScore = Infinity, m;
+  while ((m = re.exec(text)) !== null) {
+    const h = parseInt(m[1]), mm = parseInt(m[2]);
+    if (h > 23 || mm > 59) continue;
+    const score = Math.abs(h-now.getHours())*60 + Math.abs(mm-now.getMinutes());
+    if (score < bestScore) { bestScore = score; best = {h, mm}; }
+  }
+  if (!best) return `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+  return `${String(best.h).padStart(2,'0')}:${String(best.mm).padStart(2,'0')}`;
+}
+
+// ═══════════════════════════════════════
+// MODALS
+// ═══════════════════════════════════════
+function openOcrModal(time) {
+  const isStart = S.pendingMode === 'start';
+  document.getElementById('ocrTitle').textContent = isStart ? 'INIZIO TURNO' : 'FINE TURNO';
+  document.getElementById('ocrTitle').className = 'modal-title ' + (isStart ? 'green' : 'red');
+  document.getElementById('ocrDetected').textContent = time || '--:--';
+  const n = new Date();
+  document.getElementById('ocrTimeInput').value = time || `${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}`;
+  document.getElementById('ocrConfirmBtn').className = 'btn btn-ok ' + (isStart ? '' : 'red');
+  openModal('modalOcr');
+}
+function confirmOcr() { const t = document.getElementById('ocrTimeInput').value; if (!t) return; closeModal('modalOcr'); applyTime(S.pendingMode, t); }
+
+function openManualSingle(mode) {
+  S.pendingMode = mode;
+  const isStart = mode === 'start';
+  document.getElementById('manualTitle').textContent = isStart ? 'INIZIO TURNO' : 'FINE TURNO';
+  document.getElementById('manualTitle').className = 'modal-title ' + (isStart ? 'green' : 'red');
+  document.getElementById('manualFieldLabel').textContent = isStart ? 'ORARIO DI INIZIO' : 'ORARIO DI FINE';
+  document.getElementById('manualConfirmBtn').className = 'btn btn-ok ' + (isStart ? '' : 'red');
+  const n = new Date();
+  document.getElementById('manualTimeInput').value = `${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}`;
+  openModal('modalManual');
+}
+function confirmManual() { const t = document.getElementById('manualTimeInput').value; if (!t) return; closeModal('modalManual'); applyTime(S.pendingMode, t); }
+
+function openFullModal(dateStr) {
+  S.calendarDate = dateStr;
+  const d = new Date(dateStr+'T12:00:00');
+  const days = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
+  const mons = ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
+  document.getElementById('fullDateLabel').textContent = `${days[d.getDay()]} ${d.getDate()} ${mons[d.getMonth()]} ${d.getFullYear()}`;
+  document.getElementById('fullStart').value = '08:00';
+  document.getElementById('fullEnd').value = '16:00';
+  openModal('modalFull');
+}
+function confirmFull() {
+  const s = document.getElementById('fullStart').value;
+  const e = document.getElementById('fullEnd').value;
+  if (!s || !e) return;
+  closeModal('modalFull');
+  saveShift(s, e, S.calendarDate);
+  toast('✅ Turno salvato!');
+  renderCalendar(); renderHistory();
+  showDayDetail(S.calendarDate);
+}
+
+// ═══════════════════════════════════════
+// APPLY TIME
+// ═══════════════════════════════════════
+function applyTime(mode, time) {
+  if (mode === 'start') {
+    S.mode = 'started'; S.startTime = time; S.endTime = null;
+    S.saveActive();
+    renderTurnoUI(); toast(`✅ Turno iniziato alle ${time}`);
+  } else {
+    const today = new Date().toISOString().split('T')[0];
+    saveShift(S.startTime, time, today);
+    // Save GPS if active
+    if (S.gpsActive) stopGps();
+    S.mode = 'ended'; S.endTime = time;
+    S.saveActive();
+    renderTurnoUI(); renderCalendar(); renderHistory();
+    toast(`🏁 Completato! Durata: ${formatDur(calcDur(S.startTime, time))}`);
+    setTimeout(() => { S.mode='idle'; S.startTime=null; S.endTime=null; S.saveActive(); renderTurnoUI(); }, 4000);
+  }
+}
+
+// ═══════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════
+function saveShift(start, end, date) {
+  const arr = S.shifts;
+  arr.unshift({ id: Date.now(), date, start, end, duration: calcDur(start, end) });
+  S.save(arr);
+}
+function calcDur(start, end) {
+  if (!start || !end) return null;
+  const [sh, sm] = start.split(':').map(Number);
+  const [eh, em] = end.split(':').map(Number);
+  let m = (eh*60+em)-(sh*60+sm);
+  if (m < 0) m += 1440;
+  return { h: Math.floor(m/60), m: m%60, total: m };
+}
+function formatDur(d) { if (!d) return '—'; return `${d.h}h ${String(d.m).padStart(2,'0')}m`; }
+
+// ═══════════════════════════════════════
+// CALENDAR
+// ═══════════════════════════════════════
+const MONTHS = ['GENNAIO','FEBBRAIO','MARZO','APRILE','MAGGIO','GIUGNO','LUGLIO','AGOSTO','SETTEMBRE','OTTOBRE','NOVEMBRE','DICEMBRE'];
+
+function renderCalendar() {
+  const yr = S.calYear, mo = S.calMonth;
+  document.getElementById('calMonth').textContent = `${MONTHS[mo]} ${yr}`;
+  const worked = new Set(S.shifts.map(s => s.date));
+  const gpsRoutes = new Set(Object.keys(S.routes));
+  const today = new Date().toISOString().split('T')[0];
+  const daysInMonth = new Date(yr, mo+1, 0).getDate();
+  let dow = new Date(yr, mo, 1).getDay();
+  dow = dow === 0 ? 6 : dow - 1;
+  const prevDays = new Date(yr, mo, 0).getDate();
+  const grid = document.getElementById('calGrid');
+  grid.innerHTML = '';
+  for (let i = dow - 1; i >= 0; i--) { const d = prevDays-i; grid.appendChild(mkCell(d, fmtDate(yr,mo-1,d), true, worked, gpsRoutes, today)); }
+  for (let d = 1; d <= daysInMonth; d++) { grid.appendChild(mkCell(d, fmtDate(yr,mo,d), false, worked, gpsRoutes, today)); }
+  const total = dow + daysInMonth;
+  const rem = total%7===0 ? 0 : 7-(total%7);
+  for (let d = 1; d <= rem; d++) { grid.appendChild(mkCell(d, fmtDate(yr,mo+1,d), true, worked, gpsRoutes, today)); }
+  if (S.selectedDate) showDayDetail(S.selectedDate);
+}
+
+function fmtDate(y, m, d) { const dt = new Date(y,m,d); return `${dt.getFullYear()}-${String(dt.getMonth()+1).padStart(2,'0')}-${String(dt.getDate()).padStart(2,'0')}`; }
+
+function mkCell(num, ds, other, worked, gpsRoutes, today) {
+  const c = document.createElement('div');
+  c.className = 'cal-cell';
+  if (other) c.classList.add('other-month');
+  if (worked.has(ds)) c.classList.add('has-shift');
+  if (gpsRoutes.has(ds)) c.classList.add('has-gps');
+  if (ds === today) c.classList.add('today');
+  if (ds === S.selectedDate) c.classList.add('selected');
+  c.innerHTML = `<span class="cal-num">${num}</span><div class="cal-dot"></div>`;
+  c.addEventListener('click', () => { S.selectedDate = ds; document.querySelectorAll('.cal-cell.selected').forEach(x=>x.classList.remove('selected')); c.classList.add('selected'); showDayDetail(ds); });
+  return c;
+}
+
+function calPrev() { S.calMonth--; if(S.calMonth<0){S.calMonth=11;S.calYear--;} renderCalendar(); }
+function calNext() { S.calMonth++; if(S.calMonth>11){S.calMonth=0;S.calYear++;} renderCalendar(); }
+
+function showDayDetail(ds) {
+  const detail = document.getElementById('dayDetail');
+  detail.className = 'day-detail'; detail.style.display = 'block';
+  const shifts = S.shifts.filter(s => s.date === ds);
+  const routes = S.routes[ds];
+  const d = new Date(ds+'T12:00:00');
+  const days = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
+  const mons = ['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
+  let html = `<div class="day-detail-head">${days[d.getDay()]} ${d.getDate()} ${mons[d.getMonth()]} ${d.getFullYear()}</div>`;
+  if (!shifts.length) {
+    html += `<div class="day-no-shift">Nessun turno registrato</div>`;
+  } else {
+    shifts.forEach(s => {
+      html += `<div class="day-shift-row">
+        <div class="day-shift-times"><span style="color:var(--green)">${s.start||'--:--'}</span><span style="color:var(--text2);font-size:12px;"> → </span><span style="color:var(--red)">${s.end||'...'}</span></div>
+        ${s.duration ? `<div class="day-shift-dur">${formatDur(s.duration)}</div>` : ''}
+      </div>`;
+    });
+  }
+  if (routes) {
+    const totalKm = routes.reduce((a,r) => a+r.km, 0);
+    html += `<div style="margin-top:8px;padding:8px 12px;background:var(--blue-dim);border:1px solid var(--blue);border-radius:8px;font-family:var(--mono);font-size:12px;color:var(--blue);">📍 GPS: ${totalKm.toFixed(1)} km registrati — <span style="cursor:pointer;text-decoration:underline;" onclick="showPage('pageMappa','navMappa');renderMapPage();">Vedi mappa</span></div>`;
+  }
+  html += `<button class="day-add-btn" onclick="openFullModal('${ds}')">+ Aggiungi turno manualmente</button>`;
+  detail.innerHTML = html;
+  detail.scrollIntoView({ behavior:'smooth', block:'nearest' });
+}
+
+// ═══════════════════════════════════════
+// HISTORY
+// ═══════════════════════════════════════
+function renderHistory() {
+  const shifts = S.shifts;
+  const sevenAgo = new Date(); sevenAgo.setDate(sevenAgo.getDate()-7);
+  const week = shifts.filter(s => new Date(s.date+'T12:00:00') >= sevenAgo);
+  const totalMins = week.reduce((a,s) => a+(s.duration?.total||0), 0);
+  const avg = week.length ? Math.round(totalMins/week.length) : 0;
+  document.getElementById('summaryGrid').innerHTML = `
+    <div class="sum-card"><span class="s-val">${week.length}</span><span class="s-lbl">TURNI</span></div>
+    <div class="sum-card"><span class="s-val">${Math.floor(totalMins/60)}h${String(totalMins%60).padStart(2,'0')}</span><span class="s-lbl">ORE TOT</span></div>
+    <div class="sum-card"><span class="s-val">${Math.floor(avg/60)}h${String(avg%60).padStart(2,'0')}</span><span class="s-lbl">MEDIA/DÌ</span></div>`;
+  const list = document.getElementById('histList');
+  if (!shifts.length) { list.innerHTML = `<div class="empty-state"><span class="empty-ic">📋</span>Nessun turno ancora.</div>`; return; }
+  const MON = ['GEN','FEB','MAR','APR','MAG','GIU','LUG','AGO','SET','OTT','NOV','DIC'];
+  const routes = S.routes;
+  list.innerHTML = shifts.map(s => {
+    const d = new Date(s.date+'T12:00:00');
+    const hasGps = routes[s.date];
+    return `<div class="hist-item">
+      <div class="hist-date"><div class="hist-day">${d.getDate()}</div><div class="hist-mon">${MON[d.getMonth()]}</div></div>
+      <div class="hist-sep"></div>
+      <div class="hist-body">
+        <div class="hist-times"><span class="from">${s.start||'--:--'}</span><span style="color:var(--text2);font-size:12px;"> → </span><span class="to">${s.end||'...'}</span></div>
+        ${s.duration ? `<span class="hist-dur">${formatDur(s.duration)}</span>` : `<span class="hist-incomplete">In corso...</span>`}
+        ${hasGps ? `<span class="hist-gps-badge">📍 GPS</span>` : ''}
+      </div>
+      <button class="hist-del" onclick="deleteShift(${s.id})">🗑</button>
+    </div>`;
+  }).join('');
+}
+
+function deleteShift(id) {
+  if (!confirm('Eliminare questo turno?')) return;
+  S.save(S.shifts.filter(s => s.id !== id));
+  renderHistory(); renderCalendar(); toast('🗑 Turno eliminato');
+}
+
+// UTILS
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+function showProc(show, t, s) { document.getElementById('procOverlay').classList.toggle('show',show); if(t) document.getElementById('procText').textContent=t; if(s) document.getElementById('procSub').textContent=s; }
+function updateProc(t, s) { document.getElementById('procText').textContent=t; document.getElementById('procSub').textContent=s; }
+function toast(msg) { const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show'); clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove('show'),3500); }
+</script>
+</body>
+</html>
