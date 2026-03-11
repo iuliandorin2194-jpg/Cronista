@@ -1,0 +1,2835 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Cronista — Turni Autista</title>
+  <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAGyklEQVR4nO3dPZLcRBjG8TZFRjIFRbIuIAZzAq5ATuID7B04AHfYAzgh5wqcAEMMlDehoCYhNgHVVdrZkaalfr+63/8v9M6HrH4etaQZjUoBAAAAAAAAgKm98F6APc5vynvvZUCb0+sxshV2IQn7fCKWItQCEfo8opQhxEIQ/Ly8i+D65gQflVcRXN6U4GONdRFM34zgo5VVET6weJNSCD/2scqLessIPnppzgaqMwDhhwTNHKkVgPBDklaeVApA+KFBI1fiBSD80CSdL9ECEH5YkMyZWAEIPyxJ5U2kAIQfHiRy110Awg9PvfnrKgDhRwQ9OTT7KgQQ0eECsPVHJEfzeKgAhB8RHcnlhxoLYunu/uS9CKk9Ppy9F6HL7m/ZRdj6E/qYopRhz7dHhzsIJvxxjTg2uwrgvfUfcQVnE2GM9uR0mGOAtRV7+vwb2wXBE+c/fn72b3f3pzC7Q7c07yt5bv2vhb8G/93bn77see2Xr779ref5+N+1IniXoOVYIPwxgGb4pV4D12fiCLtDtzQVwGvrrx3+ihLIiFaCltyGnwGWNMJfUQIZox2TDVUAQNrNAkTZ/Rlty5LZ5VhF3g1iBkBqFACpUQCkRgGQ2mYBvL/7A0jYyjEzAFKjAEiNAiA1CoDUKABSowBIjQIgNQqA1CgAUnO9KH6ES+YgY2usPa8ddikAwcdSzYNHEcx3gQg/1nhkw2wGIPhoYT0bcBCM1EwKwNYfe1llRr0AhB9HWWSHXSCkploAtv7opZ0hZgCkRgGQGgVAahQAqVEApDZkATTu6sKdYnIasgClyAaW8Oc1bAFKkQku4c9tmLtEriHA6DHMDHDtLoSIaaSxGqYAgIahCjDSliWr0cZoqAKUMt4KzmTEsRmuAKWMuaJnN+qYDHsWqK5w7h7pa9TgV8MWoBp9AOBryF0gQAoFQGoUAKlRAKRGAZAaBUBqFACpUQCkRgGQGgVAahQAqVEApEYBkBoFQGoUAKlRAKQ2/AUxo2m5+yE3FrFDAYzsue1nfSxF0EcBlF0L/lawl4+nCPoogJLL4LeGePm4+hoUQQ8HwQqW4b+7Px0O7uVzre6enonrDPDvL9+Zvt9HX/+o/h6X4Zdwd396MhtozwQzjsuaF1t/PL8p73tefG2grFfwJa0VrhF+y9ePOi4SM9/p9fWsmxdgdSV/8fD8336/73n7TdIl0A6n9vtEHhfNAvgfBF9bwZd/U1zh0qzCr26ycVljOgM82cpsreA1witcahY4cpam5/Ro63NaRR+XuWeAZLYGc61InP3R43Ma9MhWpud5ilq3/o8P5+YgLx976zmi5ZhoXFrxOUBgbPn1UYAOe7boEZYDz/kU4OhBU9CzDtN8RWGycWnBDKCMrXNsfmeB6laj5QBq4C3McJKNi/9p0K0VPsEKHlaScfEvQDXRSp3K5OPCMQBSowDKpjlDNCkKIIAzPeOiAB2OXObouRx4jgIERrD1UYBONaS3doP2XBu8fOyt51CSPhTA2FYR1v5GyPXEuSTSmNYlkZZXhJlcEmnM+pJIZgBhmmeEmAnkmRfA8ycwNJfB4vd7NC+8n3VcbnH5WZRqxt+f0Qqp1a9OlBJvXKb6WZQMpMNqGf6IOAYYzOXu0NEBvHxuxvBri/Nt0Mlcfj7QGuS9P5eCPhRA2bUPylpnBIKvjwIYaf3EePlY6KMAxgh3LBwEIzUKgNQoAFKjAEjN9SD49MlLz7dHEOe/37m9t0sBCD6Wah48imC+C0T4scYjG6YFIPy4xTojrscAH3/6mefbI4h//vrT7b3NZgC2/mhlmRVOgyI1CoDUKABScz0I9jz4AUphBkBynAaFuxSnQYGIKABSowBIjQIgtc1fhitF7tfh+CoE9qhfjdb8VbhSmAGQnPpp0MeH8+pPgXAaFKWsnwa1uPmgyQzAXRSxl1Vm2AVCajcLsHUAAUR3K7/MAEitaeveeyq0+ur7VxIvg8n9+sNbsdcSmQHYDcKIWnJrugsk2WzMyTojzQWQmgUoAdZY7vpULtcD1P8oxwQoxXejuHurLnVADGjZs7fCaVCktrsAnBFCZHvzyQyA1A4VgFkAER3J5eEZgBIgkqN5ZBcIqXUVgFkAEfTksHsGoATw1Js/kV0gSgAPErkTOwagBLAklTfRg2BKAAuSORM/C0QJoEk6XyqnQSkBNGjkSu1zAEoASVp5Uv0gjBJAgmaOzALKdQTYy2IDanefYGYD7GCVF5dQMhtgjfWG0nWrTBFQee0hhNgtoQh5ee8ahyhARRHy8A5+FWIhrqEM84kS+qVwC7SFUowjYtgBAAAAAACQ1X/4S1e6oz64qgAAAABJRU5ErkJggg==">
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABIElEQVR4nO2XMQ6CMBSGfwgbIZaVwcFJb2A8iIMcgDN5AK5iPICJTiY6uEJCmHFCoH1UirRl8N/6Cu/781oeLWBZTt9EnqKaGsZikScEdIBlRlzTcJ7jUMFai0O1aY/9ILyOAb6OORlnMRyXnAEQJWwMSzmXBwwvPVvulOH589Q/l6LqrYApeXxgytJTefn94FIP6RTPsL4E1g0Ie0Am2Y7WYmBs41GR9SWYp4GyyFAW2U+Jh+YQDLRfUjHRbjAqOQQDfhA2g0eC8rL/Cua7m0oOcgn8IAQeiRRcK0oY2UGH5nCA5m9oohUD3eWy/hUIjWi13moF3m/nzth6Bf4GOgb6Tq9TimdIj+W6JT2Wm9LHAHVv06ma51JBU3BgBrfjNx+PY0sgUUMoAAAAAElFTkSuQmCC">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Cronista">
+  <meta name="theme-color" content="#f0a500">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/4.1.1/tesseract.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+#leafletMap { height: 340px; border-radius: var(--radius); overflow: hidden; }
+.leaflet-container { background: var(--surface2) !important; font-family: var(--body) !important; }
+.leaflet-control-attribution { font-size: 9px !important; background: rgba(22,27,36,0.85) !important; color: var(--text2) !important; }
+.leaflet-control-attribution a { color: var(--blue) !important; }
+.leaflet-tile-pane { filter: brightness(0.85) saturate(0.9); }
+
+/* CALENDARIO — fix layout */
+.calendar-wrap{padding:0 16px 16px;}
+.cal-days-header{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+.cal-day-label{text-align:center;font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--text2);text-transform:uppercase;padding:4px 0 6px;}
+.cal-day-label.weekend{color:var(--accent);}
+.cal-legend{display:flex;gap:16px;margin-top:14px;padding:10px 0;}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--text2);}
+.legend-box{width:12px;height:12px;border-radius:3px;flex-shrink:0;}
+.lb-worked{background:var(--green-dim);border:1px solid rgba(45,212,160,0.4);}
+.lb-today{border:2px solid var(--accent);}
+.lb-gps{border:2px solid var(--blue);}
+
+/* ═══ RIEPILOGO PAGE ═══ */
+.rep-section { margin-bottom: 18px; }
+.rep-section-title { font-size: 10px; font-weight: 700; letter-spacing: 1.2px; color: var(--text2); text-transform: uppercase; margin-bottom: 10px; padding: 0 16px; }
+.rep-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin: 0 16px 10px; padding: 16px; }
+.rep-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.rep-row:last-child { border-bottom: none; }
+.rep-row-label { font-size: 13px; color: var(--text2); font-weight: 500; }
+.rep-row-value { font-family: var(--mono); font-size: 14px; font-weight: 700; color: var(--text); }
+.rep-row-value.green { color: var(--green); }
+.rep-row-value.orange { color: var(--accent); }
+.rep-row-value.red { color: var(--red); }
+.rep-row-value.blue { color: var(--blue); }
+.rep-big { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0 16px 10px; }
+.rep-big-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 12px; text-align: center; }
+.rep-big-val { font-family: var(--mono); font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.rep-big-lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.8px; color: var(--text2); text-transform: uppercase; }
+.rep-pause-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.rep-pause-item:last-child { border-bottom: none; }
+.rep-pause-badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+.rep-pause-badge.p45 { background: rgba(45,212,160,0.15); color: var(--green); }
+.rep-pause-badge.p30 { background: rgba(91,156,246,0.15); color: var(--blue); }
+.rep-pause-badge.p15 { background: rgba(245,166,35,0.15); color: var(--accent); }
+.rep-pause-badge.pfree { background: rgba(122,138,170,0.15); color: var(--text2); }
+.rep-pause-info { flex: 1; }
+.rep-pause-label { font-size: 13px; font-weight: 600; color: var(--text); }
+.rep-pause-time { font-size: 11px; color: var(--text2); margin-top: 2px; }
+.rep-pause-mins { font-family: var(--mono); font-size: 14px; font-weight: 700; color: var(--text); }
+.rep-tolerance-bar { height: 8px; background: var(--surface2); border-radius: 4px; overflow: hidden; margin-top: 8px; }
+.rep-tolerance-fill { height: 100%; border-radius: 4px; transition: width .4s; }
+.rep-empty { text-align: center; padding: 32px 16px; color: var(--text2); font-size: 13px; }
+.rep-ridotta-dots { display: flex; gap: 6px; margin-top: 4px; }
+.rep-ridotta-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--border); }
+.rep-ridotta-dot.used { background: var(--accent); border-color: var(--accent); }
+.rep-ridotta-dot.available { background: none; border-color: var(--green); }
+
+/* KM CARD */
+.km-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin:0 16px 12px;padding:14px 16px;}
+.km-card-title{font-size:10px;font-weight:700;letter-spacing:1px;color:var(--text2);text-transform:uppercase;margin-bottom:12px;}
+.km-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;text-align:center;}
+.km-cell{background:var(--surface2);border-radius:8px;padding:10px 6px;}
+.km-cell.km-total{border:1px solid rgba(45,212,160,0.3);}
+.km-val{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--text);margin-bottom:2px;}
+.km-val.green{color:var(--green);}
+.km-val.blue{color:var(--blue);}
+.km-lbl{font-size:9px;font-weight:700;letter-spacing:.6px;color:var(--text2);text-transform:uppercase;}
+.km-diff{margin-top:10px;padding:8px 12px;border-radius:8px;font-size:12px;font-weight:600;text-align:center;}
+.km-diff.ok{background:rgba(45,212,160,0.1);color:var(--green);border:1px solid rgba(45,212,160,0.2);}
+.km-diff.warn{background:rgba(245,166,35,0.1);color:var(--accent);border:1px solid rgba(245,166,35,0.2);}
+
+/* SEMIRIMORCHIO CARD */
+.semi-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin:0 16px 12px;padding:14px 16px;}
+.semi-card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.semi-card-title{font-size:10px;font-weight:700;letter-spacing:1px;color:var(--text2);text-transform:uppercase;}
+.semi-add-btn{background:var(--accent);color:#000;border:none;border-radius:6px;padding:6px 12px;font-size:11px;font-weight:700;cursor:pointer;}
+.semi-item{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);}
+.semi-item:last-child{border-bottom:none;}
+.semi-targa{font-family:var(--mono);font-size:18px;font-weight:700;color:var(--text);background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;letter-spacing:2px;}
+.semi-info{flex:1;}
+.semi-time{font-size:11px;color:var(--text2);margin-top:2px;}
+.semi-del{background:none;border:none;color:var(--text3);font-size:18px;cursor:pointer;padding:4px;}
+
+/* RIPOSO COUNTDOWN */
+.rest-countdown{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin:0 16px 12px;padding:16px;}
+.rest-countdown-title{font-size:10px;font-weight:700;letter-spacing:1px;color:var(--text2);text-transform:uppercase;margin-bottom:10px;}
+.rest-countdown-val{font-family:var(--mono);font-size:36px;font-weight:700;text-align:center;margin:8px 0;}
+.rest-countdown-bar{height:8px;background:var(--surface2);border-radius:4px;overflow:hidden;margin-top:8px;}
+.rest-countdown-fill{height:100%;border-radius:4px;transition:width .5s;}
+.rest-countdown-sub{font-size:12px;color:var(--text2);text-align:center;margin-top:6px;}
+</style>
+<style>
+:root {
+  --bg:#0d0f14;
+  --surface:#161b24;
+  --surface2:#1e2535;
+  --surface3:#252d3d;
+  --border:#2a3347;
+  --border2:#3a4a63;
+  --accent:#f5a623;
+  --accent-dim:rgba(245,166,35,0.12);
+  --green:#2dd4a0;
+  --green-dim:rgba(45,212,160,0.10);
+  --red:#f05a6e;
+  --red-dim:rgba(240,90,110,0.10);
+  --blue:#5b9cf6;
+  --blue-dim:rgba(91,156,246,0.10);
+  --text:#e8edf5;
+  --text2:#7a8aaa;
+  --text3:#4a5570;
+  --mono:'JetBrains Mono',monospace;
+  --body:'Inter',sans-serif;
+  --display:'Space Grotesk',sans-serif;
+  --radius:16px;
+  --radius-sm:10px;
+  --shadow:0 4px 24px rgba(0,0,0,0.4);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+body{background:var(--bg);color:var(--text);font-family:var(--body);min-height:100vh;overflow-x:hidden;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.logo{font-family:var(--display);font-size:22px;font-weight:700;letter-spacing:-0.5px;color:var(--text);}
+.logo em{color:var(--accent);font-style:normal;}
+.live-badge{display:none;align-items:center;gap:6px;background:var(--green-dim);border:1px solid rgba(45,212,160,0.3);border-radius:20px;padding:5px 12px;font-family:var(--mono);font-size:12px;color:var(--green);font-weight:500;}
+.live-badge.show{display:flex;}
+.live-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 1.4s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+main{padding:0 0 76px;max-width:480px;margin:0 auto;}
+.page{display:none;animation:fadeIn .25s ease;}
+.page.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:var(--surface);border-top:1px solid var(--border);display:flex;height:68px;z-index:200;max-width:480px;margin:0 auto;}
+.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:none;border:none;color:var(--text3);font-family:var(--body);font-size:8px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;cursor:pointer;transition:color .2s;padding:5px 1px;}
+.nav-btn .ic{font-size:16px;line-height:1;}
+.nav-btn.active{color:var(--accent);}
+
+.sec-head{padding:20px 20px 10px;display:flex;align-items:center;justify-content:space-between;}
+.sec-title{font-size:11px;font-weight:600;letter-spacing:1.2px;color:var(--text2);text-transform:uppercase;}
+
+.status-strip{margin:16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+.status-bar{height:3px;background:var(--border);transition:background .5s;}
+.status-bar.idle{background:var(--surface3);}
+.status-bar.started{background:linear-gradient(90deg,var(--green),var(--blue));}
+.status-bar.ended{background:var(--accent);}
+.status-body{padding:20px;}
+.status-state{font-family:var(--display);font-size:30px;font-weight:700;letter-spacing:-0.5px;margin-bottom:4px;transition:color .3s;}
+.status-state.idle{color:var(--text2);}
+.status-state.started{color:var(--green);}
+.status-state.ended{color:var(--accent);}
+.status-timer{font-family:var(--mono);font-size:13px;color:var(--text2);min-height:20px;font-weight:500;}
+.times-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;}
+.time-cell{background:var(--surface2);border-radius:var(--radius-sm);padding:14px;}
+.time-cell .tc-label{font-size:10px;font-weight:600;letter-spacing:1px;color:var(--text2);text-transform:uppercase;margin-bottom:6px;}
+.time-cell .tc-val{font-family:var(--mono);font-size:26px;font-weight:600;color:var(--text);letter-spacing:-0.5px;}
+.time-cell .tc-val.green{color:var(--green);}
+
+.action-area{padding:0 16px;margin-top:4px;}
+.action-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:12px;box-shadow:var(--shadow);}
+.action-card-title{font-family:var(--display);font-size:17px;font-weight:700;letter-spacing:-0.3px;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.action-card-title.green{color:var(--green);}
+.action-card-title.red{color:var(--red);}
+.entry-methods{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.entry-btn{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:18px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;transition:all .18s;color:var(--text);font-family:var(--body);font-size:13px;font-weight:600;}
+.entry-btn:active{transform:scale(.96);}
+.entry-btn .ei{font-size:26px;}
+.entry-btn.green-btn{border-color:rgba(45,212,160,0.35);background:var(--green-dim);color:var(--green);}
+.entry-btn.red-btn{border-color:rgba(240,90,110,0.35);background:var(--red-dim);color:var(--red);}
+.privacy-pill{display:flex;align-items:center;gap:6px;margin-top:12px;font-size:11px;color:var(--text2);padding:8px 12px;background:var(--surface2);border-radius:8px;font-weight:500;}
+
+.gps-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin:0 16px 12px;box-shadow:var(--shadow);}
+.gps-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.gps-title{font-family:var(--display);font-size:16px;font-weight:700;color:var(--blue);}
+.gps-status-row{display:flex;align-items:center;gap:8px;margin-bottom:2px;}
+.gps-dot{width:7px;height:7px;border-radius:50%;background:var(--border2);flex-shrink:0;transition:background .3s;}
+.gps-dot.active{background:var(--green);animation:blink 1.5s infinite;}
+.gps-dot.waiting{background:var(--accent);animation:blink .8s infinite;}
+.gps-label{font-size:12px;color:var(--text2);font-weight:500;}
+.gps-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;}
+.gps-stat{background:var(--surface2);border-radius:8px;padding:10px 8px;text-align:center;}
+.gps-stat .gs-val{font-family:var(--mono);font-size:15px;font-weight:600;color:var(--blue);}
+.gps-stat .gs-lbl{font-size:9px;font-weight:600;letter-spacing:.8px;color:var(--text2);text-transform:uppercase;margin-top:2px;}
+.gps-toggle-btn{background:var(--blue-dim);border:1px solid rgba(91,156,246,0.35);color:var(--blue);border-radius:8px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;transition:all .18s;white-space:nowrap;}
+.gps-toggle-btn:active{transform:scale(.96);}
+.gps-toggle-btn.stop{background:var(--red-dim);border-color:rgba(240,90,110,0.35);color:var(--red);}
+.battery-note{font-size:11px;color:var(--text2);margin-top:10px;padding:8px 12px;background:var(--surface2);border-radius:8px;line-height:1.6;font-weight:500;}
+
+.map-wrap{padding:0 16px 16px;}
+.map-selector{display:flex;gap:8px;margin-bottom:14px;overflow-x:auto;padding-bottom:4px;}
+.map-day-btn{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 16px;font-family:var(--mono);font-size:11px;font-weight:500;color:var(--text2);cursor:pointer;white-space:nowrap;transition:all .18s;flex-shrink:0;}
+.map-day-btn.active{border-color:var(--blue);background:var(--blue-dim);color:var(--blue);}
+.map-canvas-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+canvas#mapCanvas{display:block;width:100%;height:300px;}
+.map-empty{display:flex;align-items:center;justify-content:center;height:300px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);color:var(--text2);font-size:13px;text-align:center;padding:24px;line-height:1.8;font-weight:500;}
+.map-info{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;}
+.map-info-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px;text-align:center;}
+.map-info-card .mv{font-family:var(--mono);font-size:17px;font-weight:600;color:var(--blue);}
+.map-info-card .ml{font-size:9px;font-weight:600;letter-spacing:.8px;color:var(--text2);text-transform:uppercase;margin-top:3px;}
+.map-legend{display:flex;gap:16px;margin-top:10px;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);flex-wrap:wrap;}
+.leg-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text2);font-weight:500;}
+.leg-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+
+.cal-wrap{padding:0 16px 16px;}
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.cal-nav-btn{background:var(--surface2);border:1px solid var(--border);border-radius:8px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;color:var(--text);transition:all .15s;}
+.cal-nav-btn:active{transform:scale(.93);}
+.cal-month{font-family:var(--display);font-size:18px;font-weight:700;color:var(--text);letter-spacing:-0.3px;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
+.cal-dow{text-align:center;font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--text2);text-transform:uppercase;padding:4px 0 8px;}
+.cal-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;transition:all .18s;color:var(--text2);border:1px solid transparent;}
+.cal-day.has-shift{background:var(--green-dim);color:var(--green);border-color:rgba(45,212,160,0.2);font-weight:600;}
+.cal-day.has-gps{border-color:var(--blue)!important;}
+.cal-day.today{border-color:var(--accent)!important;color:var(--accent);font-weight:700;}
+.cal-day.other-month{opacity:.25;}
+.cal-day:active{transform:scale(.9);}
+.day-detail{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-top:14px;}
+.dd-header{font-family:var(--display);font-size:17px;font-weight:700;margin-bottom:12px;color:var(--text);}
+.dd-shift{background:var(--surface2);border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;}
+.dd-time{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--text);}
+.dd-dur{font-family:var(--mono);font-size:12px;color:var(--text2);}
+.dd-add{width:100%;background:var(--surface2);border:1px dashed var(--border2);color:var(--text2);border-radius:var(--radius-sm);padding:12px;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;margin-top:4px;}
+.dd-add:active{border-color:var(--accent);color:var(--accent);}
+
+.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:0 16px 4px;}
+.sum-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 12px;text-align:center;box-shadow:var(--shadow);}
+.sum-val{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--accent);letter-spacing:-0.5px;}
+.sum-lbl{font-size:10px;font-weight:600;letter-spacing:.8px;color:var(--text2);text-transform:uppercase;margin-top:4px;}
+.history-list{padding:0 16px;}
+.hist-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--shadow);}
+.hi-date{font-size:12px;font-weight:600;color:var(--text2);letter-spacing:.3px;margin-bottom:4px;}
+.hi-time{font-family:var(--mono);font-size:16px;font-weight:600;color:var(--text);}
+.hi-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.hi-dur{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--accent);}
+.hi-badges{display:flex;gap:4px;}
+.hi-badge{font-size:9px;font-weight:600;letter-spacing:.5px;padding:3px 7px;border-radius:4px;background:var(--blue-dim);color:var(--blue);}
+.hi-del{background:none;border:none;color:var(--text3);font-size:16px;cursor:pointer;padding:4px 8px;transition:color .15s;}
+.hi-del:active{color:var(--red);}
+
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);z-index:500;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s;}
+.modal-backdrop.open{opacity:1;pointer-events:all;}
+.modal-sheet{background:var(--surface);border:1px solid var(--border);border-top-left-radius:24px;border-top-right-radius:24px;padding:12px 24px 44px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;animation:slideUp .3s ease;}
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:none}}
+.modal-handle{width:36px;height:4px;background:var(--border2);border-radius:2px;margin:0 auto 20px;}
+.modal-title{font-family:var(--display);font-size:24px;font-weight:700;letter-spacing:-0.5px;margin-bottom:4px;}
+.modal-title.green{color:var(--green);}
+.modal-title.red{color:var(--red);}
+.modal-title.accent{color:var(--accent);}
+.modal-sub{font-size:13px;color:var(--text2);margin-bottom:22px;font-weight:500;line-height:1.6;}
+.ocr-box{background:var(--surface2);border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;}
+.ocr-box .olabel{font-size:10px;font-weight:600;letter-spacing:1px;color:var(--text2);text-transform:uppercase;margin-bottom:4px;}
+.ocr-box .oval{font-family:var(--mono);font-size:30px;font-weight:600;color:var(--green);}
+.field-label{font-size:11px;font-weight:600;letter-spacing:1px;color:var(--text2);text-transform:uppercase;margin-bottom:8px;display:block;}
+.time-field{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;font-family:var(--mono);font-size:32px;font-weight:600;color:var(--text);text-align:center;outline:none;margin-bottom:8px;transition:border-color .2s;appearance:none;}
+.time-field:focus{border-color:var(--accent);}
+.field-hint{font-size:12px;color:var(--text2);margin-bottom:20px;font-weight:500;}
+.manual-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;}
+.manual-field{display:flex;flex-direction:column;}
+.btn-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.btn{padding:16px;border-radius:var(--radius-sm);border:none;font-family:var(--display);font-size:18px;font-weight:700;cursor:pointer;transition:all .18s;}
+.btn:active{transform:scale(.97);}
+.btn-cancel{background:var(--surface2);color:var(--text2);border:1px solid var(--border);}
+.btn-ok{background:var(--green);color:#0d0f14;}
+.btn-ok.red{background:var(--red);}
+.btn-ok.accent{background:var(--accent);}
+.btn-wide{grid-column:1/-1;}
+
+.proc-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);z-index:900;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;opacity:0;pointer-events:none;transition:opacity .25s;}
+.proc-overlay.show{opacity:1;pointer-events:all;}
+.spinner{width:48px;height:48px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.proc-text{font-family:var(--mono);font-size:13px;color:var(--accent);font-weight:500;}
+.proc-sub{font-size:12px;color:var(--text2);font-weight:500;}
+
+.toast{position:fixed;bottom:84px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--surface2);border:1px solid var(--border2);border-radius:10px;padding:11px 20px;font-size:13px;font-weight:500;color:var(--text);opacity:0;transition:all .3s;z-index:400;white-space:nowrap;pointer-events:none;box-shadow:var(--shadow);}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+input[type="file"]{display:none;}
+
+.pause-drive-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);}
+.pdc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.pdc-label{font-size:10px;font-weight:600;letter-spacing:1px;color:var(--text2);text-transform:uppercase;margin-bottom:6px;}
+.pdc-timer{font-family:var(--mono);font-size:34px;font-weight:700;color:var(--green);letter-spacing:-1px;}
+.pdc-ring-wrap{position:relative;width:72px;height:72px;display:flex;align-items:center;justify-content:center;}
+.pdc-pct{position:absolute;font-family:var(--mono);font-size:11px;font-weight:600;color:var(--text);}
+.pdc-limit-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.pdc-limit-lbl{font-size:11px;font-weight:500;color:var(--text2);}
+.pdc-status{font-size:11px;font-weight:600;}
+.pdc-bar-wrap{background:var(--surface2);border-radius:6px;height:6px;overflow:hidden;}
+.pdc-bar{height:6px;border-radius:6px;transition:width .5s,background .5s;}
+
+.pause-active-card{background:var(--blue-dim);border:1px solid rgba(91,156,246,0.3);border-radius:var(--radius);padding:20px;text-align:center;}
+.pac-label{font-size:10px;font-weight:600;letter-spacing:1px;color:var(--blue);text-transform:uppercase;margin-bottom:8px;}
+.pac-timer{font-family:var(--mono);font-size:56px;font-weight:700;color:var(--blue);line-height:1;letter-spacing:-2px;}
+.pac-type{font-size:12px;font-weight:500;color:var(--text2);margin:8px 0 16px;}
+.pac-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.pac-btn-edit{background:var(--surface2);border:1px solid var(--border);color:var(--text2);border-radius:var(--radius-sm);padding:12px;font-size:13px;font-weight:600;cursor:pointer;}
+.pac-btn-stop{background:var(--green);border:none;color:#0d0f14;border-radius:var(--radius-sm);padding:12px;font-family:var(--display);font-size:17px;font-weight:700;cursor:pointer;}
+.pac-btn-stop:active,.pac-btn-edit:active{transform:scale(.97);}
+
+.pause-btns-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px;}
+.pause-quick-btn{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 8px;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;transition:all .18s;}
+.pause-quick-btn:active{transform:scale(.95);border-color:var(--blue);background:var(--blue-dim);}
+.pqb-min{font-family:var(--mono);font-size:38px;font-weight:700;color:var(--accent);line-height:1;letter-spacing:-1px;}
+.pqb-lbl{font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--text2);text-transform:uppercase;}
+.pqb-type{font-size:9px;font-weight:500;color:var(--text3);margin-top:2px;text-align:center;}
+.pause-free-btn{width:100%;background:var(--surface);border:1px dashed var(--border2);color:var(--text2);border-radius:var(--radius-sm);padding:14px;font-size:13px;font-weight:600;cursor:pointer;transition:all .18s;}
+.pause-free-btn:active{border-color:var(--blue);color:var(--blue);background:var(--blue-dim);}
+
+.week-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);}
+.week-row{display:flex;align-items:center;gap:8px;}
+.week-item{flex:1;text-align:center;}
+.wi-val{font-family:var(--mono);font-size:16px;font-weight:700;color:var(--accent);letter-spacing:-0.5px;}
+.wi-lbl{font-size:9px;font-weight:600;letter-spacing:.8px;color:var(--text2);text-transform:uppercase;margin-top:3px;}
+.week-sep{width:1px;height:36px;background:var(--border);}
+
+.rest-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-align:center;box-shadow:var(--shadow);}
+.rest-icon{font-size:30px;margin-bottom:8px;}
+.rest-val{font-family:var(--mono);font-size:42px;font-weight:700;color:var(--green);line-height:1;margin-bottom:6px;letter-spacing:-1px;}
+.rest-lbl{font-size:12px;font-weight:500;color:var(--text2);margin-bottom:12px;}
+.rest-bar-wrap{background:var(--surface2);border-radius:6px;height:8px;overflow:hidden;}
+.rest-bar{height:8px;border-radius:6px;transition:width .5s,background .5s;}
+
+.pause-log-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:13px 16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.pli-left{display:flex;align-items:center;gap:10px;}
+.pli-type{font-size:10px;font-weight:700;letter-spacing:.5px;padding:4px 9px;border-radius:5px;}
+.pli-type.p15{background:rgba(91,156,246,0.15);color:var(--blue);}
+.pli-type.p30{background:rgba(45,212,160,0.12);color:var(--green);}
+.pli-type.p45{background:rgba(245,166,35,0.12);color:var(--accent);}
+.pli-type.pfree{background:var(--surface2);color:var(--text2);}
+.pli-time{font-size:12px;font-weight:500;color:var(--text2);}
+.pli-dur{font-family:var(--mono);font-size:15px;font-weight:600;color:var(--text);}
+
+/* CALENDARIO — fix layout */
+.calendar-wrap{padding:0 16px 16px;}
+.cal-days-header{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px;}
+.cal-day-label{text-align:center;font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--text2);text-transform:uppercase;padding:4px 0 6px;}
+.cal-day-label.weekend{color:var(--accent);}
+.cal-legend{display:flex;gap:16px;margin-top:14px;padding:10px 0;}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--text2);}
+.legend-box{width:12px;height:12px;border-radius:3px;flex-shrink:0;}
+.lb-worked{background:var(--green-dim);border:1px solid rgba(45,212,160,0.4);}
+.lb-today{border:2px solid var(--accent);}
+.lb-gps{border:2px solid var(--blue);}
+
+/* ═══ RIEPILOGO PAGE ═══ */
+.rep-section { margin-bottom: 18px; }
+.rep-section-title { font-size: 10px; font-weight: 700; letter-spacing: 1.2px; color: var(--text2); text-transform: uppercase; margin-bottom: 10px; padding: 0 16px; }
+.rep-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin: 0 16px 10px; padding: 16px; }
+.rep-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.rep-row:last-child { border-bottom: none; }
+.rep-row-label { font-size: 13px; color: var(--text2); font-weight: 500; }
+.rep-row-value { font-family: var(--mono); font-size: 14px; font-weight: 700; color: var(--text); }
+.rep-row-value.green { color: var(--green); }
+.rep-row-value.orange { color: var(--accent); }
+.rep-row-value.red { color: var(--red); }
+.rep-row-value.blue { color: var(--blue); }
+.rep-big { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0 16px 10px; }
+.rep-big-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 12px; text-align: center; }
+.rep-big-val { font-family: var(--mono); font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.rep-big-lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.8px; color: var(--text2); text-transform: uppercase; }
+.rep-pause-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.rep-pause-item:last-child { border-bottom: none; }
+.rep-pause-badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+.rep-pause-badge.p45 { background: rgba(45,212,160,0.15); color: var(--green); }
+.rep-pause-badge.p30 { background: rgba(91,156,246,0.15); color: var(--blue); }
+.rep-pause-badge.p15 { background: rgba(245,166,35,0.15); color: var(--accent); }
+.rep-pause-badge.pfree { background: rgba(122,138,170,0.15); color: var(--text2); }
+.rep-pause-info { flex: 1; }
+.rep-pause-label { font-size: 13px; font-weight: 600; color: var(--text); }
+.rep-pause-time { font-size: 11px; color: var(--text2); margin-top: 2px; }
+.rep-pause-mins { font-family: var(--mono); font-size: 14px; font-weight: 700; color: var(--text); }
+.rep-tolerance-bar { height: 8px; background: var(--surface2); border-radius: 4px; overflow: hidden; margin-top: 8px; }
+.rep-tolerance-fill { height: 100%; border-radius: 4px; transition: width .4s; }
+.rep-empty { text-align: center; padding: 32px 16px; color: var(--text2); font-size: 13px; }
+.rep-ridotta-dots { display: flex; gap: 6px; margin-top: 4px; }
+.rep-ridotta-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--border); }
+.rep-ridotta-dot.used { background: var(--accent); border-color: var(--accent); }
+.rep-ridotta-dot.available { background: none; border-color: var(--green); }
+
+/* KM CARD */
+.km-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin:0 16px 12px;padding:14px 16px;}
+.km-card-title{font-size:10px;font-weight:700;letter-spacing:1px;color:var(--text2);text-transform:uppercase;margin-bottom:12px;}
+.km-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;text-align:center;}
+.km-cell{background:var(--surface2);border-radius:8px;padding:10px 6px;}
+.km-cell.km-total{border:1px solid rgba(45,212,160,0.3);}
+.km-val{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--text);margin-bottom:2px;}
+.km-val.green{color:var(--green);}
+.km-val.blue{color:var(--blue);}
+.km-lbl{font-size:9px;font-weight:700;letter-spacing:.6px;color:var(--text2);text-transform:uppercase;}
+.km-diff{margin-top:10px;padding:8px 12px;border-radius:8px;font-size:12px;font-weight:600;text-align:center;}
+.km-diff.ok{background:rgba(45,212,160,0.1);color:var(--green);border:1px solid rgba(45,212,160,0.2);}
+.km-diff.warn{background:rgba(245,166,35,0.1);color:var(--accent);border:1px solid rgba(245,166,35,0.2);}
+
+/* SEMIRIMORCHIO CARD */
+.semi-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin:0 16px 12px;padding:14px 16px;}
+.semi-card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.semi-card-title{font-size:10px;font-weight:700;letter-spacing:1px;color:var(--text2);text-transform:uppercase;}
+.semi-add-btn{background:var(--accent);color:#000;border:none;border-radius:6px;padding:6px 12px;font-size:11px;font-weight:700;cursor:pointer;}
+.semi-item{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);}
+.semi-item:last-child{border-bottom:none;}
+.semi-targa{font-family:var(--mono);font-size:18px;font-weight:700;color:var(--text);background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;letter-spacing:2px;}
+.semi-info{flex:1;}
+.semi-time{font-size:11px;color:var(--text2);margin-top:2px;}
+.semi-del{background:none;border:none;color:var(--text3);font-size:18px;cursor:pointer;padding:4px;}
+
+/* RIPOSO COUNTDOWN */
+.rest-countdown{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin:0 16px 12px;padding:16px;}
+.rest-countdown-title{font-size:10px;font-weight:700;letter-spacing:1px;color:var(--text2);text-transform:uppercase;margin-bottom:10px;}
+.rest-countdown-val{font-family:var(--mono);font-size:36px;font-weight:700;text-align:center;margin:8px 0;}
+.rest-countdown-bar{height:8px;background:var(--surface2);border-radius:4px;overflow:hidden;margin-top:8px;}
+.rest-countdown-fill{height:100%;border-radius:4px;transition:width .5s;}
+.rest-countdown-sub{font-size:12px;color:var(--text2);text-align:center;margin-top:6px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Cron<em>ista</em></div>
+  <div class="live-badge" id="liveBadge"><div class="dot"></div><span id="liveTimerBadge">00:00</span></div>
+</header>
+
+<main>
+
+<!-- PAGE: TURNO -->
+<div class="page active" id="pageTurno">
+  <div class="status-strip">
+    <div class="status-bar idle" id="statusBar"></div>
+    <div class="status-body">
+      <div class="status-state idle" id="statusState">IN PAUSA</div>
+      <div class="status-timer" id="statusTimer"></div>
+      <div class="times-grid">
+        <div class="time-cell"><div class="tc-label">INIZIO</div><div class="tc-val green" id="dispStart">--:--</div></div>
+        <div class="time-cell"><div class="tc-label">FINE</div><div class="tc-val" id="dispEnd">--:--</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AVVISO PAUSA INCOMPLETA -->
+  <div id="pauseWarningBanner" style="display:none;margin:8px 16px 0;background:rgba(245,166,35,0.12);border:1px solid var(--accent);border-radius:10px;padding:10px 14px;display:none;align-items:center;gap:10px;">
+    <span style="font-size:20px;">⚠️</span>
+    <div>
+      <div style="font-size:12px;font-weight:700;color:var(--accent);">MANCA 2ª PARTE PAUSA</div>
+      <div style="font-size:11px;color:var(--text2);margin-top:2px;">Hai fatto la 1ª parte (15min). Devi ancora fare la 2ª parte di <strong style="color:var(--accent);">almeno 30min</strong> prima delle 4h30m di guida.</div>
+    </div>
+  </div>
+
+  <!-- GPS CARD -->
+  <div class="gps-card" id="gpsCard">
+    <div class="gps-card-head" onclick="toggleInlineMap()" style="cursor:pointer;">
+      <div>
+        <div class="gps-title">📍 GPS PERCORSO <span id="mapToggleHint" style="font-size:10px;color:var(--text3);font-weight:400;margin-left:6px;">▼ tocca per mappa</span></div>
+        <div class="gps-status-row" style="margin-top:4px;">
+          <div class="gps-dot" id="gpsDot"></div>
+          <div class="gps-label" id="gpsLabel">Non attivo</div>
+        </div>
+      </div>
+      <button class="gps-toggle-btn" id="gpsToggleBtn" onclick="event.stopPropagation();toggleGps()">ATTIVA</button>
+    </div>
+    <div class="gps-stats" id="gpsStats" style="display:none;">
+      <div class="gps-stat"><div class="gs-val" id="gpsPoints">0</div><div class="gs-lbl">PUNTI</div></div>
+      <div class="gps-stat"><div class="gs-val" id="gpsKm">0.0</div><div class="gs-lbl">KM</div></div>
+      <div class="gps-stat"><div class="gs-val" id="gpsSpeed">0</div><div class="gs-lbl">KM/H</div></div>
+    </div>
+    <!-- MAPPA INLINE — si espande al click -->
+    <div id="inlineMapWrap" style="display:none;margin-top:12px;border-radius:10px;overflow:hidden;position:relative;">
+      <div id="inlineMapContainer" style="width:100%;height:240px;background:var(--surface2);border-radius:10px;"></div>
+      <div style="position:absolute;bottom:8px;right:8px;">
+        <button onclick="event.stopPropagation();showPage('pageMappa','navMappa');renderMapPage()" style="background:rgba(0,0,0,0.7);border:none;color:#fff;border-radius:8px;padding:5px 10px;font-size:11px;cursor:pointer;">🗺️ Schermo intero</button>
+      </div>
+    </div>
+    <div class="battery-note">📡 Tocca la card per vedere il percorso • GPS chip attivo</div>
+  </div>
+
+  <!-- KM CARD -->
+  <div class="km-card" id="kmCard" style="display:none;">
+    <div class="km-card-title">🛣️ CHILOMETRI GIORNATA</div>
+    <div class="km-grid">
+      <div class="km-cell"><div class="km-val" id="kmStartDisp">—</div><div class="km-lbl">KM INIZIO</div></div>
+      <div class="km-cell"><div class="km-val" id="kmEndDisp">—</div><div class="km-lbl">KM FINE</div></div>
+      <div class="km-cell km-total"><div class="km-val green" id="kmTachoDisp">—</div><div class="km-lbl">KM TACHO</div></div>
+      <div class="km-cell"><div class="km-val blue" id="kmGpsDisp">—</div><div class="km-lbl">KM GPS</div></div>
+    </div>
+    <div class="km-diff" id="kmDiff" style="display:none;"></div>
+  </div>
+
+  <!-- SEMIRIMORCHIO CARD -->
+  <div class="semi-card" id="semiCard" style="display:none;">
+    <div class="semi-card-head">
+      <div class="semi-card-title">🚛 SEMIRIMORCHIO</div>
+      <button class="semi-add-btn" onclick="openAddSemi()">+ AGGIUNGI</button>
+    </div>
+    <div id="semiList"></div>
+  </div>
+
+  <!-- RIPOSO COUNTDOWN CARD -->
+  <div class="rest-countdown" id="restCountdownCard" style="display:none;"></div>
+
+  <div class="action-area">
+    <div class="action-card" id="cardStart">
+      <div class="action-card-title green">▶ INIZIA TURNO</div>
+      <div class="entry-methods">
+        <button class="entry-btn green-btn" onclick="triggerCapture('start')"><span class="ei">📷</span>FOTO TACHO</button>
+        <button class="entry-btn green-btn" onclick="openManualSingle('start')"><span class="ei">⌨️</span>MANUALE</button>
+      </div>
+      <div class="privacy-pill">🔒 Foto analizzata localmente, non salvata</div>
+    </div>
+    <div class="action-card" id="cardEnd" style="display:none;">
+      <div class="action-card-title red">■ TERMINA TURNO</div>
+      <div class="entry-methods">
+        <button class="entry-btn red-btn" onclick="triggerCapture('end')"><span class="ei">📷</span>FOTO TACHO</button>
+        <button class="entry-btn red-btn" onclick="openManualSingle('end')"><span class="ei">⌨️</span>MANUALE</button>
+      </div>
+      <div class="privacy-pill">🔒 Foto analizzata localmente, non salvata</div>
+    </div>
+  </div>
+  <input type="file" id="cameraInput" accept="image/*" capture="environment">
+  <input type="file" id="targaInput" accept="image/*" capture="environment">
+</div>
+
+<!-- MODAL: SEMIRIMORCHIO -->
+<div class="modal-backdrop" id="modalSemi">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-title accent">🚛 SEMIRIMORCHIO</div>
+    <div class="modal-sub">Inserisci o fotografa la targa</div>
+    <div class="entry-methods" style="margin-bottom:16px;">
+      <button class="entry-btn" style="background:var(--surface2);border:1px solid var(--border);color:var(--text);" onclick="triggerTargaCapture()"><span class="ei">📷</span>FOTO TARGA</button>
+    </div>
+    <label class="field-label">TARGA SEMIRIMORCHIO</label>
+    <input class="time-field" type="text" id="semiTargaInput" placeholder="es. AB123CD" style="font-size:28px;text-transform:uppercase;" maxlength="10">
+    <label class="field-label" style="margin-top:12px;">ORA AGGANCIO (opzionale)</label>
+    <input class="time-field" type="time" id="semiOraInput" style="font-size:28px;">
+    <div class="btn-row">
+      <button class="btn btn-cancel" onclick="closeModal('modalSemi')">ANNULLA</button>
+      <button class="btn btn-ok accent" onclick="confirmSemi()">SALVA</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: MAPPA -->
+<div class="page" id="pageMappa">
+  <div class="sec-head">
+    <div class="sec-title">PERCORSI GPS</div>
+    <div id="mapModeToggle" style="display:none;gap:4px;display:flex;">
+      <button class="map-day-btn active" id="btnLeaflet" onclick="setMapMode('leaflet')">🗺️ Online</button>
+      <button class="map-day-btn" id="btnCanvas" onclick="setMapMode('canvas')">📐 Offline</button>
+    </div>
+  </div>
+  <div class="map-wrap">
+    <div class="map-selector" id="mapSelector"></div>
+    <div id="mapContainer">
+      <div class="map-empty" id="mapEmpty">📍 Nessun percorso registrato.<br>Attiva il GPS nella schermata Turno.</div>
+      <!-- Leaflet map (online) -->
+      <div id="leafletMapWrap" style="display:none;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;">
+        <div id="leafletMap"></div>
+      </div>
+      <!-- Canvas map (offline fallback) -->
+      <div class="map-canvas-wrap" id="mapCanvasWrap" style="display:none;">
+        <canvas id="mapCanvas"></canvas>
+      </div>
+    </div>
+    <div class="map-info" id="mapInfo" style="display:none;">
+      <div class="map-info-card"><div class="mv" id="miKm">0</div><div class="ml">KM TOT</div></div>
+      <div class="map-info-card"><div class="mv" id="miPts">0</div><div class="ml">PUNTI GPS</div></div>
+      <div class="map-info-card"><div class="mv" id="miDur">0h</div><div class="ml">DURATA</div></div>
+    </div>
+    <div class="map-legend" id="mapLegend" style="display:none;">
+      <div class="leg-item"><div class="leg-dot" style="background:var(--green)"></div>Partenza</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--red)"></div>Arrivo</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--blue)"></div>Percorso</div>
+      <div class="leg-item" id="mapModeLabel" style="margin-left:auto;font-size:10px;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: CALENDARIO -->
+<div class="page" id="pageCalendario">
+  <div class="sec-head"><div class="sec-title">CALENDARIO TURNI</div></div>
+  <div class="calendar-wrap">
+    <div class="cal-nav">
+      <button class="cal-nav-btn" onclick="calPrev()">&#8249;</button>
+      <div class="cal-month" id="calMonth"></div>
+      <button class="cal-nav-btn" onclick="calNext()">&#8250;</button>
+    </div>
+    <div class="cal-days-header">
+      <div class="cal-day-label">L</div><div class="cal-day-label">M</div><div class="cal-day-label">M</div>
+      <div class="cal-day-label">G</div><div class="cal-day-label">V</div>
+      <div class="cal-day-label weekend">S</div><div class="cal-day-label weekend">D</div>
+    </div>
+    <div class="cal-grid" id="calGrid"></div>
+    <div class="cal-legend">
+      <div class="legend-item"><div class="legend-box lb-worked"></div>Lavorato</div>
+      <div class="legend-item"><div class="legend-box lb-today"></div>Oggi</div>
+      <div class="legend-item"><div class="legend-box lb-gps"></div>GPS salvato</div>
+    </div>
+    <div id="dayDetail" style="display:none;"></div>
+  </div>
+</div>
+
+<!-- PAGE: STORICO -->
+<div class="page" id="pageStorico">
+  <div class="sec-head"><div class="sec-title">ULTIMI 7 GIORNI</div></div>
+  <div class="summary-grid" id="summaryGrid"></div>
+  <div class="sec-head" style="padding-top:4px;"><div class="sec-title">TUTTI I TURNI</div></div>
+  <div class="history-list" id="histList"></div>
+</div>
+
+<!-- PAGE: PAUSE -->
+<div class="page" id="pagePause">
+  <div class="sec-head"><div class="sec-title">GESTIONE PAUSE</div></div>
+
+  <!-- GUIDA TIMER -->
+  <div style="margin:0 16px 12px;">
+    <div class="pause-drive-card" id="driveCard">
+      <div class="pdc-top">
+        <div>
+          <div class="pdc-label">TEMPO DI GUIDA</div>
+          <div class="pdc-timer" id="driveTimer">00:00:00</div>
+        </div>
+        <div class="pdc-ring-wrap">
+          <svg width="70" height="70" viewBox="0 0 70 70">
+            <circle cx="35" cy="35" r="30" fill="none" stroke="#2c3448" stroke-width="5"/>
+            <circle id="driveRing" cx="35" cy="35" r="30" fill="none" stroke="#00d68f" stroke-width="5"
+              stroke-dasharray="188.5" stroke-dashoffset="188.5" stroke-linecap="round"
+              transform="rotate(-90 35 35)" style="transition:stroke-dashoffset .5s,stroke .5s"/>
+          </svg>
+          <div class="pdc-pct" id="drivePct">0%</div>
+        </div>
+      </div>
+      <div class="pdc-limit-row">
+        <span class="pdc-limit-lbl">Limite: 4h 30min</span>
+        <span class="pdc-status" id="driveStatus">✅ In regola</span>
+      </div>
+      <div class="pdc-bar-wrap">
+        <div class="pdc-bar" id="driveBar" style="width:0%;background:var(--green)"></div>
+      </div>
+      <!-- TOTALE GUIDA GIORNALIERO -->
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+          <span style="font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--text2);text-transform:uppercase;">Guida totale oggi</span>
+          <span style="font-family:var(--mono);font-size:18px;font-weight:700;color:var(--blue);" id="dailyDriveTotal">00:00</span>
+        </div>
+        <div class="pdc-bar-wrap">
+          <div class="pdc-bar" id="dailyDriveBar" style="width:0%;background:var(--blue)"></div>
+        </div>
+        <div style="font-size:10px;color:var(--text2);margin-top:4px;text-align:right;" id="dailyDriveLbl">0% di 9h</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAUSA ATTIVA -->
+  <div style="margin:0 16px 12px;" id="pauseActiveWrap" style="display:none;">
+    <div class="pause-active-card" id="pauseActiveCard">
+      <div class="pac-label">⏸️ PAUSA IN CORSO</div>
+      <div class="pac-timer" id="pauseActiveTimer">00:00</div>
+      <div class="pac-type" id="pauseActiveType">In attesa...</div>
+      <div class="pac-actions">
+        <button class="pac-btn-edit" onclick="openEditPause()">✏️ MODIFICA MINUTI</button>
+        <button class="pac-btn-stop" onclick="stopPause()">▶ RIPRENDI GUIDA</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PULSANTI PAUSA MANUALE -->
+  <div style="margin:0 16px 12px;" id="pauseBtnsWrap">
+    <div class="sec-title" style="margin-bottom:10px;">AVVIA PAUSA MANUALE</div>
+    <div class="pause-btns-grid" id="pauseBtnsGrid">
+      <button class="pause-quick-btn" id="pauseBtn15" onclick="startManualPause(15)">
+        <span class="pqb-min">15</span>
+        <span class="pqb-lbl">MIN</span>
+        <span class="pqb-type" id="pauseBtn15Label">1ª parte</span>
+      </button>
+      <button class="pause-quick-btn" id="pauseBtn30" onclick="startManualPause(30)">
+        <span class="pqb-min">30</span>
+        <span class="pqb-lbl">MIN</span>
+        <span class="pqb-type" id="pauseBtn30Label">2ª parte</span>
+      </button>
+      <button class="pause-quick-btn" id="pauseBtn45" onclick="startManualPause(45)">
+        <span class="pqb-min">45</span>
+        <span class="pqb-lbl">MIN</span>
+        <span class="pqb-type" id="pauseBtn45Label">Intera</span>
+      </button>
+    </div>
+    <button class="pause-free-btn" onclick="startManualPause(0)">⏱️ PAUSA LIBERA — Premi quando finisci</button>
+  </div>
+
+  <!-- ORE SETTIMANALI -->
+  <div style="margin:0 16px 12px;">
+    <div class="sec-title" style="margin-bottom:10px;">ORE SETTIMANA CORRENTE</div>
+    <div class="week-card">
+      <div class="week-row">
+        <div class="week-item">
+          <div class="wi-val" id="weekTotalHours">0h 00m</div>
+          <div class="wi-lbl">ORE TOTALI</div>
+        </div>
+        <div class="week-sep"></div>
+        <div class="week-item">
+          <div class="wi-val" id="weekDriveHours">0h 00m</div>
+          <div class="wi-lbl">GUIDA EFFETTIVA</div>
+        </div>
+        <div class="week-sep"></div>
+        <div class="week-item">
+          <div class="wi-val" id="weekDays">0</div>
+          <div class="wi-lbl">GIORNI</div>
+        </div>
+      </div>
+      <div style="margin-top:12px;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+          <span style="font-family:var(--mono);font-size:10px;color:var(--text2);">LIMITE SETTIMANALE 56h</span>
+          <span style="font-family:var(--mono);font-size:10px;" id="weekLimitPct">0%</span>
+        </div>
+        <div class="pdc-bar-wrap"><div class="pdc-bar" id="weekBar" style="width:0%;background:var(--green)"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIPOSO -->
+  <div style="margin:0 16px 12px;">
+    <div class="sec-title" style="margin-bottom:10px;">RIPOSO DALL'ULTIMO TURNO</div>
+    <div class="rest-card" id="restCard">
+      <div class="rest-icon" id="restIcon">🌙</div>
+      <div class="rest-val" id="restVal">-- h --</div>
+      <div class="rest-lbl" id="restLbl">Nessun turno registrato</div>
+      <div class="rest-bar-wrap"><div class="rest-bar" id="restBar" style="width:0%"></div></div>
+      <div style="display:flex;justify-content:space-between;margin-top:4px;">
+        <span style="font-family:var(--mono);font-size:9px;color:var(--text2);">0h</span>
+        <span style="font-family:var(--mono);font-size:9px;color:var(--text2);">11h min</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORICO PAUSE OGGI -->
+  <div style="margin:0 16px 16px;">
+    <div class="sec-title" style="margin-bottom:10px;">PAUSE OGGI</div>
+    <div id="todayPauseList"></div>
+  </div>
+</div>
+
+</main>
+
+<nav class="bottom-nav">
+  <button class="nav-btn active" id="navTurno" onclick="showPage('pageTurno','navTurno')"><span class="ic">🚛</span>TURNO</button>
+  <button class="nav-btn" id="navPause" onclick="showPage('pagePause','navPause');renderPausePage()"><span class="ic">⏸️</span>PAUSE</button>
+  <button class="nav-btn" id="navRep" onclick="showPage('pageRiepilogo','navRep');renderRiepilogo()"><span class="ic">📋</span>RIEPILOGO</button>
+  <button class="nav-btn" id="navCal" onclick="showPage('pageCalendario','navCal');renderCalendar()"><span class="ic">📅</span>CAL</button>
+  <button class="nav-btn" id="navSto" onclick="showPage('pageStorico','navSto');renderHistory()"><span class="ic">📊</span>STORICO</button>
+</nav>
+
+<!-- OVERLAYS -->
+<div class="proc-overlay" id="procOverlay">
+  <div class="spinner"></div>
+  <div class="proc-text" id="procText">Analisi...</div>
+  <div class="proc-sub" id="procSub">OCR cronotachigrafo</div>
+</div>
+
+<!-- MODAL: OCR -->
+<div class="modal-backdrop" id="modalOcr">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-title green" id="ocrTitle">INIZIO TURNO</div>
+    <div class="modal-sub">Orario rilevato — verifica e conferma</div>
+    <div class="ocr-box">
+      <div><div class="olabel">ORARIO RILEVATO</div><div class="oval" id="ocrDetected">--:--</div></div>
+      <div style="font-size:11px;color:var(--text2);text-align:right;max-width:110px;line-height:1.5;">Modifica se il display era illeggibile</div>
+    </div>
+    <label class="field-label">CONFERMA / MODIFICA ORARIO</label>
+    <input class="time-field" type="time" id="ocrTimeInput">
+    <label class="field-label" style="margin-top:16px;" id="ocrKmLabel">KM TACHIGRAFO (opzionale)</label>
+    <input class="time-field" type="number" id="ocrKmInput" placeholder="es. 125430" style="font-size:28px;" min="0" max="9999999">
+    <div class="field-hint" id="ocrKmHint">Inserisci i km mostrati sul tachigrafo</div>
+    <div class="btn-row">
+      <button class="btn btn-cancel" onclick="closeModal('modalOcr')">ANNULLA</button>
+      <button class="btn btn-ok" id="ocrConfirmBtn" onclick="confirmOcr()">CONFERMA</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: MANUALE SINGOLO -->
+<div class="modal-backdrop" id="modalManual">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-title accent" id="manualTitle">INSERIMENTO MANUALE</div>
+    <div class="modal-sub" id="manualSub">Inserisci l'orario</div>
+    <label class="field-label" id="manualFieldLabel">ORARIO</label>
+    <input class="time-field" type="time" id="manualTimeInput">
+    <label class="field-label" style="margin-top:16px;" id="manualKmLabel">KM TACHIGRAFO (opzionale)</label>
+    <input class="time-field" type="number" id="manualKmInput" placeholder="es. 125430" style="font-size:28px;" min="0" max="9999999">
+    <div class="field-hint">Inserisci l'orario dal cronotachigrafo</div>
+    <div class="btn-row">
+      <button class="btn btn-cancel" onclick="closeModal('modalManual')">ANNULLA</button>
+      <button class="btn btn-ok accent" id="manualConfirmBtn" onclick="confirmManual()">SALVA</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: TURNO COMPLETO -->
+<div class="modal-backdrop" id="modalFull">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-title accent">AGGIUNGI TURNO</div>
+    <div class="modal-sub" id="fullDateLabel"></div>
+    <div class="manual-row">
+      <div class="manual-field"><label class="field-label">INIZIO</label><input class="time-field" type="time" id="fullStart" style="font-size:24px;padding:12px;"></div>
+      <div class="manual-field"><label class="field-label">FINE</label><input class="time-field" type="time" id="fullEnd" style="font-size:24px;padding:12px;"></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-cancel" onclick="closeModal('modalFull')">ANNULLA</button>
+      <button class="btn btn-ok accent btn-wide" onclick="confirmFull()">SALVA TURNO</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: MODIFICA PAUSA -->
+<div class="modal-backdrop" id="modalEditPause">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-title accent">MODIFICA PAUSA</div>
+    <div class="modal-sub">Inserisci i minuti effettivi di riposo<br>(es. se hai scaricato 15 min, inserisci solo i minuti di pausa vera)</div>
+    <label class="field-label">MINUTI DI PAUSA EFFETTIVA</label>
+    <input class="time-field" type="number" id="editPauseInput" min="1" max="180" style="font-size:36px;" placeholder="30">
+    <div class="field-hint">L'app calcolerà automaticamente il tipo di pausa</div>
+    <div class="btn-row">
+      <button class="btn btn-cancel" onclick="closeModal('modalEditPause')">ANNULLA</button>
+      <button class="btn btn-ok accent" onclick="confirmEditPause()">SALVA</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════
+// Ripristina stato turno attivo dopo refresh
+const _sv = JSON.parse(localStorage.getItem('cronista_activeshift') || 'null');
+
+const S = {
+  mode: _sv?.mode || 'idle',
+  startTime: _sv?.startTime || null,
+  endTime: _sv?.endTime || null,
+  endTs: _sv?.endTs || null,           // timestamp fine turno per countdown riposo
+  kmStart: _sv?.kmStart || null,       // km tachigrafo inizio
+  kmEnd: _sv?.kmEnd || null,           // km tachigrafo fine
+  semirimorchi: _sv?.semirimorchi || [], // [{targa, ora, ts}]
+  restInterval: null,                  // countdown riposo
+  pendingMode: null,
+  calYear: new Date().getFullYear(),
+  calMonth: new Date().getMonth(),
+  selectedDate: null, calendarDate: null,
+  timerInterval: null,
+
+  // GPS
+  gpsActive: false,
+  gpsWatchId: null,
+  gpsAutoSaveInterval: null,
+  gpsPoints: _sv?.gpsPoints || [],
+  gpsCurrentShiftDate: _sv?.gpsCurrentShiftDate || null,
+  gpsLastPoint: _sv?.gpsLastPoint || null,
+  gpsTotalKm: _sv?.gpsTotalKm || 0,
+  gpsShiftId: _sv?.gpsShiftId || (Date.now().toString(36)),
+
+  // PAUSE
+  pauseActive: _sv?.pauseActive || false,
+  pauseStartTs: _sv?.pauseStartTs || null,
+  pauseManualMins: _sv?.pauseManualMins || 0, // 0 = libera
+  pauseSequence: _sv?.pauseSequence || 0,     // 0=nessuna, 15=prima parte fatta, 45=ciclo completo
+  pauseInterval: null,
+  driveInterval: null,
+  driveStartTs: _sv?.driveStartTs || null,    // quando ha iniziato a guidare (dopo ultima pausa)
+  driveTotalMins: _sv?.driveTotalMins || 0,   // minuti guida sessione corrente (si azzera dopo pausa)
+  dailyDriveMins: _sv?.dailyDriveMins || 0,   // minuti guida totali oggi (NON si azzera dopo pausa)
+  get pauses() { return JSON.parse(localStorage.getItem('cronista_pauses') || '{}'); },
+  savePauses(obj) { localStorage.setItem('cronista_pauses', JSON.stringify(obj)); },
+
+  get shifts() { return JSON.parse(localStorage.getItem('cronista_v2') || '[]'); },
+  save(arr) { localStorage.setItem('cronista_v2', JSON.stringify(arr)); },
+  get routes() { return JSON.parse(localStorage.getItem('cronista_routes') || '{}'); },
+  saveRoutes(obj) { localStorage.setItem('cronista_routes', JSON.stringify(obj)); },
+  saveActive() {
+    if (this.mode === 'idle') {
+      localStorage.removeItem('cronista_activeshift');
+    } else {
+      localStorage.setItem('cronista_activeshift', JSON.stringify({
+        mode: this.mode, startTime: this.startTime, endTime: this.endTime,
+        gpsPoints: this.gpsPoints, gpsCurrentShiftDate: this.gpsCurrentShiftDate,
+        gpsLastPoint: this.gpsLastPoint, gpsTotalKm: this.gpsTotalKm, gpsShiftId: this.gpsShiftId,
+        kmStart: this.kmStart, kmEnd: this.kmEnd, semirimorchi: this.semirimorchi,
+        endTs: this.endTs,
+        pauseActive: this.pauseActive, pauseStartTs: this.pauseStartTs,
+        pauseManualMins: this.pauseManualMins, pauseSequence: this.pauseSequence,
+        driveStartTs: this.driveStartTs, driveTotalMins: this.driveTotalMins, dailyDriveMins: this.dailyDriveMins
+      }));
+    }
+  }
+};
+
+// ═══════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════
+(function init() {
+  renderTurnoUI();
+
+  // Ripristina GPS stats se c'era turno attivo
+  if (S.mode === 'started') {
+    if (S.gpsPoints.length > 0) {
+      document.getElementById('gpsStats').style.display = 'grid';
+      document.getElementById('gpsPoints').textContent = S.gpsPoints.length;
+      document.getElementById('gpsKm').textContent = S.gpsTotalKm.toFixed(1);
+      updateGpsUI('idle', `${S.gpsPoints.length} punti salvati — riattiva GPS`, false);
+    }
+    setTimeout(() => toast(`⏱️ Turno ripristinato — iniziato alle ${S.startTime}`), 500);
+    // Ripristina drive timer
+    if (!S.driveStartTs && !S.pauseActive) { S.driveStartTs = Date.now(); S.saveActive(); }
+    renderDriveTimer();
+    if (S.pauseActive) startPauseTimer();
+  }
+
+  document.getElementById('cameraInput').addEventListener('change', async function(e) {
+    const file = e.target.files[0]; if (!file) return;
+    await processImage(file); this.value = '';
+  });
+  document.querySelectorAll('.modal-backdrop').forEach(m => {
+    m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open'); });
+  });
+})();
+
+// ═══════════════════════════════════════
+// PAGE NAV
+// ═══════════════════════════════════════
+function showPage(id, btnId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById(btnId).classList.add('active');
+}
+
+// ═══════════════════════════════════════
+// TURNO UI
+// ═══════════════════════════════════════
+function renderTurnoUI() {
+  const bar = document.getElementById('statusBar');
+  const st = document.getElementById('statusState');
+  const tm = document.getElementById('statusTimer');
+  const ds = document.getElementById('dispStart');
+  const de = document.getElementById('dispEnd');
+
+  bar.className = 'status-bar ' + S.mode;
+  st.className = 'status-state ' + S.mode;
+
+  if (S.mode === 'idle') {
+    st.textContent = 'IN PAUSA';
+    tm.textContent = '';
+    ds.textContent = '--:--'; de.textContent = '--:--';
+    document.getElementById('cardStart').style.display = 'block';
+    document.getElementById('cardEnd').style.display = 'none';
+    clearInterval(S.timerInterval);
+    document.getElementById('liveBadge').classList.remove('show');
+    document.getElementById('kmCard').style.display = 'none';
+    document.getElementById('semiCard').style.display = 'none';
+    // Se c'è countdown riposo in corso (endTs recente), mostralo
+    if (S.endTs && (Date.now() - S.endTs) < 15*60*60*1000) {
+      startRestCountdown();
+    } else {
+      const cc = document.getElementById('restCountdownCard');
+      if (cc) cc.style.display = 'none';
+    }
+  } else if (S.mode === 'started') {
+    st.textContent = 'TURNO ATTIVO';
+    ds.textContent = S.startTime; de.textContent = '--:--';
+    document.getElementById('cardStart').style.display = 'none';
+    document.getElementById('cardEnd').style.display = 'block';
+    document.getElementById('liveBadge').classList.add('show');
+    document.getElementById('restCountdownCard').style.display = 'none';
+    clearInterval(S.restInterval);
+    startLiveTimer();
+    renderPauseWarning();
+    // Mostra km card se ci sono dati
+    renderKmCard();
+    // Mostra semi card
+    document.getElementById('semiCard').style.display = 'block';
+    renderSemiList();
+  } else if (S.mode === 'ended') {
+    st.textContent = 'COMPLETATO';
+    ds.textContent = S.startTime; de.textContent = S.endTime;
+    tm.textContent = '';
+    document.getElementById('cardStart').style.display = 'block';
+    document.getElementById('cardEnd').style.display = 'none';
+    clearInterval(S.timerInterval);
+    document.getElementById('liveBadge').classList.remove('show');
+    // Mostra km se disponibili
+    renderKmCard();
+    // Avvia/aggiorna countdown riposo
+    if (S.endTs) startRestCountdown();
+  }
+}
+
+function startLiveTimer() {
+  clearInterval(S.timerInterval);
+  S.timerInterval = setInterval(() => {
+    if (!S.startTime) return;
+    const now = new Date();
+    let diff = now - new Date(now.toDateString() + ' ' + S.startTime);
+    if (diff < 0) diff += 86400000;
+    const h = String(Math.floor(diff/3600000)).padStart(2,'0');
+    const m = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+    const sc = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+    document.getElementById('statusTimer').textContent = `${h}:${m}:${sc}`;
+    document.getElementById('liveTimerBadge').textContent = `${h}:${m}`;
+  }, 1000);
+}
+
+// ═══════════════════════════════════════
+// GPS — ALTA PRECISIONE 15 SECONDI
+// ═══════════════════════════════════════
+// Strategia:
+// - maximumAge: 15000ms → riusa fix cached fino a 15s
+// - timeout: 20000ms → abbandona se niente dopo 20s
+// - enableHighAccuracy: true → usa chip GPS reale per massima precisione
+// - Distanza minima 20m prima di salvare un punto
+// - Velocità minima 2 km/h per filtrare soste brevi
+// ═══════════════════════════════════════
+const GPS_OPTIONS = {
+  enableHighAccuracy: true,   // ALTA PRECISIONE: usa chip GPS
+  timeout: 20000,
+  maximumAge: 15000           // Aggiornamento ogni 15s
+};
+const GPS_MIN_DISTANCE = 20;  // metri (ridotto per maggiore precisione)
+const GPS_MIN_SPEED = 0.5;    // m/s (~2 km/h) — filtra soste
+
+function toggleGps() {
+  if (S.gpsActive) stopGps();
+  else startGps();
+}
+
+// Avvia GPS silenziosamente all'inizio turno — nessun toast, aspetta segnale
+function startGpsSilent() {
+  if (!navigator.geolocation) return; // silenzio se non disponibile
+  S.gpsActive = true;
+  S.gpsPoints = [];
+  S.gpsLastPoint = null;
+  S.gpsTotalKm = 0;
+  S.gpsCurrentShiftDate = new Date().toISOString().split('T')[0];
+  S.gpsShiftId = Date.now().toString(36);
+  updateGpsUI('waiting', 'GPS in attesa segnale...', true);
+  S.gpsWatchId = navigator.geolocation.watchPosition(
+    onGpsSuccess,
+    (err) => {
+      // Errori silenziosi — riprova automaticamente
+      if (err.code === 1) { // PERMISSION_DENIED — qui non possiamo fare nulla
+        S.gpsActive = false;
+        updateGpsUI('inactive', 'GPS non autorizzato', false);
+        document.getElementById('gpsToggleBtn').textContent = 'ATTIVA';
+      }
+      // POSITION_UNAVAILABLE o TIMEOUT → rimane in waiting, si aggiorna appena c'è segnale
+    },
+    GPS_OPTIONS
+  );
+  clearInterval(S.gpsAutoSaveInterval);
+  S.gpsAutoSaveInterval = setInterval(() => {
+    if (S.gpsPoints.length >= 2) saveRouteIncremental(S.gpsCurrentShiftDate, S.gpsPoints, S.gpsTotalKm);
+  }, 3 * 60 * 1000);
+  S.saveActive();
+  renderTurnoUI();
+}
+
+function startGps() {
+  if (!navigator.geolocation) {
+    toast('⚠️ GPS non disponibile su questo dispositivo');
+    return;
+  }
+
+  S.gpsActive = true;
+  // NON azzerare i punti se stiamo riprendendo lo stesso turno
+  if (!S.gpsCurrentShiftDate || S.gpsCurrentShiftDate !== new Date().toISOString().split('T')[0]) {
+    S.gpsPoints = [];
+    S.gpsLastPoint = null;
+    S.gpsTotalKm = 0;
+    S.gpsCurrentShiftDate = new Date().toISOString().split('T')[0];
+    S.gpsShiftId = Date.now().toString(36); // ID unico per questo turno GPS
+  }
+
+  updateGpsUI('waiting', 'In attesa segnale GPS...', true);
+  const btn = document.getElementById('gpsToggleBtn');
+  if (btn) btn.textContent = 'DISATTIVA';
+
+  S.gpsWatchId = navigator.geolocation.watchPosition(
+    onGpsSuccess,
+    onGpsError,
+    GPS_OPTIONS
+  );
+
+  // Auto-salvataggio ogni 3 minuti — indipendente dalla rete
+  clearInterval(S.gpsAutoSaveInterval);
+  S.gpsAutoSaveInterval = setInterval(() => {
+    if (S.gpsPoints.length >= 2) {
+      saveRouteIncremental(S.gpsCurrentShiftDate, S.gpsPoints, S.gpsTotalKm);
+    }
+  }, 3 * 60 * 1000);
+
+  const pts = S.gpsPoints.length;
+  toast(pts > 0 ? `📍 GPS riattivato — ${pts} punti precedenti mantenuti` : '📍 GPS attivato — alta precisione 15s');
+}
+
+function stopGps() {
+  if (S.gpsWatchId !== null) {
+    navigator.geolocation.clearWatch(S.gpsWatchId);
+    S.gpsWatchId = null;
+  }
+  clearInterval(S.gpsAutoSaveInterval);
+  S.gpsActive = false;
+
+  // Salva percorso finale
+  if (S.gpsPoints.length >= 2) {
+    saveRouteIncremental(S.gpsCurrentShiftDate, S.gpsPoints, S.gpsTotalKm);
+    toast(`🗺️ Percorso salvato: ${S.gpsTotalKm.toFixed(1)} km, ${S.gpsPoints.length} punti`);
+  } else {
+    toast('📍 GPS disattivato');
+  }
+
+  updateGpsUI('idle', 'Non attivo', false);
+  renderCalendar();
+}
+
+function onGpsSuccess(pos) {
+  const { latitude: lat, longitude: lng, speed, accuracy } = pos.coords;
+  const ts = Date.now();
+
+  // Ignora se accuracy > 200m (segnale scadente)
+  if (accuracy > 200) {
+    updateGpsUI('waiting', `Segnale debole (±${Math.round(accuracy)}m)`, true);
+    return;
+  }
+
+  // Calcola distanza dall'ultimo punto
+  if (S.gpsLastPoint) {
+    const dist = haversine(S.gpsLastPoint.lat, S.gpsLastPoint.lng, lat, lng);
+    const spd = speed || 0; // m/s
+
+    // Filtra: deve aver percorso almeno 50m E velocità > 3km/h
+    if (dist < GPS_MIN_DISTANCE || spd < GPS_MIN_SPEED) {
+      updateGpsUI('active', `Fermo — ${S.gpsPoints.length} punti`, true);
+      return;
+    }
+    S.gpsTotalKm += dist / 1000;
+  }
+
+  const point = { lat, lng, ts, speed: speed ? Math.round(speed * 3.6) : 0 };
+  S.gpsPoints.push(point);
+  S.saveActive(); // salva stato in localStorage
+  S.gpsLastPoint = point;
+
+  // Salva percorso ogni 10 punti per sicurezza extra
+  if (S.gpsPoints.length % 10 === 0) {
+    saveRouteIncremental(S.gpsCurrentShiftDate, S.gpsPoints, S.gpsTotalKm);
+  }
+
+  // Aggiorna UI
+  const kmh = speed ? Math.round(speed * 3.6) : 0;
+  updateGpsUI('active', `Attivo — ${S.gpsPoints.length} punti registrati`, true);
+  document.getElementById('gpsPoints').textContent = S.gpsPoints.length;
+  document.getElementById('gpsKm').textContent = S.gpsTotalKm.toFixed(1);
+  document.getElementById('gpsSpeed').textContent = kmh;
+  document.getElementById('gpsStats').style.display = 'grid';
+}
+
+function onGpsError(err) {
+  const msgs = { 1: 'Permesso GPS negato', 2: 'Segnale GPS non disponibile', 3: 'Timeout GPS' };
+  updateGpsUI('idle', msgs[err.code] || 'Errore GPS', false);
+  if (err.code === 1) {
+    toast('⚠️ Permesso GPS negato — abilitalo nelle impostazioni');
+    S.gpsActive = false;
+    document.getElementById('gpsToggleBtn').textContent = 'ATTIVA';
+    document.getElementById('gpsToggleBtn').className = 'gps-toggle-btn';
+  }
+}
+
+function updateGpsUI(state, label, showStop) {
+  const dot = document.getElementById('gpsDot');
+  const lbl = document.getElementById('gpsLabel');
+  const btn = document.getElementById('gpsToggleBtn');
+
+  dot.className = 'gps-dot ' + state;
+  lbl.textContent = label;
+
+  if (showStop && S.gpsActive) {
+    btn.textContent = 'STOP';
+    btn.className = 'gps-toggle-btn stop';
+  } else {
+    btn.textContent = 'ATTIVA';
+    btn.className = 'gps-toggle-btn';
+  }
+}
+
+// Haversine formula — distanza tra due coordinate in metri
+function haversine(lat1, lng1, lat2, lng2) {
+  const R = 6371000;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLng = (lng2 - lng1) * Math.PI / 180;
+  const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180) * Math.cos(lat2*Math.PI/180) * Math.sin(dLng/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+}
+
+function saveRoute(date, points, km) {
+  saveRouteIncremental(date, points, km);
+}
+
+// Salva/aggiorna il percorso corrente — sovrascrive l'ultimo segmento invece di duplicare
+function saveRouteIncremental(date, points, km) {
+  const routes = S.routes;
+  if (!routes[date]) routes[date] = [];
+  
+  // Cerca se esiste già un segmento salvato per questo turno (stesso shiftDate)
+  const existingIdx = routes[date].findIndex(r => r.shiftId === S.gpsShiftId);
+  
+  const record = { points: [...points], km, savedAt: Date.now(), shiftId: S.gpsShiftId };
+  
+  if (existingIdx >= 0) {
+    // Aggiorna il segmento esistente invece di aggiungerne uno nuovo
+    routes[date][existingIdx] = record;
+  } else {
+    routes[date].push(record);
+  }
+  S.saveRoutes(routes);
+}
+
+// ═══════════════════════════════════════
+// MAPPA PAGE — disegno su Canvas (no internet)
+// ═══════════════════════════════════════
+// ═══════════════════════════════════════
+// MAPPA — Leaflet (online) + Canvas (offline)
+// ═══════════════════════════════════════
+let leafletMap = null;
+let leafletRouteLayer = null;
+let currentMapMode = 'auto'; // 'leaflet' | 'canvas' | 'auto'
+
+function isOnline() { return navigator.onLine; }
+
+function setMapMode(mode) {
+  currentMapMode = mode;
+  document.getElementById('btnLeaflet').classList.toggle('active', mode === 'leaflet');
+  document.getElementById('btnCanvas').classList.toggle('active', mode === 'canvas');
+  const routes = S.routes;
+  const dates = Object.keys(routes).sort().reverse();
+  const active = document.querySelector('.map-day-btn.active[data-date]');
+  const date = active ? active.dataset.date : dates[0];
+  if (date && routes[date]) drawRoute(date, routes[date]);
+}
+
+function renderMapPage() {
+  const routes = S.routes;
+  const dates = Object.keys(routes).sort().reverse();
+  const selector = document.getElementById('mapSelector');
+
+  if (!dates.length) {
+    document.getElementById('mapEmpty').style.display = 'flex';
+    document.getElementById('leafletMapWrap').style.display = 'none';
+    document.getElementById('mapCanvasWrap').style.display = 'none';
+    document.getElementById('mapInfo').style.display = 'none';
+    document.getElementById('mapLegend').style.display = 'none';
+    selector.innerHTML = '';
+    return;
+  }
+
+  const MON = ['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
+  selector.innerHTML = dates.map((d, i) => {
+    const dt = new Date(d + 'T12:00:00');
+    return `<button class="map-day-btn${i===0?' active':''}" data-date="${d}" onclick="selectMapDay('${d}',this)">${dt.getDate()} ${MON[dt.getMonth()]}</button>`;
+  }).join('');
+
+  // Show mode toggle
+  document.getElementById('mapModeToggle').style.display = 'flex';
+
+  drawRoute(dates[0], routes[dates[0]]);
+}
+
+function selectMapDay(date, btn) {
+  document.querySelectorAll('.map-day-btn[data-date]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const routes = S.routes;
+  if (routes[date]) drawRoute(date, routes[date]);
+}
+
+function drawRoute(date, dayRoutes) {
+  document.getElementById('mapEmpty').style.display = 'none';
+  document.getElementById('mapInfo').style.display = 'grid';
+  document.getElementById('mapLegend').style.display = 'flex';
+
+  // Collect all points
+  let allPoints = [];
+  let totalKm = 0;
+  dayRoutes.forEach(r => { allPoints = allPoints.concat(r.points); totalKm += r.km; });
+
+  // Update stats
+  document.getElementById('miKm').textContent = totalKm.toFixed(1);
+  document.getElementById('miPts').textContent = allPoints.length;
+  if (allPoints.length >= 2) {
+    const dur = (allPoints[allPoints.length-1].ts - allPoints[0].ts) / 60000;
+    const hh = Math.floor(dur/60), mm = Math.round(dur%60);
+    document.getElementById('miDur').textContent = `${hh}h${String(mm).padStart(2,'0')}`;
+  }
+
+  const useLeaflet = (currentMapMode === 'leaflet' || currentMapMode === 'auto') && isOnline() && typeof L !== 'undefined';
+
+  if (useLeaflet) {
+    drawLeafletRoute(dayRoutes, allPoints);
+  } else {
+    drawCanvasRoute(dayRoutes, allPoints);
+  }
+
+  // Update mode label
+  const lbl = document.getElementById('mapModeLabel');
+  if (lbl) lbl.textContent = useLeaflet ? '🌐 OpenStreetMap' : '📐 Offline';
+}
+
+function drawLeafletRoute(dayRoutes, allPoints) {
+  document.getElementById('leafletMapWrap').style.display = 'block';
+  document.getElementById('mapCanvasWrap').style.display = 'none';
+
+  // Init or reuse map
+  if (!leafletMap) {
+    leafletMap = L.map('leafletMap', {
+      zoomControl: true,
+      attributionControl: true
+    });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      maxZoom: 19,
+      className: 'osm-tiles'
+    }).addTo(leafletMap);
+  }
+
+  // Remove old route layer
+  if (leafletRouteLayer) {
+    leafletMap.removeLayer(leafletRouteLayer);
+    leafletRouteLayer = null;
+  }
+
+  if (allPoints.length < 2) return;
+
+  const layerGroup = L.layerGroup();
+
+  // Draw each segment with speed colors
+  dayRoutes.forEach(route => {
+    const pts = route.points;
+    if (pts.length < 2) return;
+
+    // Group consecutive points by speed range for colored segments
+    for (let i = 1; i < pts.length; i++) {
+      const spd = pts[i].speed || 0;
+      let color;
+      if (spd < 50) color = '#2dd4a0';
+      else if (spd < 90) color = '#f5a623';
+      else color = '#5b9cf6';
+
+      L.polyline([
+        [pts[i-1].lat, pts[i-1].lng],
+        [pts[i].lat, pts[i].lng]
+      ], { color, weight: 5, opacity: 0.85, lineCap: 'round', lineJoin: 'round' }).addTo(layerGroup);
+    }
+  });
+
+  // Start marker
+  const first = allPoints[0];
+  const startIcon = L.divIcon({
+    html: `<div style="width:14px;height:14px;border-radius:50%;background:#2dd4a0;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.5)"></div>`,
+    className: '', iconAnchor: [7,7]
+  });
+  L.marker([first.lat, first.lng], {icon: startIcon})
+    .bindPopup('🟢 Partenza').addTo(layerGroup);
+
+  // End marker
+  const last = allPoints[allPoints.length-1];
+  const endIcon = L.divIcon({
+    html: `<div style="width:14px;height:14px;border-radius:50%;background:#f05a6e;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.5)"></div>`,
+    className: '', iconAnchor: [7,7]
+  });
+  L.marker([last.lat, last.lng], {icon: endIcon})
+    .bindPopup('🔴 Arrivo').addTo(layerGroup);
+
+  leafletRouteLayer = layerGroup;
+  layerGroup.addTo(leafletMap);
+
+  // Fit bounds with padding
+  const lats = allPoints.map(p => p.lat);
+  const lngs = allPoints.map(p => p.lng);
+  const bounds = L.latLngBounds(
+    [Math.min(...lats) - 0.002, Math.min(...lngs) - 0.002],
+    [Math.max(...lats) + 0.002, Math.max(...lngs) + 0.002]
+  );
+  leafletMap.fitBounds(bounds, {padding: [20, 20]});
+
+  // Invalidate size after display
+  setTimeout(() => leafletMap.invalidateSize(), 100);
+}
+
+function drawCanvasRoute(dayRoutes, allPoints) {
+  document.getElementById('leafletMapWrap').style.display = 'none';
+  document.getElementById('mapCanvasWrap').style.display = 'block';
+
+  const canvas = document.getElementById('mapCanvas');
+  const dpr = window.devicePixelRatio || 1;
+  const W = canvas.offsetWidth;
+  const H = 320;
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
+  canvas.style.width = W + 'px';
+  canvas.style.height = H + 'px';
+
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, W, H);
+
+  ctx.fillStyle = '#161b24';
+  ctx.fillRect(0, 0, W, H);
+
+  if (allPoints.length < 2) {
+    ctx.fillStyle = '#7a8aaa';
+    ctx.font = '13px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Punti insufficienti per il percorso', W/2, H/2);
+    return;
+  }
+
+  const lats = allPoints.map(p => p.lat);
+  const lngs = allPoints.map(p => p.lng);
+  const minLat = Math.min(...lats), maxLat = Math.max(...lats);
+  const minLng = Math.min(...lngs), maxLng = Math.max(...lngs);
+
+  const PAD = 36;
+  const scaleX = (W - PAD*2) / (maxLng - minLng || 0.001);
+  const scaleY = (H - PAD*2) / (maxLat - minLat || 0.001);
+  const scale = Math.min(scaleX, scaleY);
+
+  const toX = lng => PAD + (lng - minLng) * scale + ((W - PAD*2) - (maxLng - minLng) * scale) / 2;
+  const toY = lat => H - PAD - (lat - minLat) * scale - ((H - PAD*2) - (maxLat - minLat) * scale) / 2;
+
+  // Grid
+  ctx.strokeStyle = 'rgba(42,51,71,0.6)';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = PAD + (H - PAD*2) * i / 4;
+    ctx.beginPath(); ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y); ctx.stroke();
+    const x = PAD + (W - PAD*2) * i / 4;
+    ctx.beginPath(); ctx.moveTo(x, PAD); ctx.lineTo(x, H - PAD); ctx.stroke();
+  }
+
+  dayRoutes.forEach(route => {
+    const pts = route.points;
+    if (pts.length < 2) return;
+    for (let i = 1; i < pts.length; i++) {
+      const spd = pts[i].speed || 0;
+      let color = spd < 50 ? '#2dd4a0' : spd < 90 ? '#f5a623' : '#5b9cf6';
+      ctx.beginPath();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 3;
+      ctx.lineCap = 'round';
+      ctx.moveTo(toX(pts[i-1].lng), toY(pts[i-1].lat));
+      ctx.lineTo(toX(pts[i].lng), toY(pts[i].lat));
+      ctx.stroke();
+    }
+    const first = pts[0];
+    ctx.beginPath(); ctx.arc(toX(first.lng), toY(first.lat), 7, 0, Math.PI*2);
+    ctx.fillStyle = '#2dd4a0'; ctx.fill();
+    ctx.strokeStyle = '#0d0f14'; ctx.lineWidth = 2; ctx.stroke();
+
+    const last = pts[pts.length-1];
+    ctx.beginPath(); ctx.arc(toX(last.lng), toY(last.lat), 7, 0, Math.PI*2);
+    ctx.fillStyle = '#f05a6e'; ctx.fill();
+    ctx.strokeStyle = '#0d0f14'; ctx.lineWidth = 2; ctx.stroke();
+  });
+}
+
+// ═══════════════════════════════════════
+// CAMERA + OCR
+// ═══════════════════════════════════════
+function triggerCapture(mode) {
+  S.pendingMode = mode;
+  document.getElementById('cameraInput').click();
+}
+
+async function processImage(file) {
+  showProc(true, 'Analisi immagine...', 'Lettura OCR del cronotachigrafo');
+  try {
+    const url = URL.createObjectURL(file);
+    const result = await Tesseract.recognize(url, 'eng', {
+      logger: m => { if (m.status==='recognizing text') updateProc(`Analisi: ${Math.round(m.progress*100)}%`, 'Ricerca orari sul display'); }
+    });
+    URL.revokeObjectURL(url);
+    showProc(false);
+    openOcrModal(extractTime(result.data.text));
+  } catch(e) {
+    showProc(false); openOcrModal(null); toast('⚠️ OCR non riuscito — inserisci manualmente');
+  }
+}
+
+function extractTime(text) {
+  const re = /\b([0-2]?[0-9])[:\.\-hH]([0-5][0-9])\b/g;
+  const now = new Date(); let best = null, bestScore = Infinity, m;
+  while ((m = re.exec(text)) !== null) {
+    const h = parseInt(m[1]), mm = parseInt(m[2]);
+    if (h > 23 || mm > 59) continue;
+    const score = Math.abs(h-now.getHours())*60 + Math.abs(mm-now.getMinutes());
+    if (score < bestScore) { bestScore = score; best = {h, mm}; }
+  }
+  if (!best) return `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+  return `${String(best.h).padStart(2,'0')}:${String(best.mm).padStart(2,'0')}`;
+}
+
+// ═══════════════════════════════════════
+// MODALS
+// ═══════════════════════════════════════
+function openOcrModal(time) {
+  const isStart = S.pendingMode === 'start';
+  document.getElementById('ocrTitle').textContent = isStart ? 'INIZIO TURNO' : 'FINE TURNO';
+  document.getElementById('ocrTitle').className = 'modal-title ' + (isStart ? 'green' : 'red');
+  document.getElementById('ocrDetected').textContent = time || '--:--';
+  const n = new Date();
+  document.getElementById('ocrTimeInput').value = time || `${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}`;
+  document.getElementById('ocrConfirmBtn').className = 'btn btn-ok ' + (isStart ? '' : 'red');
+  document.getElementById('ocrKmLabel').textContent = isStart ? 'KM INIZIO TACHIGRAFO (opzionale)' : 'KM FINE TACHIGRAFO (opzionale)';
+  document.getElementById('ocrKmInput').placeholder = isStart ? 'es. 125430' : 'es. 125780';
+  document.getElementById('ocrKmInput').value = '';
+  openModal('modalOcr');
+}
+function confirmOcr() { const t = document.getElementById('ocrTimeInput').value; if (!t) return; closeModal('modalOcr'); applyTime(S.pendingMode, t); }
+
+function openManualSingle(mode) {
+  S.pendingMode = mode;
+  const isStart = mode === 'start';
+  document.getElementById('manualTitle').textContent = isStart ? 'INIZIO TURNO' : 'FINE TURNO';
+  document.getElementById('manualTitle').className = 'modal-title ' + (isStart ? 'green' : 'red');
+  document.getElementById('manualFieldLabel').textContent = isStart ? 'ORARIO DI INIZIO' : 'ORARIO DI FINE';
+  document.getElementById('manualConfirmBtn').className = 'btn btn-ok ' + (isStart ? '' : 'red');
+  document.getElementById('manualKmLabel').textContent = isStart ? 'KM INIZIO TACHIGRAFO (opzionale)' : 'KM FINE TACHIGRAFO (opzionale)';
+  document.getElementById('manualKmInput').placeholder = isStart ? 'es. 125430' : 'es. 125780';
+  document.getElementById('manualKmInput').value = '';
+  const n = new Date();
+  document.getElementById('manualTimeInput').value = `${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}`;
+  openModal('modalManual');
+}
+function confirmManual() { const t = document.getElementById('manualTimeInput').value; if (!t) return; closeModal('modalManual'); applyTime(S.pendingMode, t); }
+
+function openFullModal(dateStr) {
+  S.calendarDate = dateStr;
+  const d = new Date(dateStr+'T12:00:00');
+  const days = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
+  const mons = ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
+  document.getElementById('fullDateLabel').textContent = `${days[d.getDay()]} ${d.getDate()} ${mons[d.getMonth()]} ${d.getFullYear()}`;
+  document.getElementById('fullStart').value = '08:00';
+  document.getElementById('fullEnd').value = '16:00';
+  openModal('modalFull');
+}
+function confirmFull() {
+  const s = document.getElementById('fullStart').value;
+  const e = document.getElementById('fullEnd').value;
+  if (!s || !e) return;
+  closeModal('modalFull');
+  saveShift(s, e, S.calendarDate);
+  toast('✅ Turno salvato!');
+  renderCalendar(); renderHistory();
+  showDayDetail(S.calendarDate);
+}
+
+// ═══════════════════════════════════════
+// APPLY TIME
+// ═══════════════════════════════════════
+function applyTime(mode, time) {
+  // Leggi km dalla modale (OCR o manuale)
+  const kmVal = parseInt(document.getElementById('ocrKmInput')?.value || document.getElementById('manualKmInput')?.value || '0') || null;
+
+  if (mode === 'start') {
+    S.mode = 'started'; S.startTime = time; S.endTime = null;
+    S.endTs = null;
+    S.kmStart = kmVal; S.kmEnd = null;
+    S.semirimorchi = [];
+    S.driveTotalMins = 0; S.driveStartTs = Date.now();
+    S.dailyDriveMins = 0;  // azzera totale guida giornaliero a inizio turno
+    S.pauseActive = false; S.pauseStartTs = null;
+    S.pauseSequence = 0;
+    S.saveActive();
+    renderTurnoUI();
+    renderDriveTimer();
+    // Reset km inputs
+    if (document.getElementById('ocrKmInput')) document.getElementById('ocrKmInput').value = '';
+    if (document.getElementById('manualKmInput')) document.getElementById('manualKmInput').value = '';
+    // Auto-avvia GPS silenziosamente — aspetta segnale senza errori
+    if (navigator.geolocation && !S.gpsActive) {
+      startGpsSilent();
+    }
+    toast(`✅ Turno iniziato alle ${time}${kmVal ? ' — km ' + kmVal.toLocaleString() : ''}`);
+  } else {
+    const today = new Date().toISOString().split('T')[0];
+    S.kmEnd = kmVal;
+    saveShift(S.startTime, time, today, S.kmStart, S.kmEnd, S.semirimorchi);
+    if (S.gpsActive) stopGps();
+    clearInterval(S.driveInterval);
+    clearInterval(S.pauseInterval);
+    S.mode = 'ended'; S.endTime = time;
+    S.endTs = Date.now(); // timestamp per countdown riposo
+    S.driveStartTs = null; S.driveTotalMins = 0;
+    S.pauseActive = false;
+    S.saveActive();
+    // Reset km inputs
+    if (document.getElementById('ocrKmInput')) document.getElementById('ocrKmInput').value = '';
+    if (document.getElementById('manualKmInput')) document.getElementById('manualKmInput').value = '';
+    renderTurnoUI(); renderCalendar(); renderHistory();
+    startRestCountdown(); // avvia immediatamente il countdown riposo
+    const kmPercorsi = (S.kmStart && kmVal) ? ` — ${(kmVal - S.kmStart).toLocaleString()} km` : '';
+    toast(`🏁 Completato! ${formatDur(calcDur(S.startTime, time))}${kmPercorsi}`);
+    setTimeout(() => { S.mode='idle'; S.startTime=null; S.endTime=null; S.saveActive(); renderTurnoUI(); }, 5000);
+  }
+}
+
+// ═══════════════════════════════════════
+// COUNTDOWN RIPOSO — parte subito dopo fine turno
+// ═══════════════════════════════════════
+function startRestCountdown() {
+  clearInterval(S.restInterval);
+  if (!S.endTs) return;
+
+  // Mostra card riposo nella pagina TURNO
+  renderRestCountdownCard();
+
+  S.restInterval = setInterval(() => {
+    renderRestCountdownCard();
+    // Ferma dopo 15h (oltre 11h riposo completato con ampio margine)
+    if ((Date.now() - S.endTs) > 15 * 60 * 60 * 1000) {
+      clearInterval(S.restInterval);
+    }
+  }, 10000); // aggiorna ogni 10s
+}
+
+function renderRestCountdownCard() {
+  const card = document.getElementById('restCountdownCard');
+  if (!card || !S.endTs) return;
+
+  const elapsed = (Date.now() - S.endTs) / 60000; // minuti trascorsi dal fine turno
+  const minRidotto = 9 * 60;   // 540 min
+  const minRegolare = 11 * 60; // 660 min
+
+  const elH = Math.floor(elapsed / 60);
+  const elM = Math.floor(elapsed % 60);
+  const elS = Math.floor(((elapsed % 1) * 60));
+
+  let statusText, fillPct, fillColor, mancanoText;
+
+  if (elapsed >= minRegolare) {
+    statusText = '✅ RIPOSO REGOLARE (11h)';
+    fillPct = 100;
+    fillColor = 'var(--green)';
+    mancanoText = 'Puoi riprendere il servizio';
+  } else if (elapsed >= minRidotto) {
+    const mancano = minRegolare - elapsed;
+    const mh = Math.floor(mancano/60), mm = Math.floor(mancano%60);
+    statusText = '🟡 RIPOSO RIDOTTO (9h) — in attesa 11h';
+    fillPct = Math.round((elapsed / minRegolare) * 100);
+    fillColor = 'var(--accent)';
+    mancanoText = `Mancano ${mh}h ${String(mm).padStart(2,'0')}m al riposo regolare`;
+  } else {
+    const mancano = minRidotto - elapsed;
+    const mh = Math.floor(mancano/60), mm = Math.floor(mancano%60);
+    statusText = '🔴 RIPOSO IN CORSO';
+    fillPct = Math.round((elapsed / minRidotto) * 100);
+    fillColor = 'var(--red)';
+    mancanoText = `Mancano ${mh}h ${String(mm).padStart(2,'0')}m al minimo 9h`;
+  }
+
+  card.style.display = 'block';
+  card.innerHTML = `
+    <div class="rest-countdown-title">😴 RIPOSO IN CORSO</div>
+    <div class="rest-countdown-val" style="color:${fillColor}">${String(elH).padStart(2,'0')}:${String(elM).padStart(2,'0')}:${String(elS).padStart(2,'0')}</div>
+    <div class="rest-countdown-bar">
+      <div class="rest-countdown-fill" style="width:${fillPct}%;background:${fillColor};"></div>
+    </div>
+    <div class="rest-countdown-sub" style="color:${fillColor};margin-top:6px;font-weight:600;">${statusText}</div>
+    <div class="rest-countdown-sub">${mancanoText}</div>
+  `;
+}
+
+// ═══════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════
+function saveShift(start, end, date, kmStart, kmEnd, semirimorchi) {
+  const arr = S.shifts;
+  const kmPercorsi = (kmStart && kmEnd) ? kmEnd - kmStart : null;
+  arr.unshift({
+    id: Date.now(), date, start, end,
+    duration: calcDur(start, end),
+    kmStart: kmStart || null,
+    kmEnd: kmEnd || null,
+    kmPercorsi: kmPercorsi,
+    semirimorchi: semirimorchi || []
+  });
+  S.save(arr);
+}
+function calcDur(start, end) {
+  if (!start || !end) return null;
+  const [sh, sm] = start.split(':').map(Number);
+  const [eh, em] = end.split(':').map(Number);
+  let m = (eh*60+em)-(sh*60+sm);
+  if (m < 0) m += 1440;
+  return { h: Math.floor(m/60), m: m%60, total: m };
+}
+function formatDur(d) { if (!d) return '—'; return `${d.h}h ${String(d.m).padStart(2,'0')}m`; }
+
+// ═══════════════════════════════════════
+// CALENDAR
+// ═══════════════════════════════════════
+const MONTHS = ['GENNAIO','FEBBRAIO','MARZO','APRILE','MAGGIO','GIUGNO','LUGLIO','AGOSTO','SETTEMBRE','OTTOBRE','NOVEMBRE','DICEMBRE'];
+
+function renderCalendar() {
+  const yr = S.calYear, mo = S.calMonth;
+  document.getElementById('calMonth').textContent = `${MONTHS[mo]} ${yr}`;
+  const worked = new Set(S.shifts.map(s => s.date));
+  const gpsRoutes = new Set(Object.keys(S.routes));
+  const today = new Date().toISOString().split('T')[0];
+  const daysInMonth = new Date(yr, mo+1, 0).getDate();
+  let dow = new Date(yr, mo, 1).getDay();
+  dow = dow === 0 ? 6 : dow - 1;
+  const prevDays = new Date(yr, mo, 0).getDate();
+  const grid = document.getElementById('calGrid');
+  grid.innerHTML = '';
+  for (let i = dow - 1; i >= 0; i--) { const d = prevDays-i; grid.appendChild(mkCell(d, fmtDate(yr,mo-1,d), true, worked, gpsRoutes, today)); }
+  for (let d = 1; d <= daysInMonth; d++) { grid.appendChild(mkCell(d, fmtDate(yr,mo,d), false, worked, gpsRoutes, today)); }
+  const total = dow + daysInMonth;
+  const rem = total%7===0 ? 0 : 7-(total%7);
+  for (let d = 1; d <= rem; d++) { grid.appendChild(mkCell(d, fmtDate(yr,mo+1,d), true, worked, gpsRoutes, today)); }
+  if (S.selectedDate) showDayDetail(S.selectedDate);
+}
+
+function fmtDate(y, m, d) { const dt = new Date(y,m,d); return `${dt.getFullYear()}-${String(dt.getMonth()+1).padStart(2,'0')}-${String(dt.getDate()).padStart(2,'0')}`; }
+
+function mkCell(num, ds, other, worked, gpsRoutes, today) {
+  const c = document.createElement('div');
+  c.className = 'cal-cell';
+  if (other) c.classList.add('other-month');
+  if (worked.has(ds)) c.classList.add('has-shift');
+  if (gpsRoutes.has(ds)) c.classList.add('has-gps');
+  if (ds === today) c.classList.add('today');
+  if (ds === S.selectedDate) c.classList.add('selected');
+  c.innerHTML = `<span class="cal-num">${num}</span><div class="cal-dot"></div>`;
+  c.addEventListener('click', () => { S.selectedDate = ds; document.querySelectorAll('.cal-cell.selected').forEach(x=>x.classList.remove('selected')); c.classList.add('selected'); showDayDetail(ds); });
+  return c;
+}
+
+function calPrev() { S.calMonth--; if(S.calMonth<0){S.calMonth=11;S.calYear--;} renderCalendar(); }
+function calNext() { S.calMonth++; if(S.calMonth>11){S.calMonth=0;S.calYear++;} renderCalendar(); }
+
+function showDayDetail(ds) {
+  const detail = document.getElementById('dayDetail');
+  detail.className = 'day-detail'; detail.style.display = 'block';
+  const shifts = S.shifts.filter(s => s.date === ds);
+  const routes = S.routes[ds];
+  const d = new Date(ds+'T12:00:00');
+  const days = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
+  const mons = ['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
+  let html = `<div class="day-detail-head">${days[d.getDay()]} ${d.getDate()} ${mons[d.getMonth()]} ${d.getFullYear()}</div>`;
+  if (!shifts.length) {
+    html += `<div class="day-no-shift">Nessun turno registrato</div>`;
+  } else {
+    shifts.forEach(s => {
+      html += `<div class="day-shift-row">
+        <div class="day-shift-times"><span style="color:var(--green)">${s.start||'--:--'}</span><span style="color:var(--text2);font-size:12px;"> → </span><span style="color:var(--red)">${s.end||'...'}</span></div>
+        ${s.duration ? `<div class="day-shift-dur">${formatDur(s.duration)}</div>` : ''}
+      </div>`;
+    });
+  }
+  if (routes) {
+    const totalKm = routes.reduce((a,r) => a+r.km, 0);
+    html += `<div style="margin-top:8px;padding:8px 12px;background:var(--blue-dim);border:1px solid var(--blue);border-radius:8px;font-family:var(--mono);font-size:12px;color:var(--blue);">📍 GPS: ${totalKm.toFixed(1)} km registrati — <span style="cursor:pointer;text-decoration:underline;" onclick="showPage('pageMappa','navMappa');renderMapPage();">Vedi mappa</span></div>`;
+  }
+  html += `<button class="day-add-btn" onclick="openFullModal('${ds}')">+ Aggiungi turno manualmente</button>`;
+  detail.innerHTML = html;
+  detail.scrollIntoView({ behavior:'smooth', block:'nearest' });
+}
+
+// ═══════════════════════════════════════
+// HISTORY
+// ═══════════════════════════════════════
+function renderHistory() {
+  const shifts = S.shifts;
+  const sevenAgo = new Date(); sevenAgo.setDate(sevenAgo.getDate()-7);
+  const week = shifts.filter(s => new Date(s.date+'T12:00:00') >= sevenAgo);
+  const totalMins = week.reduce((a,s) => a+(s.duration?.total||0), 0);
+  const avg = week.length ? Math.round(totalMins/week.length) : 0;
+  document.getElementById('summaryGrid').innerHTML = `
+    <div class="sum-card"><span class="s-val">${week.length}</span><span class="s-lbl">TURNI</span></div>
+    <div class="sum-card"><span class="s-val">${Math.floor(totalMins/60)}h${String(totalMins%60).padStart(2,'0')}</span><span class="s-lbl">ORE TOT</span></div>
+    <div class="sum-card"><span class="s-val">${Math.floor(avg/60)}h${String(avg%60).padStart(2,'0')}</span><span class="s-lbl">MEDIA/DÌ</span></div>`;
+  const list = document.getElementById('histList');
+  if (!shifts.length) { list.innerHTML = `<div class="empty-state"><span class="empty-ic">📋</span>Nessun turno ancora.</div>`; return; }
+  const MON = ['GEN','FEB','MAR','APR','MAG','GIU','LUG','AGO','SET','OTT','NOV','DIC'];
+  const routes = S.routes;
+  list.innerHTML = shifts.map(s => {
+    const d = new Date(s.date+'T12:00:00');
+    const hasGps = routes[s.date];
+    return `<div class="hist-item">
+      <div class="hist-date"><div class="hist-day">${d.getDate()}</div><div class="hist-mon">${MON[d.getMonth()]}</div></div>
+      <div class="hist-sep"></div>
+      <div class="hist-body">
+        <div class="hist-times"><span class="from">${s.start||'--:--'}</span><span style="color:var(--text2);font-size:12px;"> → </span><span class="to">${s.end||'...'}</span></div>
+        ${s.duration ? `<span class="hist-dur">${formatDur(s.duration)}</span>` : `<span class="hist-incomplete">In corso...</span>`}
+        ${hasGps ? `<span class="hist-gps-badge">📍 GPS</span>` : ''}
+      </div>
+      <button class="hist-del" onclick="deleteShift(${s.id})">🗑</button>
+    </div>`;
+  }).join('');
+}
+
+
+// ═══════════════════════════════════════════════════════
+// RIEPILOGO GIORNALIERO
+// Mostra: ore lavorate, ore rimanenti, pause ridotte,
+//         dettaglio pause eseguite oggi
+// ═══════════════════════════════════════════════════════
+function renderRiepilogo() {
+  const el = document.getElementById('repContent');
+  const today = new Date().toISOString().split('T')[0];
+
+  // Turno attivo o completato oggi
+  const todayShifts = S.shifts.filter(s => s.date === today);
+  const activeShift = S.mode === 'started';
+  const hasTurno = todayShifts.length > 0 || activeShift;
+
+  // Pause di oggi
+  const todayPauses = (S.pauses[today] || []);
+
+  if (!hasTurno && todayPauses.length === 0) {
+    el.innerHTML = '<div class="rep-empty">📋 Nessun turno attivo o completato oggi.<br>Avvia un turno nella scheda 🚛 Turno.</div>';
+    return;
+  }
+
+  // ─── Calcolo ore lavorate oggi ───
+  let workedMins = 0;
+  if (activeShift && S.startTime) {
+    const [sh, sm] = S.startTime.split(':').map(Number);
+    const now = new Date();
+    workedMins = (now.getHours()*60 + now.getMinutes()) - (sh*60+sm);
+    if (workedMins < 0) workedMins += 1440;
+  } else if (todayShifts.length > 0) {
+    workedMins = todayShifts.reduce((a,s) => a + (s.duration?.total||0), 0);
+  }
+
+  // Ore pause
+  const pauseMins = todayPauses.reduce((a,p) => a + (p.realMins||0), 0);
+  const netWorkMins = Math.max(0, workedMins - pauseMins);
+
+  // ─── Tolleranze CE 561/2006 ───
+  // Giornata normale: max 9h guida, estendibile a 10h (max 2 volte/settimana)
+  const NORMAL_MAX = 9 * 60;   // 540 min
+  const EXTENDED_MAX = 10 * 60; // 600 min
+
+  // Pause ridotte da 9h usate questa settimana (dal lunedì)
+  const now2 = new Date();
+  const dow = now2.getDay() === 0 ? 6 : now2.getDay() - 1;
+  const weekStart = new Date(now2);
+  weekStart.setDate(now2.getDate() - dow);
+  weekStart.setHours(0,0,0,0);
+
+  const weekShifts = S.shifts.filter(s => new Date(s.date+'T12:00:00') >= weekStart && s.date !== today);
+
+  // ─── Classifica ogni giorno della settimana ───────────────────
+  // Per ogni turno, calcola le ore NETTE (lorde - pause) e il tipo di riposo
+  // Riposo ridotto = riposo 9h ininterrotte dopo turno → max 3/settimana
+  // Riposo frazionato = pausa ≥3h durante + riposo ≥9h dopo = equivalente REGOLARE
+  //                     → NON consuma il contatore pause ridotte
+  const weekShiftDetails = weekShifts.map(s => {
+    const grossMins = s.duration?.total || 0;
+    // Cerca le pause di quel giorno
+    const dayPauses = (S.pauses[s.date] || []);
+    const dayPauseMins = dayPauses.reduce((a,p) => a + (p.realMins||0), 0);
+    const netMins = Math.max(0, grossMins - dayPauseMins);
+    // Riposo frazionato: aveva una pausa ≥ 180min (3h) durante il turno
+    const hasFractionalRest = dayPauses.some(p => (p.realMins||0) >= 180);
+    // Riposo ridotto: ore nette > 9h E nessun riposo frazionato
+    const isReducedRest = netMins > (9 * 60) && !hasFractionalRest;
+    return { ...s, netMins, hasFractionalRest, isReducedRest };
+  });
+
+  // Conta solo i giorni con riposo effettivamente RIDOTTO (non frazionato)
+  const extendedUsed = weekShiftDetails.filter(s => s.isReducedRest).length;
+  const extendedAvailable = Math.max(0, 2 - extendedUsed);
+
+  // Riposo frazionato oggi?
+  const todayLongPause = todayPauses.some(p => (p.realMins||0) >= 180);
+  const todayIsFragmented = todayLongPause; // se ha pausa ≥3h → riposo frazionato → 15h consentite
+
+  // Limite odierno:
+  // - Riposo frazionato → 15h (equivale a riposo regolare)
+  // - Giornate estese disponibili → 10h guida (max 2/settimana)
+  // - Altrimenti → 9h
+  const FRAG_MAX = 15 * 60; // 900 min
+  const todayLimit = todayIsFragmented ? FRAG_MAX : extendedAvailable > 0 ? EXTENDED_MAX : NORMAL_MAX;
+  const limitLabel = todayIsFragmented ? '15h (riposo frazionato)' : extendedAvailable > 0 ? '10h (estesa)' : '9h (normale)';
+  const remainMins = Math.max(0, todayLimit - netWorkMins);
+  const remainH = Math.floor(remainMins / 60);
+  const remainM = remainMins % 60;
+  const workedH = Math.floor(netWorkMins / 60);
+  const workedM = netWorkMins % 60;
+
+  const pctWorked = Math.min(100, (netWorkMins / todayLimit) * 100);
+  const fillColor = pctWorked >= 100 ? 'var(--red)' : pctWorked >= 85 ? 'var(--accent)' : 'var(--green)';
+  const remainColor = remainMins === 0 ? 'red' : remainMins < 60 ? 'orange' : 'green';
+
+  // ─── Verifica pause valide ───
+  const validPauses = todayPauses.filter(p => p.type === 'p45' || p.type === 'p30' || p.type === 'p15');
+  const has15 = todayPauses.some(p => p.type === 'p15');
+  const has30 = todayPauses.some(p => p.type === 'p30');
+  const has45 = todayPauses.some(p => p.type === 'p45');
+  const cycleComplete = has45 || (has15 && has30);
+  const driveOk = cycleComplete ? '✅ Pausa completata' : has15 ? '⚠️ Manca 2ª parte (30min)' : '❌ Nessuna pausa valida';
+  const driveOkColor = cycleComplete ? 'green' : has15 ? 'orange' : 'red';
+
+  // ─── Build HTML ───
+  let html = '';
+
+  // CARD 1: Ore lavorate / rimanenti
+  html += `
+  <div class="rep-section">
+    <div class="rep-section-title">⏱️ ORE OGGI</div>
+    <div class="rep-big">
+      <div class="rep-big-card">
+        <div class="rep-big-val">${String(workedH).padStart(2,'0')}:${String(workedM).padStart(2,'0')}</div>
+        <div class="rep-big-lbl">Lavorate</div>
+      </div>
+      <div class="rep-big-card">
+        <div class="rep-big-val" style="color:var(--${remainColor === 'green' ? 'green' : remainColor === 'orange' ? 'accent' : 'red'})">${String(remainH).padStart(2,'0')}:${String(remainM).padStart(2,'0')}</div>
+        <div class="rep-big-lbl">Rimanenti</div>
+      </div>
+    </div>
+    <div class="rep-card">
+      <div class="rep-row">
+        <span class="rep-row-label">Limite odierno</span>
+        <span class="rep-row-value">${limitLabel}</span>
+      </div>
+      <div class="rep-row">
+        <span class="rep-row-label">Pause ridotte disponibili</span>
+        <span class="rep-row-value ${extendedAvailable > 0 ? 'green' : 'red'}">${extendedAvailable}/2</span>
+      </div>
+      <div class="rep-row" style="border-bottom:none;flex-direction:column;align-items:flex-start;gap:6px;">
+        <span class="rep-row-label">Avanzamento</span>
+        <div class="rep-tolerance-bar" style="width:100%;">
+          <div class="rep-tolerance-fill" style="width:${pctWorked}%;background:${fillColor};"></div>
+        </div>
+        <span style="font-size:11px;color:var(--text2);">${Math.round(pctWorked)}% del limite giornaliero</span>
+      </div>
+    </div>
+  </div>`;
+
+  // CARD 2: Riposi settimana
+  const fragDays = weekShiftDetails.filter(s => s.hasFractionalRest).length;
+  html += `
+  <div class="rep-section">
+    <div class="rep-section-title">📅 RIPOSI SETTIMANA</div>
+    <div class="rep-card">
+      <div class="rep-row">
+        <span class="rep-row-label">Riposi ridotti (9h) usati</span>
+        <span class="rep-row-value ${extendedUsed >= 2 ? 'red' : extendedUsed >= 1 ? 'orange' : 'green'}">${extendedUsed} / 3</span>
+      </div>
+      <div class="rep-row">
+        <span class="rep-row-label">Riposi frazionati (3h+9h)</span>
+        <span class="rep-row-value green">${fragDays}${todayIsFragmented ? '+oggi' : ''} <span style="font-size:10px;color:var(--text2);">= regolari ✅</span></span>
+      </div>
+      <div class="rep-row" style="border-bottom:none;">
+        <span class="rep-row-label">Stato pause guida oggi</span>
+        <span class="rep-row-value ${driveOkColor}">${driveOk}</span>
+      </div>
+    </div>
+  </div>`;
+
+  // CARD 3: Dettaglio pause di oggi
+  html += `
+  <div class="rep-section">
+    <div class="rep-section-title">⏸️ PAUSE ESEGUITE OGGI</div>`;
+
+  if (todayPauses.length === 0) {
+    html += '<div class="rep-card"><div style="color:var(--text2);font-size:13px;text-align:center;padding:8px 0;">Nessuna pausa registrata oggi</div></div>';
+  } else {
+    html += '<div class="rep-card">';
+    todayPauses.forEach(p => {
+      const icon = p.type === 'p45' ? '✅' : p.type === 'p30' ? '✅' : p.type === 'p15' ? '⏳' : '⚠️';
+      const label = p.label || (p.type === 'p45' ? 'Pausa intera' : p.type === 'p30' ? '2ª parte 30min' : p.type === 'p15' ? '1ª parte 15min' : 'Pausa libera');
+      html += `
+      <div class="rep-pause-item">
+        <span class="rep-pause-badge ${p.type}">${p.type === 'p45' ? '45' : p.type === 'p30' ? '30' : p.type === 'p15' ? '15' : p.realMins} MIN</span>
+        <div class="rep-pause-info">
+          <div class="rep-pause-label">${icon} ${label}</div>
+          <div class="rep-pause-time">Ore ${p.time || '--:--'}</div>
+        </div>
+        <span class="rep-pause-mins">${p.realMins}min</span>
+      </div>`;
+    });
+
+    // Totale pause
+    html += `
+      <div style="padding-top:10px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:12px;color:var(--text2);font-weight:600;">TOTALE PAUSE</span>
+        <span style="font-family:var(--mono);font-size:14px;font-weight:700;color:var(--text);">${pauseMins}min</span>
+      </div>`;
+    html += '</div>';
+  }
+  html += '</div>';
+
+  // CARD 4: Riepilogo turni oggi (se ci sono)
+  if (todayShifts.length > 0) {
+    html += `
+  <div class="rep-section">
+    <div class="rep-section-title">🚛 TURNI DI OGGI</div>
+    <div class="rep-card">`;
+    todayShifts.forEach(s => {
+      const d = s.duration;
+      const kmP = s.kmPercorsi;
+      html += `
+      <div class="rep-row">
+        <span class="rep-row-label">${s.start} → ${s.end || '...'}</span>
+        <span class="rep-row-value">${d ? d.h+'h '+String(d.m).padStart(2,'0')+'m' : '—'}</span>
+      </div>`;
+      if (s.kmStart || s.kmEnd) {
+        html += `
+      <div class="rep-row" style="border-bottom:none;">
+        <span class="rep-row-label">Km tachigrafo</span>
+        <span class="rep-row-value">${s.kmStart||'—'} → ${s.kmEnd||'—'}${kmP ? ' <strong>('+kmP.toLocaleString()+' km)</strong>' : ''}</span>
+      </div>`;
+      }
+    });
+    html += '</div></div>';
+  }
+
+  // CARD 5: Semirimorchi di oggi (da turno attivo o ultimo turno salvato)
+  let allSemi = S.semirimorchi || [];
+  if (!allSemi.length && todayShifts.length > 0) {
+    allSemi = todayShifts[0].semirimorchi || [];
+  }
+  if (allSemi.length > 0) {
+    html += `
+  <div class="rep-section">
+    <div class="rep-section-title">🚛 SEMIRIMORCHI OGGI</div>
+    <div class="rep-card">`;
+    allSemi.forEach((s, i) => {
+      html += `
+      <div class="rep-row" ${i === allSemi.length-1 ? 'style="border-bottom:none;"' : ''}>
+        <span style="font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:2px;background:var(--surface2);padding:3px 8px;border-radius:5px;">${s.targa}</span>
+        <span class="rep-row-value">${i === allSemi.length-1 ? '🟢 Attuale' : '🔄 Ore '+s.ora}</span>
+      </div>`;
+    });
+    html += '</div></div>';
+  }
+
+  // CARD 6: Riposo frazionato — avviso se pausa ≥3h durante turno
+  const longPauses = todayPauses.filter(p => (p.realMins||0) >= 180);
+  if (longPauses.length > 0) {
+    const hasRestAfter = false; // semplificato — da implementare completamente
+    html += `
+  <div class="rep-section">
+    <div class="rep-section-title">😴 RIPOSO FRAZIONATO</div>
+    <div class="rep-card">
+      <div class="rep-row" style="border-bottom:none;">
+        <span class="rep-row-label">Pausa ≥3h rilevata (${longPauses[0].realMins}min)</span>
+        <span class="rep-row-value green">Prima parte ✅</span>
+      </div>
+      <div style="padding:8px 0 4px;font-size:12px;color:var(--text2);">
+        Hai effettuato una pausa di riposo ≥3h. Se il riposo finale sarà ≥9h, il giorno conta come <strong>riposo frazionato</strong> — NON ridotto. Non consuma le 3 pause ridotte settimanali.
+      </div>
+    </div>
+  </div>`;
+  }
+
+  el.innerHTML = html;
+}
+
+
+// ═══════════════════════════════════════
+// SEMIRIMORCHIO
+// ═══════════════════════════════════════
+function openAddSemi() {
+  if (S.mode !== 'started') { toast('⚠️ Avvia prima un turno!'); return; }
+  document.getElementById('semiTargaInput').value = '';
+  const now = new Date();
+  document.getElementById('semiOraInput').value = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+  openModal('modalSemi');
+}
+
+function triggerTargaCapture() {
+  closeModal('modalSemi');
+  document.getElementById('targaInput').click();
+}
+
+document.getElementById('targaInput')?.addEventListener('change', async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  showProc(true, 'Lettura targa...', 'OCR sulla targa del semirimorchio');
+  try {
+    const url = URL.createObjectURL(file);
+    const result = await Tesseract.recognize(url, 'ita+eng', {
+      logger: m => { if (m.status === 'recognizing text') updateProc(`Analisi: ${Math.round(m.progress*100)}%`, ''); }
+    });
+    URL.revokeObjectURL(url);
+    showProc(false);
+    // Extract plate-like pattern
+    const text = result.data.text.toUpperCase().replace(/[^A-Z0-9]/g, '');
+    const plateMatch = text.match(/[A-Z]{2}[0-9]{3}[A-Z]{2}/);
+    const plate = plateMatch ? plateMatch[0] : text.substring(0, 10);
+    document.getElementById('semiTargaInput').value = plate;
+    openModal('modalSemi');
+    toast(plate ? `📷 Targa rilevata: ${plate}` : '⚠️ Targa non rilevata — inserisci manualmente');
+  } catch(e) {
+    showProc(false);
+    openModal('modalSemi');
+    toast('⚠️ OCR fallito — inserisci manualmente');
+  }
+  e.target.value = '';
+});
+
+function confirmSemi() {
+  const targa = document.getElementById('semiTargaInput').value.trim().toUpperCase();
+  if (!targa) { toast('⚠️ Inserisci la targa!'); return; }
+  const ora = document.getElementById('semiOraInput').value || new Date().toTimeString().slice(0,5);
+  S.semirimorchi.push({ targa, ora, ts: Date.now() });
+  S.saveActive();
+  closeModal('modalSemi');
+  renderSemiList();
+  toast(`✅ Semirimorchio ${targa} aggiunto`);
+}
+
+function renderSemiList() {
+  const card = document.getElementById('semiCard');
+  const list = document.getElementById('semiList');
+  if (!list) return;
+
+  if (!S.semirimorchi || S.semirimorchi.length === 0) {
+    if (S.mode === 'started') card.style.display = 'block';
+    list.innerHTML = '<div style="color:var(--text2);font-size:13px;padding:4px 0;">Nessun semirimorchio agganciato</div>';
+    return;
+  }
+
+  card.style.display = 'block';
+  list.innerHTML = S.semirimorchi.map((s, i) => `
+    <div class="semi-item">
+      <span class="semi-targa">${s.targa}</span>
+      <div class="semi-info">
+        <div style="font-size:12px;font-weight:600;color:var(--text);">Aggancio ore ${s.ora}</div>
+        ${i < S.semirimorchi.length-1 ? '<div class="semi-time" style="color:var(--accent);">Cambiato</div>' : '<div class="semi-time" style="color:var(--green);">Attuale</div>'}
+      </div>
+      <button class="semi-del" onclick="deleteSemi(${i})">🗑</button>
+    </div>
+  `).join('');
+}
+
+function deleteSemi(idx) {
+  S.semirimorchi.splice(idx, 1);
+  S.saveActive();
+  renderSemiList();
+}
+
+// ═══════════════════════════════════════
+// KM CARD — aggiorna card km nella pagina turno
+// ═══════════════════════════════════════
+function renderKmCard() {
+  const card = document.getElementById('kmCard');
+  if (!card) return;
+
+  const kmStart = S.kmStart;
+  const kmEnd = S.kmEnd;
+  const kmGps = S.gpsTotalKm || 0;
+
+  if (!kmStart && !kmEnd && kmGps < 0.1) { card.style.display = 'none'; return; }
+
+  card.style.display = 'block';
+  document.getElementById('kmStartDisp').textContent = kmStart ? kmStart.toLocaleString() : '—';
+  document.getElementById('kmEndDisp').textContent = kmEnd ? kmEnd.toLocaleString() : '—';
+
+  const kmTacho = (kmStart && kmEnd) ? kmEnd - kmStart : null;
+  document.getElementById('kmTachoDisp').textContent = kmTacho !== null ? kmTacho.toLocaleString() : '—';
+  document.getElementById('kmGpsDisp').textContent = kmGps > 0 ? kmGps.toFixed(1) : '—';
+
+  // Confronto tacho vs GPS
+  const diffEl = document.getElementById('kmDiff');
+  if (kmTacho && kmGps > 0) {
+    const diff = Math.abs(kmTacho - kmGps);
+    const pct = Math.round((diff / kmTacho) * 100);
+    diffEl.style.display = 'block';
+    if (pct <= 5) {
+      diffEl.className = 'km-diff ok';
+      diffEl.textContent = `✅ Tacho e GPS concordano (±${diff.toFixed(1)} km, ${pct}%)`;
+    } else {
+      diffEl.className = 'km-diff warn';
+      diffEl.textContent = `⚠️ Differenza tacho/GPS: ${diff.toFixed(1)} km (${pct}%) — normale se GPS spento parte del tragitto`;
+    }
+  } else {
+    diffEl.style.display = 'none';
+  }
+}
+
+
+// ═══════════════════════════════════════
+// MAPPA INLINE nella card GPS
+// ═══════════════════════════════════════
+let inlineMapInstance = null;
+let inlinePolyline = null;
+let inlineMapOpen = false;
+
+function toggleInlineMap() {
+  const wrap = document.getElementById('inlineMapWrap');
+  const hint = document.getElementById('mapToggleHint');
+  inlineMapOpen = !inlineMapOpen;
+
+  if (inlineMapOpen) {
+    wrap.style.display = 'block';
+    hint.textContent = '▲ chiudi mappa';
+    // Piccolo delay per assicurarsi che il div sia visibile prima di inizializzare Leaflet
+    setTimeout(() => renderInlineMap(), 50);
+  } else {
+    wrap.style.display = 'none';
+    hint.textContent = '▼ tocca per mappa';
+    if (inlineMapInstance) {
+      inlineMapInstance.remove();
+      inlineMapInstance = null;
+      inlinePolyline = null;
+    }
+  }
+}
+
+function renderInlineMap() {
+  const container = document.getElementById('inlineMapContainer');
+  if (!container) return;
+
+  // Rimuovi istanza precedente se esiste
+  if (inlineMapInstance) {
+    inlineMapInstance.remove();
+    inlineMapInstance = null;
+  }
+
+  const points = S.gpsPoints || [];
+
+  // Prova Leaflet online
+  if (typeof L !== 'undefined') {
+    try {
+      inlineMapInstance = L.map(container, {
+        zoomControl: true,
+        attributionControl: false,
+        dragging: true,
+        tap: true
+      });
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18
+      }).addTo(inlineMapInstance);
+
+      if (points.length >= 2) {
+        const latlngs = points.map(p => [p.lat, p.lng]);
+        inlinePolyline = L.polyline(latlngs, { color: '#2dd4a0', weight: 3, opacity: 0.9 }).addTo(inlineMapInstance);
+        inlineMapInstance.fitBounds(inlinePolyline.getBounds(), { padding: [20, 20] });
+
+        // Marker inizio e posizione attuale
+        const startPt = points[0];
+        const lastPt = points[points.length - 1];
+        L.circleMarker([startPt.lat, startPt.lng], { radius: 6, color: '#2dd4a0', fillColor: '#2dd4a0', fillOpacity: 1 }).addTo(inlineMapInstance);
+        L.circleMarker([lastPt.lat, lastPt.lng], { radius: 7, color: '#ffffff', fillColor: '#3b82f6', fillOpacity: 1, weight: 2 }).addTo(inlineMapInstance);
+      } else if (points.length === 1) {
+        inlineMapInstance.setView([points[0].lat, points[0].lng], 14);
+        L.circleMarker([points[0].lat, points[0].lng], { radius: 7, color: '#2dd4a0', fillColor: '#2dd4a0', fillOpacity: 1 }).addTo(inlineMapInstance);
+      } else {
+        // Nessun punto ancora — centra su ultima posizione nota o Italia
+        const center = S.gpsLastPoint ? [S.gpsLastPoint.lat, S.gpsLastPoint.lng] : [45.4, 9.2];
+        inlineMapInstance.setView(center, 12);
+        container.insertAdjacentHTML('beforeend', '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.6);color:#fff;padding:8px 14px;border-radius:8px;font-size:12px;pointer-events:none;">📡 In attesa del primo punto GPS...</div>');
+      }
+
+      // Aggiorna la mappa in tempo reale se GPS attivo
+      if (S.gpsActive) startInlineMapUpdater();
+      return;
+    } catch(e) {
+      // Fallback canvas
+    }
+  }
+
+  // Fallback canvas se offline
+  renderInlineMapCanvas(container, points);
+}
+
+function renderInlineMapCanvas(container, points) {
+  container.innerHTML = '<canvas id="inlineCanvas" style="width:100%;height:100%;border-radius:10px;"></canvas>';
+  const canvas = document.getElementById('inlineCanvas');
+  canvas.width = container.clientWidth || 340;
+  canvas.height = 240;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#1a1f2e';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  if (points.length < 2) {
+    ctx.fillStyle = '#888';
+    ctx.font = '13px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(points.length === 0 ? '📡 In attesa segnale GPS...' : '📍 1 punto registrato', canvas.width/2, canvas.height/2);
+    return;
+  }
+
+  const lats = points.map(p => p.lat), lngs = points.map(p => p.lng);
+  const minLat = Math.min(...lats), maxLat = Math.max(...lats);
+  const minLng = Math.min(...lngs), maxLng = Math.max(...lngs);
+  const pad = 20;
+  const scaleX = (canvas.width - pad*2) / (maxLng - minLng || 0.001);
+  const scaleY = (canvas.height - pad*2) / (maxLat - minLat || 0.001);
+  const toX = lng => pad + (lng - minLng) * scaleX;
+  const toY = lat => canvas.height - pad - (lat - minLat) * scaleY;
+
+  ctx.beginPath();
+  ctx.strokeStyle = '#2dd4a0';
+  ctx.lineWidth = 2;
+  points.forEach((p, i) => i === 0 ? ctx.moveTo(toX(p.lng), toY(p.lat)) : ctx.lineTo(toX(p.lng), toY(p.lat)));
+  ctx.stroke();
+
+  // Start dot
+  ctx.beginPath(); ctx.arc(toX(points[0].lng), toY(points[0].lat), 5, 0, Math.PI*2);
+  ctx.fillStyle = '#2dd4a0'; ctx.fill();
+  // Current dot
+  const last = points[points.length-1];
+  ctx.beginPath(); ctx.arc(toX(last.lng), toY(last.lat), 6, 0, Math.PI*2);
+  ctx.fillStyle = '#3b82f6'; ctx.fill();
+}
+
+let inlineMapUpdater = null;
+function startInlineMapUpdater() {
+  clearInterval(inlineMapUpdater);
+  inlineMapUpdater = setInterval(() => {
+    if (!inlineMapOpen || !inlineMapInstance) { clearInterval(inlineMapUpdater); return; }
+    const points = S.gpsPoints || [];
+    if (points.length < 2) return;
+    // Aggiorna polyline
+    if (inlinePolyline) {
+      inlinePolyline.setLatLngs(points.map(p => [p.lat, p.lng]));
+    } else {
+      inlinePolyline = L.polyline(points.map(p => [p.lat, p.lng]), { color: '#2dd4a0', weight: 3 }).addTo(inlineMapInstance);
+    }
+    // Segui ultima posizione
+    const last = points[points.length-1];
+    inlineMapInstance.panTo([last.lat, last.lng]);
+  }, 15000); // aggiorna ogni 15s come il GPS
+}
+
+
+// ═══════════════════════════════════════
+// AVVISO PAUSA INCOMPLETA
+// Mostra banner arancione se 1ª parte fatta ma manca 2ª
+// ═══════════════════════════════════════
+function renderPauseWarning() {
+  const banner = document.getElementById('pauseWarningBanner');
+  if (!banner) return;
+  // Mostra solo se turno attivo, non in pausa, e sequenza = 15 (1ª parte fatta)
+  const show = S.mode === 'started' && !S.pauseActive && S.pauseSequence === 15;
+  banner.style.display = show ? 'flex' : 'none';
+}
+
+function deleteShift(id) {
+  if (!confirm('Eliminare questo turno?')) return;
+  S.save(S.shifts.filter(s => s.id !== id));
+  renderHistory(); renderCalendar(); toast('🗑 Turno eliminato');
+}
+
+// UTILS
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+function showProc(show, t, s) { document.getElementById('procOverlay').classList.toggle('show',show); if(t) document.getElementById('procText').textContent=t; if(s) document.getElementById('procSub').textContent=s; }
+function updateProc(t, s) { document.getElementById('procText').textContent=t; document.getElementById('procSub').textContent=s; }
+// ═══════════════════════════════════════
+// PAUSE SYSTEM
+// ═══════════════════════════════════════
+
+function startManualPause(mins) {
+  if (S.mode !== 'started') { toast('⚠️ Avvia prima un turno!'); return; }
+  S.pauseActive = true;
+  S.pauseStartTs = Date.now();
+  S.pauseManualMins = mins;
+  // Stop drive timer, accumulate drive time
+  if (S.driveStartTs) {
+    const sessionMins = (Date.now() - S.driveStartTs) / 60000;
+    S.driveTotalMins += sessionMins;
+    S.dailyDriveMins += sessionMins;  // accumula nel totale giornaliero
+    S.driveStartTs = null;
+  }
+  S.saveActive();
+  renderPausePage();
+  startPauseTimer();
+  const lbl = mins === 0 ? 'Pausa libera avviata' : `Pausa ${mins} min avviata`;
+  toast(`⏸️ ${lbl}`);
+  showPage('pagePause', 'navPause');
+}
+
+function stopPause() {
+  if (!S.pauseActive) return;
+  const elapsed = Math.round((Date.now() - S.pauseStartTs) / 60000);
+
+  // Analisi intelligente della pausa secondo CE 561/2006
+  const parts = analyzePause(elapsed, S.pauseSequence);
+
+  // Salva ogni parte separatamente
+  parts.forEach(part => {
+    if (part.mins > 0) savePauseRecord(part.mins, part.mins, part.type, part.label);
+  });
+
+  // Aggiorna la sequenza
+  const anyResets = parts.some(p => p.resetsSequence);
+  const anyFirst = parts.some(p => p.type === 'p15');
+  if (anyResets) {
+    S.pauseSequence = 0; // ciclo completo, si riparte da capo
+  } else if (anyFirst && S.pauseSequence === 0) {
+    S.pauseSequence = 15; // prima parte registrata
+  }
+
+  // Messaggio toast intelligente
+  const mainPart = parts.find(p => p.valid);
+  const msg = mainPart ? mainPart.label : `${elapsed}min (non valida)`;
+
+  S.pauseActive = false;
+  S.pauseStartTs = null;
+  S.pauseManualMins = 0;
+  S.driveStartTs = Date.now(); // riavvia timer guida
+  S.driveTotalMins = 0;        // azzera contatore sessione — nuova sessione post-pausa
+  // dailyDriveMins NON si azzera — tiene il totale giornaliero
+  S.saveActive();
+  clearInterval(S.pauseInterval);
+  renderPausePage();
+  renderDriveTimer();
+  toast(`✅ ${msg}`);
+  renderPauseWarning();
+  // Aggiorna riepilogo se visibile
+  if (document.getElementById('pageRiepilogo')?.classList.contains('active')) renderRiepilogo();
+}
+
+// ═══════════════════════════════════════
+// LOGICA PAUSE CE 561/2006
+// Ciclo: 15min (1ª parte) + 30min (2ª parte) = 45min totali
+// ═══════════════════════════════════════
+
+function analyzePause(mins, pauseSequence) {
+  // pauseSequence: 0=nessuna, 15=prima parte già fatta
+  
+  // Caso 1: Pausa intera 45+ min in una volta → sempre valida
+  if (mins >= 45) {
+    return [{
+      mins: mins,
+      type: 'p45',
+      label: `Pausa intera ${mins}min ✅`,
+      valid: true,
+      resetsSequence: true
+    }];
+  }
+
+  // Caso 2: Prima parte non ancora fatta (pauseSequence === 0)
+  if (pauseSequence === 0) {
+    if (mins >= 15) {
+      // Ha fatto abbastanza per la prima parte
+      // Registra 15 come prima parte, resto non conta per ora
+      const results = [{ mins: 15, type: 'p15', label: '1ª parte 15min', valid: true, resetsSequence: false }];
+      const resto = mins - 15;
+      if (resto > 0) {
+        results.push({ mins: resto, type: 'pfree', label: `+${resto}min (non conta per 2ª parte)`, valid: false, resetsSequence: false });
+      }
+      return results;
+    } else {
+      // Meno di 15 min → non valida
+      return [{ mins, type: 'pfree', label: `${mins}min (non valida — min. 15min)`, valid: false, resetsSequence: false }];
+    }
+  }
+
+  // Caso 3: Prima parte già fatta (pauseSequence === 15), serve 30min per completare
+  if (pauseSequence === 15) {
+    if (mins >= 30) {
+      // Seconda parte completata → ciclo finito!
+      const results = [{ mins: 30, type: 'p30', label: '2ª parte 30min ✅ — Ciclo completo!', valid: true, resetsSequence: true }];
+      const resto = mins - 30;
+      if (resto > 0) {
+        results.push({ mins: resto, type: 'pfree', label: `+${resto}min extra`, valid: false, resetsSequence: false });
+      }
+      return results;
+    } else {
+      // Seconda parte incompleta
+      return [{ mins, type: 'pfree', label: `${mins}min (2ª parte incompleta — servono 30min)`, valid: false, resetsSequence: false }];
+    }
+  }
+
+  return [{ mins, type: 'pfree', label: `${mins}min`, valid: false, resetsSequence: false }];
+}
+
+function classifyPause(mins) {
+  if (mins >= 45) return 'Pausa intera ✅';
+  if (mins >= 30) return '2ª parte 30min ✅';
+  if (mins >= 15) return '1ª parte 15min';
+  return `${mins}min`;
+}
+
+function classifyPauseType(mins) {
+  if (mins >= 45) return 'p45';
+  if (mins >= 30) return 'p30';
+  if (mins >= 15) return 'p15';
+  return 'pfree';
+}
+
+function savePauseRecord(effectiveMins, realMins, typeOverride, labelOverride) {
+  const today = new Date().toISOString().split('T')[0];
+  const pauses = S.pauses;
+  if (!pauses[today]) pauses[today] = [];
+  pauses[today].push({
+    ts: Date.now(),
+    realMins,
+    effectiveMins,
+    type: typeOverride || classifyPauseType(effectiveMins),
+    label: labelOverride || classifyPause(effectiveMins),
+    time: new Date().toTimeString().slice(0,5)
+  });
+  S.savePauses(pauses);
+}
+
+function openEditPause() {
+  const elapsed = S.pauseStartTs ? Math.round((Date.now() - S.pauseStartTs) / 60000) : 0;
+  document.getElementById('editPauseInput').value = elapsed;
+  openModal('modalEditPause');
+}
+
+function confirmEditPause() {
+  const mins = parseInt(document.getElementById('editPauseInput').value);
+  if (!mins || mins < 1) return;
+  closeModal('modalEditPause');
+  // Save with custom minutes and stop
+  const elapsed = Math.round((Date.now() - S.pauseStartTs) / 60000);
+  savePauseRecord(mins, elapsed);
+  S.pauseActive = false;
+  S.pauseStartTs = null;
+  S.pauseManualMins = 0;
+  S.driveStartTs = Date.now();
+  S.saveActive();
+  clearInterval(S.pauseInterval);
+  renderPausePage();
+  renderDriveTimer();
+  toast(`✅ Pausa salvata: ${mins} min effettivi (${classifyPause(mins)})`);
+}
+
+function startPauseTimer() {
+  clearInterval(S.pauseInterval);
+  S.pauseInterval = setInterval(() => {
+    if (!S.pauseActive || !S.pauseStartTs) return;
+    const elapsed = Math.round((Date.now() - S.pauseStartTs) / 60000);
+    const secs = Math.floor((Date.now() - S.pauseStartTs) / 1000) % 60;
+    const el = document.getElementById('pauseActiveTimer');
+    if (el) el.textContent = `${String(elapsed).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
+    // Update type label
+    const typeEl = document.getElementById('pauseActiveType');
+    if (typeEl) {
+      if (S.pauseManualMins > 0) {
+        const remaining = Math.max(0, S.pauseManualMins - elapsed);
+        typeEl.textContent = remaining > 0 ? `${remaining} min al termine` : `✅ ${classifyPause(S.pauseManualMins)}`;
+      } else {
+        typeEl.textContent = classifyPause(elapsed);
+      }
+    }
+  }, 1000);
+}
+
+function renderDriveTimer() {
+  clearInterval(S.driveInterval);
+  if (S.mode !== 'started' || S.pauseActive) return;
+  if (!S.driveStartTs) { S.driveStartTs = Date.now(); S.saveActive(); }
+
+  S.driveInterval = setInterval(() => {
+    // SEMPRE da Date.now() reale — funziona anche con schermo spento
+    const sessionMins = S.driveStartTs ? (Date.now() - S.driveStartTs) / 60000 : 0;
+    const totalMins = S.driveTotalMins + sessionMins;
+    const limitMins = 270; // 4h30m
+
+    const h = Math.floor(totalMins / 60);
+    const m = Math.floor(totalMins % 60);
+    const s = Math.floor(((totalMins % 1) * 60));
+    const el = document.getElementById('driveTimer');
+    if (el) el.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+
+    const pct = Math.min(100, (totalMins / limitMins) * 100);
+    const ring = document.getElementById('driveRing');
+    const bar = document.getElementById('driveBar');
+    const pctEl = document.getElementById('drivePct');
+    const statusEl = document.getElementById('driveStatus');
+    const timerEl = document.getElementById('driveTimer');
+
+    if (ring) ring.style.strokeDashoffset = 188.5 - (188.5 * pct / 100);
+    if (bar) bar.style.width = pct + '%';
+    if (pctEl) pctEl.textContent = Math.round(pct) + '%';
+
+    if (pct >= 100) {
+      if (ring) ring.style.stroke = 'var(--red)';
+      if (bar) bar.style.background = 'var(--red)';
+      if (timerEl) timerEl.style.color = 'var(--red)';
+      if (statusEl) statusEl.textContent = '🔴 PAUSA OBBLIGATORIA!';
+    } else if (pct >= 85) {
+      if (ring) ring.style.stroke = 'var(--accent)';
+      if (bar) bar.style.background = 'var(--accent)';
+      if (timerEl) timerEl.style.color = 'var(--accent)';
+      if (statusEl) statusEl.textContent = '⚠️ Pausa imminente';
+    } else {
+      if (ring) ring.style.stroke = 'var(--green)';
+      if (bar) bar.style.background = 'var(--green)';
+      if (timerEl) timerEl.style.color = 'var(--green)';
+      if (statusEl) statusEl.textContent = '✅ In regola';
+    }
+
+    // Aggiorna totale guida giornaliero
+    const sessionMins = S.driveStartTs ? (Date.now() - S.driveStartTs) / 60000 : 0;
+    const dailyTotal = S.dailyDriveMins + sessionMins;
+    const dailyLimitMins = 9 * 60; // 9h max guida giornaliera
+    const dailyH = Math.floor(dailyTotal / 60);
+    const dailyM = Math.floor(dailyTotal % 60);
+    const dailyPct = Math.min(100, (dailyTotal / dailyLimitMins) * 100);
+    const dailyEl = document.getElementById('dailyDriveTotal');
+    const dailyBarEl = document.getElementById('dailyDriveBar');
+    const dailyLblEl = document.getElementById('dailyDriveLbl');
+    if (dailyEl) dailyEl.textContent = `${String(dailyH).padStart(2,'0')}:${String(dailyM).padStart(2,'0')}`;
+    if (dailyBarEl) {
+      dailyBarEl.style.width = dailyPct + '%';
+      dailyBarEl.style.background = dailyPct >= 100 ? 'var(--red)' : dailyPct >= 85 ? 'var(--accent)' : 'var(--blue)';
+    }
+    if (dailyLblEl) dailyLblEl.textContent = dailyPct >= 100 ? '🔴 Limite 9h raggiunto!' : `${Math.round(dailyPct)}% di 9h`;
+  }, 1000);
+}
+
+function renderPausePage() {
+  // Show/hide pause active card
+  const activeWrap = document.getElementById('pauseActiveWrap');
+  const btnsWrap = document.getElementById('pauseBtnsWrap');
+  if (activeWrap) activeWrap.style.display = S.pauseActive ? 'block' : 'none';
+  if (btnsWrap) btnsWrap.style.display = S.pauseActive ? 'none' : 'block';
+
+  // If pause active, start its timer
+  if (S.pauseActive) startPauseTimer();
+  else renderDriveTimer();
+
+  // Weekly hours
+  renderWeekStats();
+
+  // Rest from last shift
+  renderRestTime();
+
+  // Aggiorna etichette pulsanti pausa in base alla sequenza
+  updatePauseButtonLabels();
+
+  // Today's pauses log
+  renderTodayPauses();
+}
+
+function updatePauseButtonLabels() {
+  const seq = S.pauseSequence || 0;
+  const lbl15 = document.getElementById('pauseBtn15Label');
+  const lbl30 = document.getElementById('pauseBtn30Label');
+  const lbl45 = document.getElementById('pauseBtn45Label');
+  const btn15 = document.getElementById('pauseBtn15');
+  const btn30 = document.getElementById('pauseBtn30');
+
+  if (!lbl15) return;
+
+  if (seq === 0) {
+    // Nessuna pausa fatta — suggerisci 15 come prima
+    lbl15.textContent = '▶ 1ª parte';
+    lbl30.textContent = '2ª parte';
+    lbl45.textContent = 'Intera';
+    btn15.style.borderColor = 'var(--accent)';
+    btn30.style.borderColor = '';
+  } else if (seq === 15) {
+    // Prima parte fatta — suggerisci 30 come seconda
+    lbl15.textContent = '✅ Fatta';
+    lbl30.textContent = '▶ 2ª parte';
+    lbl45.textContent = 'Intera';
+    btn15.style.borderColor = 'var(--green)';
+    btn30.style.borderColor = 'var(--accent)';
+  } else {
+    // Ciclo completo
+    lbl15.textContent = '1ª parte';
+    lbl30.textContent = '2ª parte';
+    lbl45.textContent = 'Intera';
+    btn15.style.borderColor = '';
+    btn30.style.borderColor = '';
+  }
+  renderPauseWarning();
+}
+
+function renderWeekStats() {
+  const shifts = S.shifts;
+  const now = new Date();
+  // Start of current week (Monday)
+  const dow = now.getDay() === 0 ? 6 : now.getDay() - 1;
+  const weekStart = new Date(now);
+  weekStart.setDate(now.getDate() - dow);
+  weekStart.setHours(0,0,0,0);
+
+  const weekShifts = shifts.filter(s => new Date(s.date+'T12:00:00') >= weekStart);
+  const totalMins = weekShifts.reduce((a,s) => a+(s.duration?.total||0), 0);
+  const days = new Set(weekShifts.map(s => s.date)).size;
+  const limitMins = 56 * 60;
+  const pct = Math.min(100, (totalMins / limitMins) * 100);
+
+  const th = Math.floor(totalMins/60), tm = totalMins%60;
+  const el1 = document.getElementById('weekTotalHours');
+  const el2 = document.getElementById('weekDriveHours');
+  const el3 = document.getElementById('weekDays');
+  const bar = document.getElementById('weekBar');
+  const pctEl = document.getElementById('weekLimitPct');
+
+  if (el1) el1.textContent = `${th}h ${String(tm).padStart(2,'0')}m`;
+  if (el2) el2.textContent = `${th}h ${String(tm).padStart(2,'0')}m`;
+  if (el3) el3.textContent = days;
+  if (bar) { bar.style.width = pct+'%'; bar.style.background = pct>=100?'var(--red)':pct>=85?'var(--accent)':'var(--green)'; }
+  if (pctEl) pctEl.textContent = Math.round(pct)+'%';
+}
+
+function renderRestTime() {
+  const shifts = S.shifts;
+  // Se turno attivo, non calcolare riposo
+  if (S.mode === 'started') {
+    const val = document.getElementById('restVal');
+    const lbl = document.getElementById('restLbl');
+    const icon = document.getElementById('restIcon');
+    if (val) val.textContent = 'Turno attivo';
+    if (lbl) lbl.textContent = 'Il riposo viene calcolato dopo la fine del turno';
+    if (icon) icon.textContent = '🚛';
+    return;
+  }
+  if (!shifts.length) return;
+  // Prendi l'ultimo turno CON orario fine valido (HH:MM)
+  const last = shifts.find(s => s.end && /^\d{1,2}:\d{2}$/.test(s.end) && s.date);
+  if (!last) return;
+
+  // Costruisci data fine turno in modo robusto
+  const [ey, em2, ed] = last.date.split('-').map(Number);
+  const [eh, em] = last.end.split(':').map(Number);
+  const lastEnd = new Date(ey, em2 - 1, ed, eh, em, 0, 0); // locale, no timezone issues
+  const now = new Date();
+
+  // Sanity check: lastEnd non può essere nel futuro
+  if (lastEnd > now) {
+    // Probabilmente turno notturno finito "ieri" — sottrai 1 giorno
+    lastEnd.setDate(lastEnd.getDate() - 1);
+  }
+
+  const restMins = (now - lastEnd) / 60000;
+  // Ulteriore sanity check: non più di 7 giorni
+  if (restMins < 0 || restMins > 7 * 24 * 60) {
+    const val = document.getElementById('restVal');
+    if (val) val.textContent = '— h';
+    return;
+  }
+  const restH = Math.floor(restMins / 60);
+  const restM = Math.floor(restMins % 60);
+  const minRest = 11 * 60; // 11 ore
+  const pct = Math.min(100, (restMins / minRest) * 100);
+
+  const val = document.getElementById('restVal');
+  const lbl = document.getElementById('restLbl');
+  const bar = document.getElementById('restBar');
+  const icon = document.getElementById('restIcon');
+
+  if (val) val.textContent = `${restH}h ${String(restM).padStart(2,'0')}m`;
+  if (pct >= 100) {
+    if (lbl) lbl.textContent = '✅ Riposo sufficiente (min. 11h)';
+    if (bar) { bar.style.width='100%'; bar.style.background='var(--green)'; }
+    if (icon) icon.textContent = '✅';
+  } else {
+    const mancano = Math.ceil(minRest - restMins);
+    const mh = Math.floor(mancano/60), mm = mancano%60;
+    if (lbl) lbl.textContent = `Mancano ${mh}h ${mm}m al riposo minimo`;
+    if (bar) { bar.style.width=pct+'%'; bar.style.background=pct<50?'var(--red)':'var(--accent)'; }
+    if (icon) icon.textContent = '⚠️';
+  }
+}
+
+function renderTodayPauses() {
+  const today = new Date().toISOString().split('T')[0];
+  const todayPauses = (S.pauses[today] || []);
+  const list = document.getElementById('todayPauseList');
+  if (!list) return;
+  if (!todayPauses.length) {
+    list.innerHTML = `<div style="text-align:center;color:var(--text2);font-size:13px;padding:16px 0;">Nessuna pausa registrata oggi</div>`;
+    return;
+  }
+  list.innerHTML = todayPauses.map(p => {
+    const badgeLabel = p.type==='p45'?'INTERA':p.type==='p30'?'2ª PARTE':p.type==='p15'?'1ª PARTE':'LIBERA';
+    const labelText = p.label || (p.type==='p45'?'Pausa intera ✅':p.type==='p30'?'2ª parte ✅':p.type==='p15'?'1ª parte':p.realMins+' min');
+    return `
+    <div class="pause-log-item">
+      <div class="pli-left">
+        <span class="pli-type ${p.type}">${badgeLabel}</span>
+        <div>
+          <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:1px;">${labelText}</div>
+          <span class="pli-time">${p.time}</span>
+        </div>
+      </div>
+      <span class="pli-dur">${p.realMins} min</span>
+    </div>`;
+  }).join('');
+}
+
+// GPS auto-pause detection — chiamato da onGpsSuccess
+function checkGpsAutoPause(speed) {
+  if (!S.mode === 'started') return;
+  const kmh = speed ? speed * 3.6 : 0;
+  // Se fermo (< 3 km/h) e non in pausa → registra potenziale pausa
+  // Gestita tramite GPS stop/start naturale del turno
+}
+
+
+// ═══════════════════════════════════════
+// SCHERMO SPENTO / APP IN BACKGROUND
+// Quando l'app torna visibile, riavvia i timer dal timestamp reale
+// ═══════════════════════════════════════
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    if (S.mode === 'started' && !S.pauseActive) {
+      renderDriveTimer();
+    }
+    if (S.pauseActive) {
+      startPauseTimer();
+    }
+  }
+});
+</script>
+</body>
+</html>
