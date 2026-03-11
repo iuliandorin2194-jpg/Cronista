@@ -432,7 +432,6 @@ input[type="file"]{display:none;}
 </header>
 
 <main>
-
 <!-- PAGE: TURNO -->
 <div class="page active" id="pageTurno">
   <div class="status-strip">
@@ -550,79 +549,6 @@ input[type="file"]{display:none;}
   </div>
 </div>
 
-<!-- PAGE: MAPPA -->
-<div class="page" id="pageMappa">
-  <div class="sec-head">
-    <div class="sec-title">PERCORSI GPS</div>
-    <div id="mapModeToggle" style="display:none;gap:4px;">
-      <button class="map-day-btn active" id="btnLeaflet" onclick="setMapMode('leaflet')">🗺️ Online</button>
-      <button class="map-day-btn" id="btnCanvas" onclick="setMapMode('canvas')">📐 Offline</button>
-    </div>
-  </div>
-  <div class="map-wrap">
-    <div class="map-selector" id="mapSelector"></div>
-    <div id="mapContainer">
-      <div class="map-empty" id="mapEmpty">📍 Nessun percorso registrato.<br>Attiva il GPS nella schermata Turno.</div>
-      <!-- Leaflet map (online) -->
-      <div id="leafletMapWrap" style="display:none;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;">
-        <div id="leafletMap"></div>
-      </div>
-      <!-- Canvas map (offline fallback) -->
-      <div class="map-canvas-wrap" id="mapCanvasWrap" style="display:none;">
-        <canvas id="mapCanvas"></canvas>
-      </div>
-    </div>
-    <div class="map-info" id="mapInfo" style="display:none;">
-      <div class="map-info-card"><div class="mv" id="miKm">0</div><div class="ml">KM TOT</div></div>
-      <div class="map-info-card"><div class="mv" id="miPts">0</div><div class="ml">PUNTI GPS</div></div>
-      <div class="map-info-card"><div class="mv" id="miDur">0h</div><div class="ml">DURATA</div></div>
-    </div>
-    <div class="map-legend" id="mapLegend" style="display:none;">
-      <div class="leg-item"><div class="leg-dot" style="background:var(--green)"></div>Partenza</div>
-      <div class="leg-item"><div class="leg-dot" style="background:var(--red)"></div>Arrivo</div>
-      <div class="leg-item"><div class="leg-dot" style="background:var(--blue)"></div>Percorso</div>
-      <div class="leg-item" id="mapModeLabel" style="margin-left:auto;font-size:10px;"></div>
-    </div>
-  </div>
-</div>
-
-<!-- PAGE: RIEPILOGO -->
-<div class="page" id="pageRiepilogo">
-  <div class="sec-head"><div class="sec-title">RIEPILOGO GIORNALIERO</div></div>
-  <div id="repContent" style="padding:0 0 8px;"></div>
-</div>
-
-<!-- PAGE: CALENDARIO -->
-<div class="page" id="pageCalendario">
-  <div class="sec-head"><div class="sec-title">CALENDARIO TURNI</div></div>
-  <div class="calendar-wrap">
-    <div class="cal-nav">
-      <button class="cal-nav-btn" onclick="calPrev()">&#8249;</button>
-      <div class="cal-month" id="calMonth"></div>
-      <button class="cal-nav-btn" onclick="calNext()">&#8250;</button>
-    </div>
-    <div class="cal-days-header">
-      <div class="cal-day-label">L</div><div class="cal-day-label">M</div><div class="cal-day-label">M</div>
-      <div class="cal-day-label">G</div><div class="cal-day-label">V</div>
-      <div class="cal-day-label weekend">S</div><div class="cal-day-label weekend">D</div>
-    </div>
-    <div class="cal-grid" id="calGrid"></div>
-    <div class="cal-legend">
-      <div class="legend-item"><div class="legend-box lb-worked"></div>Lavorato</div>
-      <div class="legend-item"><div class="legend-box lb-today"></div>Oggi</div>
-      <div class="legend-item"><div class="legend-box lb-gps"></div>GPS salvato</div>
-    </div>
-    <div id="dayDetail" style="display:none;"></div>
-  </div>
-</div>
-
-<!-- PAGE: STORICO -->
-<div class="page" id="pageStorico">
-  <div class="sec-head"><div class="sec-title">ULTIMI 7 GIORNI</div></div>
-  <div class="summary-grid" id="summaryGrid"></div>
-  <div class="sec-head" style="padding-top:4px;"><div class="sec-title">TUTTI I TURNI</div></div>
-  <div class="history-list" id="histList"></div>
-</div>
 
 <!-- PAGE: PAUSE -->
 <div class="page" id="pagePause">
@@ -753,6 +679,84 @@ input[type="file"]{display:none;}
     <div class="sec-title" style="margin-bottom:10px;">PAUSE OGGI</div>
     <div id="todayPauseList"></div>
   </div>
+
+<!-- PAGE: RIEPILOGO -->
+<div class="page" id="pageRiepilogo">
+  <div class="sec-head"><div class="sec-title">RIEPILOGO GIORNALIERO</div></div>
+  <div id="repContent" style="padding:0 0 8px;"></div>
+</div>
+
+
+<!-- PAGE: CALENDARIO -->
+<div class="page" id="pageCalendario">
+  <div class="sec-head"><div class="sec-title">CALENDARIO TURNI</div></div>
+  <div class="calendar-wrap">
+    <div class="cal-nav">
+      <button class="cal-nav-btn" onclick="calPrev()">&#8249;</button>
+      <div class="cal-month" id="calMonth"></div>
+      <button class="cal-nav-btn" onclick="calNext()">&#8250;</button>
+    </div>
+    <div class="cal-days-header">
+      <div class="cal-day-label">L</div><div class="cal-day-label">M</div><div class="cal-day-label">M</div>
+      <div class="cal-day-label">G</div><div class="cal-day-label">V</div>
+      <div class="cal-day-label weekend">S</div><div class="cal-day-label weekend">D</div>
+    </div>
+    <div class="cal-grid" id="calGrid"></div>
+    <div class="cal-legend">
+      <div class="legend-item"><div class="legend-box lb-worked"></div>Lavorato</div>
+      <div class="legend-item"><div class="legend-box lb-today"></div>Oggi</div>
+      <div class="legend-item"><div class="legend-box lb-gps"></div>GPS salvato</div>
+    </div>
+    <div id="dayDetail" style="display:none;"></div>
+  </div>
+</div>
+
+
+<!-- PAGE: STORICO -->
+<div class="page" id="pageStorico">
+  <div class="sec-head"><div class="sec-title">ULTIMI 7 GIORNI</div></div>
+  <div class="summary-grid" id="summaryGrid"></div>
+  <div class="sec-head" style="padding-top:4px;"><div class="sec-title">TUTTI I TURNI</div></div>
+  <div class="history-list" id="histList"></div>
+</div>
+
+
+<!-- PAGE: MAPPA -->
+<div class="page" id="pageMappa">
+  <div class="sec-head">
+    <div class="sec-title">PERCORSI GPS</div>
+    <div id="mapModeToggle" style="display:none;gap:4px;">
+      <button class="map-day-btn active" id="btnLeaflet" onclick="setMapMode('leaflet')">🗺️ Online</button>
+      <button class="map-day-btn" id="btnCanvas" onclick="setMapMode('canvas')">📐 Offline</button>
+    </div>
+  </div>
+  <div class="map-wrap">
+    <div class="map-selector" id="mapSelector"></div>
+    <div id="mapContainer">
+      <div class="map-empty" id="mapEmpty">📍 Nessun percorso registrato.<br>Attiva il GPS nella schermata Turno.</div>
+      <!-- Leaflet map (online) -->
+      <div id="leafletMapWrap" style="display:none;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;">
+        <div id="leafletMap"></div>
+      </div>
+      <!-- Canvas map (offline fallback) -->
+      <div class="map-canvas-wrap" id="mapCanvasWrap" style="display:none;">
+        <canvas id="mapCanvas"></canvas>
+      </div>
+    </div>
+    <div class="map-info" id="mapInfo" style="display:none;">
+      <div class="map-info-card"><div class="mv" id="miKm">0</div><div class="ml">KM TOT</div></div>
+      <div class="map-info-card"><div class="mv" id="miPts">0</div><div class="ml">PUNTI GPS</div></div>
+      <div class="map-info-card"><div class="mv" id="miDur">0h</div><div class="ml">DURATA</div></div>
+    </div>
+    <div class="map-legend" id="mapLegend" style="display:none;">
+      <div class="leg-item"><div class="leg-dot" style="background:var(--green)"></div>Partenza</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--red)"></div>Arrivo</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--blue)"></div>Percorso</div>
+      <div class="leg-item" id="mapModeLabel" style="margin-left:auto;font-size:10px;"></div>
+    </div>
+  </div>
+</div>
+
 
 </main>
 
