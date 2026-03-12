@@ -1176,7 +1176,8 @@ function renderBiweeklyCard() {
   let prevMins = 0, currMins = 0;
   shifts.forEach(sh => {
     const d = sh.date;
-    const mins = (sh.duration?.total) || 0;
+    // Usa ore guida manuali se inserite, altrimenti durata turno
+    const mins = sh.driveHoursMins || (sh.duration?.total) || 0;
     if (d >= currWeekStart) {
       currMins += mins;
     } else if (d >= prevWeekStart) {
@@ -1233,7 +1234,7 @@ function renderBiweeklyCard() {
   const weekDetails = weekShifts.map(s => {
     const dayPauses = pauses[s.date] || [];
     const pauseMins = dayPauses.reduce((a, p) => a + (p.realMins || 0), 0);
-    const netMins = Math.max(0, (s.duration?.total || 0) - pauseMins);
+    const netMins = s.driveHoursMins || Math.max(0, (s.duration?.total || 0) - pauseMins);
     const hasFractional = dayPauses.some(p => (p.realMins || 0) >= 180);
     const isReducedRest = netMins > 9 * 60 && !hasFractional;
     const isExtended = netMins > 9 * 60;
@@ -2258,7 +2259,8 @@ function renderRiepilogo() {
     workedMins = (now.getHours()*60 + now.getMinutes()) - (sh*60+sm);
     if (workedMins < 0) workedMins += 1440;
   } else if (todayShifts.length > 0) {
-    workedMins = todayShifts.reduce((a,s) => a + (s.duration?.total||0), 0);
+    // Usa ore guida manuali se inserite, altrimenti durata turno
+    workedMins = todayShifts.reduce((a,s) => a + (s.driveHoursMins || s.duration?.total || 0), 0);
   }
 
   // Ore pause
@@ -2289,7 +2291,7 @@ function renderRiepilogo() {
     // Cerca le pause di quel giorno
     const dayPauses = (S.pauses[s.date] || []);
     const dayPauseMins = dayPauses.reduce((a,p) => a + (p.realMins||0), 0);
-    const netMins = Math.max(0, grossMins - dayPauseMins);
+    const netMins = s.driveHoursMins || Math.max(0, grossMins - dayPauseMins);
     // Riposo frazionato: aveva una pausa ≥ 180min (3h) durante il turno
     const hasFractionalRest = dayPauses.some(p => (p.realMins||0) >= 180);
     // Riposo ridotto: ore nette > 9h E nessun riposo frazionato
@@ -2458,6 +2460,10 @@ function renderRiepilogo() {
   let allSemi = S.semirimorchi || [];
   if (!allSemi.length && todayShifts.length > 0) {
     allSemi = todayShifts[0].semirimorchi || [];
+    // Aggiungi semiManuale se presente e non già in lista
+    if (todayShifts[0].semiManuale && !allSemi.find(s => s.targa === todayShifts[0].semiManuale)) {
+      allSemi = [...allSemi, { targa: todayShifts[0].semiManuale, ora: '—', manuale: true }];
+    }
   }
   if (allSemi.length > 0) {
     html += `
@@ -2864,7 +2870,11 @@ function confirmEditShift() {
   S.save(shifts);
   closeModal('modalEditShift');
   renderHistory();
-  toast('✅ Turno aggiornato');
+  renderBiweeklyCard();
+  renderWeekStats();
+  if (document.getElementById('pageRiepilogo')?.classList.contains('active')) renderRiepilogo();
+  if (document.getElementById('pagePause')?.classList.contains('active')) renderPausePage();
+  toast('✅ Turno aggiornato — dati conteggiati ovunque');
 }
 
 function startManualPause(mins) {
@@ -3289,11 +3299,14 @@ function renderWeekStats() {
 
   const weekShifts = shifts.filter(s => new Date(s.date+'T12:00:00') >= weekStart);
   const totalMins = weekShifts.reduce((a,s) => a+(s.duration?.total||0), 0);
+  // Ore guida: usa driveHoursMins se inserite manualmente, altrimenti duration
+  const driveMins = weekShifts.reduce((a,s) => a+(s.driveHoursMins || s.duration?.total || 0), 0);
   const days = new Set(weekShifts.map(s => s.date)).size;
   const limitMins = 56 * 60;
-  const pct = Math.min(100, (totalMins / limitMins) * 100);
+  const pct = Math.min(100, (driveMins / limitMins) * 100);
 
   const th = Math.floor(totalMins/60), tm = totalMins%60;
+  const dh = Math.floor(driveMins/60), dm = driveMins%60;
   const el1 = document.getElementById('weekTotalHours');
   const el2 = document.getElementById('weekDriveHours');
   const el3 = document.getElementById('weekDays');
@@ -3301,7 +3314,7 @@ function renderWeekStats() {
   const pctEl = document.getElementById('weekLimitPct');
 
   if (el1) el1.textContent = `${th}h ${String(tm).padStart(2,'0')}m`;
-  if (el2) el2.textContent = `${th}h ${String(tm).padStart(2,'0')}m`;
+  if (el2) el2.textContent = `${dh}h ${String(dm).padStart(2,'0')}m`;
   if (el3) el3.textContent = days;
   if (bar) { bar.style.width = pct+'%'; bar.style.background = pct>=100?'var(--red)':pct>=85?'var(--accent)':'var(--green)'; }
   if (pctEl) pctEl.textContent = Math.round(pct)+'%';
@@ -3324,46 +3337,46 @@ function renderRestTime() {
   const last = shifts.find(s => s.end && /^\d{1,2}:\d{2}$/.test(s.end) && s.date);
   if (!last) return;
 
-  // Costruisci data fine turno in modo robusto
-  const [ey, em2, ed] = last.date.split('-').map(Number);
-  const [eh, em] = last.end.split(':').map(Number);
-  const lastEnd = new Date(ey, em2 - 1, ed, eh, em, 0, 0); // locale, no timezone issues
-  const now = new Date();
-
-  // Sanity check: lastEnd non può essere nel futuro
-  if (lastEnd > now) {
-    // Probabilmente turno notturno finito "ieri" — sottrai 1 giorno
-    lastEnd.setDate(lastEnd.getDate() - 1);
-  }
-
-  const restMins = (now - lastEnd) / 60000;
-  // Ulteriore sanity check: non più di 7 giorni
-  if (restMins < 0 || restMins > 7 * 24 * 60) {
-    const val = document.getElementById('restVal');
-    if (val) val.textContent = '— h';
-    return;
-  }
-  const restH = Math.floor(restMins / 60);
-  const restM = Math.floor(restMins % 60);
-  const minRest = 11 * 60; // 11 ore
-  const pct = Math.min(100, (restMins / minRest) * 100);
-
   const val = document.getElementById('restVal');
   const lbl = document.getElementById('restLbl');
   const bar = document.getElementById('restBar');
   const icon = document.getElementById('restIcon');
+  const minRest = 11 * 60;
+
+  // Se restMins inserito manualmente, usalo direttamente
+  let restMins, fromManual = false;
+  if (last.restMins) {
+    restMins = last.restMins;
+    fromManual = true;
+  } else {
+    // Costruisci data fine turno in modo robusto
+    const [ey, em2, ed] = last.date.split('-').map(Number);
+    const [eh, em] = last.end.split(':').map(Number);
+    const lastEnd = new Date(ey, em2 - 1, ed, eh, em, 0, 0);
+    const now = new Date();
+    if (lastEnd > now) lastEnd.setDate(lastEnd.getDate() - 1);
+    restMins = (now - lastEnd) / 60000;
+    if (restMins < 0 || restMins > 7 * 24 * 60) {
+      if (val) val.textContent = '— h';
+      return;
+    }
+  }
+
+  const restH = Math.floor(restMins / 60);
+  const restM = Math.floor(restMins % 60);
+  const pct = Math.min(100, (restMins / minRest) * 100);
 
   if (val) val.textContent = `${restH}h ${String(restM).padStart(2,'0')}m`;
   if (pct >= 100) {
-    if (lbl) lbl.textContent = '✅ Riposo sufficiente (min. 11h)';
+    if (lbl) lbl.textContent = fromManual ? '✅ Riposo regolare (inserito manualmente)' : '✅ Riposo sufficiente (min. 11h)';
     if (bar) { bar.style.width='100%'; bar.style.background='var(--green)'; }
     if (icon) icon.textContent = '✅';
   } else {
     const mancano = Math.ceil(minRest - restMins);
     const mh = Math.floor(mancano/60), mm = mancano%60;
-    if (lbl) lbl.textContent = `Mancano ${mh}h ${mm}m al riposo minimo`;
+    if (lbl) lbl.textContent = fromManual ? `Riposo inserito: ${restH}h — min. 11h regolare` : `Mancano ${mh}h ${mm}m al riposo minimo`;
     if (bar) { bar.style.width=pct+'%'; bar.style.background=pct<50?'var(--red)':'var(--accent)'; }
-    if (icon) icon.textContent = '⚠️';
+    if (icon) icon.textContent = pct >= 82 ? '🟡' : '⚠️';
   }
 }
 
