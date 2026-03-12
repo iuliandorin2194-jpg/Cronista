@@ -1392,8 +1392,10 @@ function onGpsSuccess(pos) {
     if (!S.gpsStoppedTs) S.gpsStoppedTs = Date.now();
     const fermoSec = (Date.now() - S.gpsStoppedTs) / 1000;
     if (fermoSec >= 10 && !S.driveTimerFrozen && S.driveStartTs) {
-      // Congela il timer: accumula i minuti sessione in driveTotalMins
-      S.driveTotalMins += (Date.now() - S.driveStartTs) / 60000;
+      // Congela il timer: accumula i minuti sessione in driveTotalMins E dailyDriveMins
+      const frozenMins = (Date.now() - S.driveStartTs) / 60000;
+      S.driveTotalMins += frozenMins;
+      S.dailyDriveMins += frozenMins;
       S.driveStartTs = null;
       S.driveTimerFrozen = true;
       S.saveActive();
@@ -2695,8 +2697,11 @@ function stopPause() {
   S.pauseStartTs = null;
   S.pauseManualMins = 0;
   S.driveStartTs = Date.now(); // riavvia timer guida
-  S.driveTotalMins = 0;        // azzera contatore sessione — nuova sessione post-pausa
-  // dailyDriveMins NON si azzera — tiene il totale giornaliero
+  // Azzera driveTotalMins SOLO se pausa completa (45min o ciclo 15+30)
+  if (anyResets) {
+    S.driveTotalMins = 0;
+  }
+  // dailyDriveMins NON si azzera mai — tiene il totale giornaliero
   S.saveActive();
   clearInterval(S.pauseInterval);
   renderPausePage();
