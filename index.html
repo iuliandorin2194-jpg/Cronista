@@ -1073,10 +1073,11 @@ function renderBiweeklyCard() {
   let prevMins = 0, currMins = 0;
   shifts.forEach(sh => {
     const d = sh.date;
+    const mins = (sh.duration?.total) || 0;
     if (d >= currWeekStart) {
-      currMins += sh.duration || 0;
+      currMins += mins;
     } else if (d >= prevWeekStart) {
-      prevMins += sh.duration || 0;
+      prevMins += mins;
     }
   });
 
@@ -1129,7 +1130,7 @@ function renderBiweeklyCard() {
   const weekDetails = weekShifts.map(s => {
     const dayPauses = pauses[s.date] || [];
     const pauseMins = dayPauses.reduce((a, p) => a + (p.realMins || 0), 0);
-    const netMins = Math.max(0, (s.duration || 0) - pauseMins);
+    const netMins = Math.max(0, (s.duration?.total || 0) - pauseMins);
     const hasFractional = dayPauses.some(p => (p.realMins || 0) >= 180);
     const isReducedRest = netMins > 9 * 60 && !hasFractional;
     const isExtended = netMins > 9 * 60;
