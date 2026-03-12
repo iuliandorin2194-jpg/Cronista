@@ -1031,6 +1031,7 @@ const S = {
   gpsActive: false,
   gpsWatchId: null,
   gpsAutoSaveInterval: null,
+  gpsForceInterval: null,      // backup interval ogni 30s
   gpsPoints: _sv?.gpsPoints || [],
   gpsCurrentShiftDate: _sv?.gpsCurrentShiftDate || null,
   gpsLastPoint: _sv?.gpsLastPoint || null,
@@ -1363,8 +1364,8 @@ function startLiveTimer() {
 // ═══════════════════════════════════════
 const GPS_OPTIONS = {
   enableHighAccuracy: true,   // ALTA PRECISIONE: usa chip GPS
-  timeout: 20000,
-  maximumAge: 15000           // Aggiornamento ogni 15s
+  timeout: 30000,
+  maximumAge: 0               // SEMPRE posizione fresca — no cache
 };
 const GPS_MIN_DISTANCE = 20;  // metri (ridotto per maggiore precisione)
 const GPS_MIN_SPEED = 0.5;    // m/s (~2 km/h) — filtra soste
@@ -1401,6 +1402,19 @@ function startGpsSilent() {
   S.gpsAutoSaveInterval = setInterval(() => {
     if (S.gpsPoints.length >= 2) saveRouteIncremental(S.gpsCurrentShiftDate, S.gpsPoints, S.gpsTotalKm);
   }, 3 * 60 * 1000);
+
+  // ── Backup interval ogni 30s: forza getCurrentPosition ──
+  // Evita throttling Android quando schermo spento
+  clearInterval(S.gpsForceInterval);
+  S.gpsForceInterval = setInterval(() => {
+    if (!S.gpsActive) return;
+    navigator.geolocation.getCurrentPosition(
+      onGpsSuccess,
+      () => {}, // errore silenzioso
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+    );
+  }, 30000); // ogni 30 secondi
+
   S.saveActive();
   renderTurnoUI();
 }
@@ -1449,6 +1463,8 @@ function stopGps() {
     S.gpsWatchId = null;
   }
   clearInterval(S.gpsAutoSaveInterval);
+  clearInterval(S.gpsForceInterval);
+  S.gpsForceInterval = null;
   S.gpsActive = false;
 
   // Salva percorso finale
