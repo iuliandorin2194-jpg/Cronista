@@ -519,8 +519,8 @@ input[type="file"]{display:none;}
     </div>
   </div>
 
-  <!-- GPS CARD -->
-  <div class="gps-card" id="gpsCard">
+  <!-- GPS CARD — nascosta, funzione rimossa -->
+  <div class="gps-card" id="gpsCard" style="display:none!important">
     <div class="gps-card-head">
       <div>
         <div class="gps-title">📍 GPS</div>
@@ -977,6 +977,7 @@ const _sv = JSON.parse(localStorage.getItem('cronista_activeshift') || 'null');
 const S = {
   mode: _sv?.mode || 'idle',
   startTime: _sv?.startTime || null,
+  startDate: _sv?.startDate || null,   // data di INIZIO turno (rimane invariata se finisce il giorno dopo)
   endTime: _sv?.endTime || null,
   endTs: _sv?.endTs || null,           // timestamp fine turno per countdown riposo
   kmStart: _sv?.kmStart || null,       // km tachigrafo inizio
@@ -1026,7 +1027,7 @@ const S = {
       localStorage.removeItem('cronista_activeshift');
     } else {
       localStorage.setItem('cronista_activeshift', JSON.stringify({
-        mode: this.mode, startTime: this.startTime, endTime: this.endTime,
+        mode: this.mode, startTime: this.startTime, startDate: this.startDate, endTime: this.endTime,
         gpsPoints: this.gpsPoints, gpsCurrentShiftDate: this.gpsCurrentShiftDate,
         gpsLastPoint: this.gpsLastPoint, gpsTotalKm: this.gpsTotalKm, gpsShiftId: this.gpsShiftId,
         kmStart: this.kmStart, kmEnd: this.kmEnd, semirimorchi: this.semirimorchi,
@@ -1974,6 +1975,7 @@ function applyTime(mode, time) {
   if (mode === 'start') {
     S.mode = 'started'; S.startTime = time; S.endTime = null;
     S.endTs = null;
+    S.startDate = new Date().toISOString().split('T')[0]; // data di inizio turno
     S.kmStart = kmVal; S.kmEnd = null;
     S.semirimorchi = [];
     S.driveTotalMins = 0; S.driveStartTs = Date.now();
@@ -1987,15 +1989,13 @@ function applyTime(mode, time) {
     // Reset km inputs
     if (document.getElementById('ocrKmInput')) document.getElementById('ocrKmInput').value = '';
     if (document.getElementById('manualKmInput')) document.getElementById('manualKmInput').value = '';
-    // Auto-avvia GPS silenziosamente — aspetta segnale senza errori
-    if (navigator.geolocation && !S.gpsActive) {
-      startGpsSilent();
-    }
     toast(`✅ Turno iniziato alle ${time}${kmVal ? ' — km ' + kmVal.toLocaleString() : ''}`);
   } else {
-    const today = new Date().toISOString().split('T')[0];
+    // Usa la data di INIZIO turno, non quella odierna
+    // (es: turno iniziato il 28 e finito il 29 → salvato il 28)
+    const shiftDate = S.startDate || new Date().toISOString().split('T')[0];
     S.kmEnd = kmVal;
-    saveShift(S.startTime, time, today, S.kmStart, S.kmEnd, S.semirimorchi);
+    saveShift(S.startTime, time, shiftDate, S.kmStart, S.kmEnd, S.semirimorchi);
     if (S.gpsActive) stopGps();
     if (S.tachoMode) { clearInterval(S.tachoInterval); S.tachoMode = null; S.tachoStartTs = null; }
     clearInterval(S.driveInterval);
